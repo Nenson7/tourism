@@ -4,10 +4,7 @@ import DestinationCard from './components/DestinationCard'
 import PackageCard from './components/PackageCard'
 import TeaCulture from './components/TeaCulture'
 import { useState, useEffect } from 'react'
-import TopBar from './components/TopBar'
-import Navigation from './components/Navigation'
-import Hero from './components/Hero'
-import './index.css'
+
 
 function App() {
   const destinations = [
@@ -142,9 +139,7 @@ function App() {
 
   return (
     <div className="App">
-      <TopBar />
-      <Navigation />
-      <Hero />
+      
       <motion.div 
         className="min-h-screen flex flex-col"
         initial="hidden"

@@ -1,35 +1,34 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaUtensils, FaHotel, FaHiking, FaCar, FaCamera, FaMapMarkedAlt } from 'react-icons/fa';
 
 const services = [
   {
-    icon: <FaUtensils className="h-8 w-8" />,
+    icon: "fa-utensils",
     title: "Tea Tasting",
     description: "Experience the finest organic tea from Ilam's famous tea gardens with guided tasting sessions."
   },
   {
-    icon: <FaHotel className="h-8 w-8" />,
+    icon: "fa-hotel",
     title: "Accommodation",
     description: "Stay in comfortable homestays and hotels with stunning views of tea gardens and mountains."
   },
   {
-    icon: <FaHiking className="h-8 w-8" />,
+    icon: "fa-hiking",
     title: "Trekking Tours",
     description: "Explore the beautiful landscapes of Ilam with guided trekking tours to various destinations."
   },
   {
-    icon: <FaCar className="h-8 w-8" />,
+    icon: "fa-car",
     title: "Transportation",
     description: "Reliable transportation services for all your travel needs within Ilam and surrounding areas."
   },
   {
-    icon: <FaCamera className="h-8 w-8" />,
+    icon: "fa-camera",
     title: "Photography Tours",
     description: "Capture the beauty of Ilam with guided photography tours to the most picturesque locations."
   },
   {
-    icon: <FaMapMarkedAlt className="h-8 w-8" />,
+    icon: "fa-map-marked-alt",
     title: "Guided Tours",
     description: "Expert local guides to help you explore and understand Ilam's culture and heritage."
   }
@@ -63,8 +62,8 @@ const Services = () => {
             >
               <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
                 <div className="p-6">
-                  <div className="flex items-center justify-center w-16 h-16 mx-auto mb-4 rounded-full bg-indigo-100 text-indigo-600">
-                    {service.icon}
+                  <div className="flex items-center justify-center w-16 h-16 mx-auto mb-4 rounded-full bg-green-100 text-green-600">
+                    <i className={`fas ${service.icon} text-2xl`}></i>
                   </div>
                   <h3 className="text-xl font-semibold text-gray-900 text-center mb-2">
                     {service.title}

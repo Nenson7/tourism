@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaMountain, FaLeaf, FaHandshake } from 'react-icons/fa';
 
 const About = () => {
   return (
@@ -27,8 +26,8 @@ const About = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="bg-white rounded-lg shadow-lg p-6"
           >
-            <div className="flex items-center justify-center w-16 h-16 mx-auto mb-4 rounded-full bg-indigo-100 text-indigo-600">
-              <FaMountain className="h-8 w-8" />
+            <div className="flex items-center justify-center w-16 h-16 mx-auto mb-4 rounded-full bg-green-100 text-green-600">
+              <i className="fas fa-mountain text-2xl"></i>
             </div>
             <h3 className="text-xl font-semibold text-gray-900 text-center mb-2">
               Our Mission
@@ -44,8 +43,8 @@ const About = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="bg-white rounded-lg shadow-lg p-6"
           >
-            <div className="flex items-center justify-center w-16 h-16 mx-auto mb-4 rounded-full bg-indigo-100 text-indigo-600">
-              <FaLeaf className="h-8 w-8" />
+            <div className="flex items-center justify-center w-16 h-16 mx-auto mb-4 rounded-full bg-green-100 text-green-600">
+              <i className="fas fa-leaf text-2xl"></i>
             </div>
             <h3 className="text-xl font-semibold text-gray-900 text-center mb-2">
               Our Vision
@@ -61,8 +60,8 @@ const About = () => {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="bg-white rounded-lg shadow-lg p-6"
           >
-            <div className="flex items-center justify-center w-16 h-16 mx-auto mb-4 rounded-full bg-indigo-100 text-indigo-600">
-              <FaHandshake className="h-8 w-8" />
+            <div className="flex items-center justify-center w-16 h-16 mx-auto mb-4 rounded-full bg-green-100 text-green-600">
+              <i className="fas fa-handshake text-2xl"></i>
             </div>
             <h3 className="text-xl font-semibold text-gray-900 text-center mb-2">
               Our Values

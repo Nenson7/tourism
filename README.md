@@ -1,12 +1,108 @@
-# React + Vite
+# Ilam Tea Tourism Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive website for Ilam Tea Tourism, showcasing the beauty of Ilam's tea gardens and tourism services. Built with React, Tailwind CSS, and Framer Motion.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Modern, responsive design
+- Smooth animations and transitions
+- Interactive booking system
+- Tea garden information and services
+- Beautiful UI with professional typography
+- Mobile-first approach
 
-## Expanding the ESLint configuration
+## Technologies Used
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React 19
+- Tailwind CSS 4
+- Framer Motion
+- Font Awesome Icons
+- Google Fonts (Inter)
+- Vite
+
+## Project Structure
+
+```
+src/
+├── components/     # Reusable UI components
+├── pages/         # Main page components
+│   ├── About.jsx
+│   ├── Services.jsx
+│   └── Booking.jsx
+├── App.jsx        # Main application component
+├── main.jsx       # Application entry point
+└── index.css      # Global styles and Tailwind imports
+```
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js (v16 or higher)
+- pnpm (v10.10.0 or higher)
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/nenson7/tourism.git
+cd tourism
+```
+
+2. Install dependencies:
+```bash
+pnpm install
+```
+
+3. Start the development server:
+```bash
+pnpm dev
+```
+
+4. Build for production:
+```bash
+pnpm build
+```
+
+## 🎨 Styling
+
+The project uses Tailwind CSS v4 for styling with a custom configuration. Key features include:
+
+- Custom utility classes for buttons, inputs, and cards
+- Professional Inter font from Google Fonts
+- Responsive design breakpoints
+- Consistent color scheme with green theme
+
+## 🚀 Deployment
+
+The project is configured for deployment to GitHub Pages:
+
+```bash
+pnpm deploy
+```
+
+## 📝 Customization
+
+### Colors
+The primary color scheme uses various shades of green:
+- Primary: `#16a34a` (green-600)
+- Hover: `#15803d` (green-700)
+- Light: `#f0fdf4` (green-50)
+
+### Typography
+- Font Family: Inter
+- Weights: 300, 400, 500, 600, 700
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 👥 Authors
+
+- Nenson - Initial work
+
+## 🙏 Acknowledgments
+
+- Font Awesome for icons
+- Google Fonts for typography
+- Tailwind CSS

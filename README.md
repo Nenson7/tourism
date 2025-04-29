@@ -34,7 +34,7 @@ src/
 └── index.css      # Global styles and Tailwind imports
 ```
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -64,7 +64,7 @@ pnpm dev
 pnpm build
 ```
 
-## 🎨 Styling
+## Styling
 
 The project uses Tailwind CSS v4 for styling with a custom configuration. Key features include:
 
@@ -73,15 +73,7 @@ The project uses Tailwind CSS v4 for styling with a custom configuration. Key fe
 - Responsive design breakpoints
 - Consistent color scheme with green theme
 
-## 🚀 Deployment
-
-The project is configured for deployment to GitHub Pages:
-
-```bash
-pnpm deploy
-```
-
-## 📝 Customization
+## Customization
 
 ### Colors
 The primary color scheme uses various shades of green:
@@ -93,15 +85,15 @@ The primary color scheme uses various shades of green:
 - Font Family: Inter
 - Weights: 300, 400, 500, 600, 700
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 👥 Authors
+## Authors
 
 - Nenson - Initial work
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - Font Awesome for icons
 - Google Fonts for typography

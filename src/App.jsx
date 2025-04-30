@@ -1,90 +1,69 @@
 /* eslint-disable no-unused-vars */
 import { motion } from 'framer-motion'
+import { useState, useEffect } from 'react'
 import DestinationCard from './components/DestinationCard'
 import PackageCard from './components/PackageCard'
 import TeaCulture from './components/TeaCulture'
-import { useState, useEffect } from 'react'
-
+import destinationsData from './data/destinations.json'
+import packagesData from './data/packages.json'
+import servicesData from './data/services.json'
 
 function App() {
-  const destinations = [
-    {
-      image: 'https://images.pexels.com/photos/1028599/pexels-photo-1028599.jpeg?auto=compress&cs=tinysrgb&w=800',
-      title: 'Mai Pokhari',
-      description: 'A sacred lake surrounded by lush forests and beautiful rhododendron flowers.',
-      price: 2500
-    },
-    {
-      image: 'https://images.pexels.com/photos/1028599/pexels-photo-1028599.jpeg?auto=compress&cs=tinysrgb&w=800',
-      title: 'Antu Danda',
-      description: 'Experience breathtaking sunrise views over the Himalayas and tea gardens.',
-      price: 3000
-    },
-    {
-      image: 'https://images.pexels.com/photos/1028599/pexels-photo-1028599.jpeg?auto=compress&cs=tinysrgb&w=800',
-      title: 'Sandakpur',
-      description: 'Trek to the highest point in Ilam for panoramic views of Mt. Everest and Kanchenjunga.',
-      price: 4500
-    }
-  ]
+  const [destinations, setDestinations] = useState([])
+  const [packages, setPackages] = useState([])
+  const [services, setServices] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState(null)
 
-  const packages = [
-    {
-      image: 'https://images.pexels.com/photos/1028599/pexels-photo-1028599.jpeg?auto=compress&cs=tinysrgb&w=800',
-      title: 'Tea Garden Experience',
-      description: 'Immerse yourself in Ilam\'s famous tea culture with this comprehensive package.',
-      duration: '3 Days',
-      price: 15000,
-      features: [
-        'Tea garden tour and tasting',
-        'Traditional homestay accommodation',
-        'Tea plucking experience',
-        'Local guide',
-        'Traditional meals'
-      ]
-    },
-    {
-      image: 'https://images.pexels.com/photos/1028599/pexels-photo-1028599.jpeg?auto=compress&cs=tinysrgb&w=800',
-      title: 'Ilam Heritage Trail',
-      description: 'Explore the cultural heritage and natural beauty of Ilam.',
-      duration: '5 Days',
-      price: 25000,
-      features: [
-        'Visit to Mai Pokhari',
-        'Antu Danda sunrise experience',
-        'Cultural village tour',
-        'Local guide',
-        'Traditional accommodation'
-      ]
-    },
-    {
-      image: 'https://images.pexels.com/photos/1028599/pexels-photo-1028599.jpeg?auto=compress&cs=tinysrgb&w=800',
-      title: 'Himalayan Adventure',
-      description: 'Trek through the beautiful landscapes of Ilam with stunning mountain views.',
-      duration: '7 Days',
-      price: 35000,
-      features: [
-        'Sandakpur trek',
-        'Mountain guide',
-        'Camping equipment',
-        'All meals included',
-        'Transportation'
-      ]
-    }
-  ]
+  useEffect(() => {
+    const loadData = async () => {
+      try {
+        // Validate data structure
+        if (!destinationsData?.destinations || !Array.isArray(destinationsData.destinations)) {
+          throw new Error('Invalid destinations data structure')
+        }
+        if (!packagesData?.packages || !Array.isArray(packagesData.packages)) {
+          throw new Error('Invalid packages data structure')
+        }
+        if (!servicesData?.services || !Array.isArray(servicesData.services)) {
+          throw new Error('Invalid services data structure')
+        }
 
-  const teaCulture = {
-    title: "Ilam's Tea Heritage",
-    description: "Ilam is renowned for producing some of the finest organic tea in the world. The region's unique climate, fertile soil, and traditional farming methods create tea with exceptional flavor and aroma. Tea cultivation in Ilam dates back to the 1860s when the British introduced tea plants to the region.",
-    image: "https://images.pexels.com/photos/1028599/pexels-photo-1028599.jpeg?auto=compress&cs=tinysrgb&w=800",
-    facts: [
-      "Ilam produces over 2 million kg of tea annually",
-      "The region has over 40 tea gardens covering thousands of hectares",
-      "Ilam tea is known for its delicate flavor and golden color",
-      "Most tea gardens are organic and follow sustainable farming practices",
-      "Tea plucking is done by hand to ensure the highest quality leaves"
-    ]
-  }
+        // Transform data to match component props
+        const transformedDestinations = destinationsData.destinations.map(dest => ({
+          ...dest,
+          image: dest.image || 'https://via.placeholder.com/400x300',
+          price: parseInt(dest.price) || 0,
+          isAuthenticated: false
+        }))
+
+        const transformedPackages = packagesData.packages.map(pkg => ({
+          ...pkg,
+          image: pkg.image || 'https://via.placeholder.com/400x300',
+          price: parseInt(pkg.price) || 0,
+          features: pkg.inclusions || [],
+          isAuthenticated: false
+        }))
+
+        const transformedServices = servicesData.services.map(service => ({
+          ...service,
+          price: parseInt(service.price) || 0,
+          icon: service.icon || 'fa-question'
+        }))
+
+        setDestinations(transformedDestinations)
+        setPackages(transformedPackages)
+        setServices(transformedServices)
+        setIsLoading(false)
+      } catch (err) {
+        console.error('Error loading data:', err)
+        setError('Failed to load data. Please try again later.')
+        setIsLoading(false)
+      }
+    }
+
+    loadData()
+  }, [])
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -104,42 +83,92 @@ function App() {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.5
+        duration: 0.5,
+        ease: "easeOut"
+      }
+    }
+  }
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut"
       }
     }
   }
 
   const handleNavClick = (e, sectionId) => {
-    e.preventDefault();
-    const element = document.getElementById(sectionId);
+    e.preventDefault()
+    const element = document.getElementById(sectionId)
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      // Force animation to play by resetting the animation state
-      element.style.animation = 'none';
-      element.offsetHeight; // Trigger reflow
-      element.style.animation = '';
+      element.scrollIntoView({ behavior: 'smooth' })
+      element.style.animation = 'none'
+      element.offsetHeight
+      element.style.animation = ''
     }
-  };
+  }
 
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isHeroVisible, setIsHeroVisible] = useState(true);
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isHeroVisible, setIsHeroVisible] = useState(true)
+  const [activeSection, setActiveSection] = useState('home')
 
   useEffect(() => {
     const handleScroll = () => {
-      const heroSection = document.getElementById('hero');
+      const heroSection = document.getElementById('hero')
       if (heroSection) {
-        const rect = heroSection.getBoundingClientRect();
-        setIsHeroVisible(rect.top >= -100 && rect.bottom <= window.innerHeight + 100);
+        const rect = heroSection.getBoundingClientRect()
+        setIsHeroVisible(rect.top >= -100 && rect.bottom <= window.innerHeight + 100)
       }
-    };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+      // Update active section based on scroll position
+      const sections = ['hero', 'featured-destinations', 'travel-packages', 'services', 'about']
+      for (const section of sections) {
+        const element = document.getElementById(section)
+        if (element) {
+          const rect = element.getBoundingClientRect()
+          if (rect.top <= 100 && rect.bottom >= 100) {
+            setActiveSection(section)
+            break
+          }
+        }
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-green-600"></div>
+      </div>
+    )
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <h2 className="text-2xl font-bold text-red-600 mb-4">Error</h2>
+          <p className="text-gray-600">{error}</p>
+          <button 
+            onClick={() => window.location.reload()}
+            className="mt-4 px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700"
+          >
+            Try Again
+          </button>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className="App">
-      
       <motion.div 
         className="min-h-screen flex flex-col"
         initial="hidden"
@@ -147,7 +176,7 @@ function App() {
         viewport={{ once: false }}
         variants={containerVariants}
       >
-        <header className={`fixed w-full top-0 z-50 transition-all duration-300 ${isHeroVisible ? '' : 'bg-gray-100 shadow-md'}`}>
+        <header className={`fixed w-full top-0 z-50 transition-all duration-300 ${isHeroVisible ? '' : 'bg-white shadow-md'}`}>
           <nav className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
             <motion.div 
               className={`text-xl md:text-2xl font-bold transition-colors duration-300 ${isHeroVisible ? 'text-white' : 'text-gray-800'}`}
@@ -158,10 +187,10 @@ function App() {
               Ilam Tea Tourism
             </motion.div>
 
-            {/* Mobile Menu Button */}
             <button 
               className={`md:hidden transition-colors duration-300 ${isHeroVisible ? 'text-white' : 'text-gray-800'}`}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label="Toggle menu"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 {isMenuOpen ? (
@@ -172,22 +201,36 @@ function App() {
               </svg>
             </button>
 
-            {/* Desktop Navigation */}
             <motion.ul 
               className="hidden md:flex gap-6"
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <li><a href="#home" onClick={(e) => handleNavClick(e, 'hero')} className={`font-medium transition-colors duration-300 ${isHeroVisible ? 'text-white hover:text-green-400' : 'text-gray-800 hover:text-green-600'}`}>Home</a></li>
-              <li><a href="#destinations" onClick={(e) => handleNavClick(e, 'featured-destinations')} className={`font-medium transition-colors duration-300 ${isHeroVisible ? 'text-white hover:text-green-400' : 'text-gray-800 hover:text-green-600'}`}>Attractions</a></li>
-              <li><a href="#tea-culture" onClick={(e) => handleNavClick(e, 'tea-culture')} className={`font-medium transition-colors duration-300 ${isHeroVisible ? 'text-white hover:text-green-400' : 'text-gray-800 hover:text-green-600'}`}>Tea Culture</a></li>
-              <li><a href="#packages" onClick={(e) => handleNavClick(e, 'travel-packages')} className={`font-medium transition-colors duration-300 ${isHeroVisible ? 'text-white hover:text-green-400' : 'text-gray-800 hover:text-green-600'}`}>Packages</a></li>
-              <li><a href="#about" onClick={(e) => handleNavClick(e, 'about')} className={`font-medium transition-colors duration-300 ${isHeroVisible ? 'text-white hover:text-green-400' : 'text-gray-800 hover:text-green-600'}`}>About Ilam</a></li>
-              <li><a href="#contact" onClick={(e) => handleNavClick(e, 'footer')} className={`font-medium transition-colors duration-300 ${isHeroVisible ? 'text-white hover:text-green-400' : 'text-gray-800 hover:text-green-600'}`}>Contact</a></li>
+              {[
+                { id: 'hero', label: 'Home' },
+                { id: 'featured-destinations', label: 'Attractions' },
+                { id: 'travel-packages', label: 'Packages' },
+                { id: 'services', label: 'Services' },
+                { id: 'about', label: 'About Ilam' },
+                { id: 'footer', label: 'Contact' }
+              ].map((item) => (
+                <li key={item.id}>
+                  <a 
+                    href={`#${item.id}`} 
+                    onClick={(e) => handleNavClick(e, item.id)}
+                    className={`font-medium transition-colors duration-300 ${
+                      isHeroVisible 
+                        ? 'text-white hover:text-green-400' 
+                        : 'text-gray-800 hover:text-green-600'
+                    } ${activeSection === item.id ? 'text-green-600' : ''}`}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
             </motion.ul>
 
-            {/* Mobile Navigation */}
             <motion.div 
               className={`md:hidden fixed inset-0 ${isHeroVisible ? 'bg-transparent' : 'bg-white'} z-40 transform ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-300 ease-in-out`}
               initial={{ x: '100%' }}
@@ -197,18 +240,38 @@ function App() {
                 <button 
                   className="self-end mb-8"
                   onClick={() => setIsMenuOpen(false)}
+                  aria-label="Close menu"
                 >
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                   </svg>
                 </button>
                 <ul className="flex flex-col gap-6">
-                  <li><a href="#home" onClick={(e) => {handleNavClick(e, 'hero'); setIsMenuOpen(false);}} className={`text-xl font-medium transition-colors duration-300 ${isHeroVisible ? 'text-white hover:text-green-400' : 'text-gray-800 hover:text-green-600'}`}>Home</a></li>
-                  <li><a href="#destinations" onClick={(e) => {handleNavClick(e, 'featured-destinations'); setIsMenuOpen(false);}} className={`text-xl font-medium transition-colors duration-300 ${isHeroVisible ? 'text-white hover:text-green-400' : 'text-gray-800 hover:text-green-600'}`}>Attractions</a></li>
-                  <li><a href="#tea-culture" onClick={(e) => {handleNavClick(e, 'tea-culture'); setIsMenuOpen(false);}} className={`text-xl font-medium transition-colors duration-300 ${isHeroVisible ? 'text-white hover:text-green-400' : 'text-gray-800 hover:text-green-600'}`}>Tea Culture</a></li>
-                  <li><a href="#packages" onClick={(e) => {handleNavClick(e, 'travel-packages'); setIsMenuOpen(false);}} className={`text-xl font-medium transition-colors duration-300 ${isHeroVisible ? 'text-white hover:text-green-400' : 'text-gray-800 hover:text-green-600'}`}>Packages</a></li>
-                  <li><a href="#about" onClick={(e) => {handleNavClick(e, 'about'); setIsMenuOpen(false);}} className={`text-xl font-medium transition-colors duration-300 ${isHeroVisible ? 'text-white hover:text-green-400' : 'text-gray-800 hover:text-green-600'}`}>About Ilam</a></li>
-                  <li><a href="#contact" onClick={(e) => {handleNavClick(e, 'footer'); setIsMenuOpen(false);}} className={`text-xl font-medium transition-colors duration-300 ${isHeroVisible ? 'text-white hover:text-green-400' : 'text-gray-800 hover:text-green-600'}`}>Contact</a></li>
+                  {[
+                    { id: 'hero', label: 'Home' },
+                    { id: 'featured-destinations', label: 'Attractions' },
+                    { id: 'travel-packages', label: 'Packages' },
+                    { id: 'services', label: 'Services' },
+                    { id: 'about', label: 'About Ilam' },
+                    { id: 'footer', label: 'Contact' }
+                  ].map((item) => (
+                    <li key={item.id}>
+                      <a 
+                        href={`#${item.id}`} 
+                        onClick={(e) => {
+                          handleNavClick(e, item.id)
+                          setIsMenuOpen(false)
+                        }}
+                        className={`text-xl font-medium transition-colors duration-300 ${
+                          isHeroVisible 
+                            ? 'text-white hover:text-green-400' 
+                            : 'text-gray-800 hover:text-green-600'
+                        } ${activeSection === item.id ? 'text-green-600' : ''}`}
+                      >
+                        {item.label}
+                      </a>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </motion.div>
@@ -218,7 +281,7 @@ function App() {
         <main>
           <motion.section 
             id="hero" 
-            className="h-screen bg-cover bg-center flex items-center justify-center text-center px-4 md:px-8" 
+            className="h-screen bg-cover bg-center flex items-center justify-center text-center px-4 md:px-8 relative" 
             style={{backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCX7bdtCH0MwZ0t1mLLxE4xAYEiGm8DUFdgA&s")'}}
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -229,14 +292,15 @@ function App() {
               className="max-w-4xl px-4"
               initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             >
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-5 text-white drop-shadow-lg">Discover Ilam, Nepal</h1>
               <p className="text-lg sm:text-xl md:text-2xl mb-10 text-white drop-shadow">Experience the beauty of green tea gardens, misty mountains, and rich culture</p>
               <motion.button 
-                className="px-8 sm:px-10 py-3 sm:py-4 text-base sm:text-lg bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors shadow-lg"
+                className="btn btn-primary"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => handleNavClick(null, 'featured-destinations')}
               >
                 Explore Ilam
               </motion.button>
@@ -252,37 +316,96 @@ function App() {
             viewport={{ once: false }}
           >
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 sm:mb-12 text-gray-800">Tea Culture</h2>
-            <TeaCulture {...teaCulture} />
+            <TeaCulture 
+              title="Ilam's Tea Heritage"
+              description="Ilam is renowned for its tea production, with a history dating back to the 19th century. The region's unique climate and fertile soil create the perfect conditions for growing high-quality tea leaves."
+              image="https://images.pexels.com/photos/1028599/pexels-photo-1028599.jpeg?auto=compress&cs=tinysrgb&w=800"
+              facts={[
+                "Ilam produces some of the finest organic tea in the world",
+                "The tea gardens cover over 2,700 hectares of land",
+                "Tea production is a major source of income for local communities",
+                "The region hosts an annual tea festival celebrating its tea culture",
+                "Ilam tea is known for its unique flavor and aroma"
+              ]}
+            />
           </motion.section>
 
           <motion.section 
             id="featured-destinations" 
-            className="py-16 sm:py-24 px-4 sm:px-8 max-w-7xl mx-auto bg-gray-50"
+            className="py-12 px-4 sm:px-6 max-w-7xl mx-auto"
             variants={sectionVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: false }}
           >
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 sm:mb-12 text-gray-800">Popular Attractions</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-10">
-              {destinations.map((destination, index) => (
-                <DestinationCard key={index} {...destination} index={index} />
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+              {destinations.map((destination) => (
+                <motion.div
+                  key={destination.id}
+                  variants={cardVariants}
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <DestinationCard {...destination} />
+                </motion.div>
               ))}
             </div>
           </motion.section>
 
           <motion.section 
             id="travel-packages" 
-            className="py-16 sm:py-24 px-4 sm:px-8 max-w-7xl mx-auto bg-gray-100"
+            className="py-12 px-4 sm:px-6 max-w-7xl mx-auto bg-gray-50"
             variants={sectionVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: false }}
           >
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 sm:mb-12 text-gray-800">Travel Packages</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-10">
-              {packages.map((package_, index) => (
-                <PackageCard key={index} {...package_} index={index} />
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+              {packages.map((package_) => (
+                <motion.div
+                  key={package_.id}
+                  variants={cardVariants}
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <PackageCard {...package_} />
+                </motion.div>
+              ))}
+            </div>
+          </motion.section>
+
+          <motion.section 
+            id="services" 
+            className="py-12 px-4 sm:px-6 max-w-7xl mx-auto"
+            variants={sectionVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false }}
+          >
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 sm:mb-12 text-gray-800">Our Services</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+              {services.map((service) => (
+                <motion.div
+                  key={service.id}
+                  variants={cardVariants}
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.3 }}
+                  className="card"
+                >
+                  <div className="card-content">
+                    <div className="flex items-center justify-center w-16 h-16 mx-auto mb-4 rounded-full bg-green-100 text-green-600">
+                      <i className={`fas ${service.icon} text-2xl`}></i>
+                    </div>
+                    <h3 className="card-title text-center">{service.name}</h3>
+                    <p className="card-description text-center">{service.description}</p>
+                    <div className="text-center">
+                      <span className="card-price">{service.price} {service.currency}</span>
+                      <span className="text-gray-500 ml-2">/ {service.duration}</span>
+                    </div>
+                  </div>
+                </motion.div>
               ))}
             </div>
           </motion.section>
@@ -321,9 +444,12 @@ function App() {
                 viewport={{ once: true }}
                 className="aspect-w-16 aspect-h-9"
               >
-                <img src="https://images.pexels.com/photos/1028599/pexels-photo-1028599.jpeg?auto=compress&cs=tinysrgb&w=800" 
-                     alt="Ilam Tea Gardens" 
-                     className="rounded-xl shadow-xl w-full h-full object-cover" />
+                <img 
+                  src="https://images.pexels.com/photos/1028599/pexels-photo-1028599.jpeg?auto=compress&cs=tinysrgb&w=800" 
+                  alt="Ilam Tea Gardens" 
+                  className="rounded-xl shadow-xl w-full h-full object-cover"
+                  loading="lazy"
+                />
               </motion.div>
             </div>
           </motion.section>
@@ -336,7 +462,7 @@ function App() {
           viewport={{ once: false }}
           transition={{ duration: 0.5 }}
         >
-          <div className="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="container grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
               <h3 className="text-xl font-bold mb-4">Ilam Tea Tourism</h3>
               <p>Your gateway to Nepal's tea paradise</p>
@@ -344,12 +470,24 @@ function App() {
             <div>
               <h3 className="text-xl font-bold mb-4">Quick Links</h3>
               <ul className="space-y-2">
-                <li><a href="#home" className="hover:text-green-400 transition-colors">Home</a></li>
-                <li><a href="#destinations" className="hover:text-green-400 transition-colors">Attractions</a></li>
-                <li><a href="#tea-culture" className="hover:text-green-400 transition-colors">Tea Culture</a></li>
-                <li><a href="#packages" className="hover:text-green-400 transition-colors">Packages</a></li>
-                <li><a href="#about" className="hover:text-green-400 transition-colors">About Ilam</a></li>
-                <li><a href="#contact" className="hover:text-green-400 transition-colors">Contact</a></li>
+                {[
+                  { id: 'hero', label: 'Home' },
+                  { id: 'featured-destinations', label: 'Attractions' },
+                  { id: 'travel-packages', label: 'Packages' },
+                  { id: 'services', label: 'Services' },
+                  { id: 'about', label: 'About Ilam' },
+                  { id: 'footer', label: 'Contact' }
+                ].map((item) => (
+                  <li key={item.id}>
+                    <a 
+                      href={`#${item.id}`} 
+                      onClick={(e) => handleNavClick(e, item.id)}
+                      className="hover:text-green-400 transition-colors"
+                    >
+                      {item.label}
+                    </a>
+                  </li>
+                ))}
               </ul>
             </div>
             <div>

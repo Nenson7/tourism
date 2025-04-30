@@ -1,0 +1,94 @@
+{
+  "services": [
+    {
+      "id": 1,
+      "name": "Tea Tasting",
+      "icon": "fa-utensils",
+      "description": "Experience the finest organic tea from Ilam's famous tea gardens with guided tasting sessions.",
+      "duration": "2 hours",
+      "price": "2000",
+      "currency": "NPR",
+      "features": [
+        "Expert tea sommelier",
+        "Multiple tea varieties",
+        "Traditional brewing methods",
+        "Tea pairing suggestions"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Accommodation",
+      "icon": "fa-hotel",
+      "description": "Stay in comfortable homestays and hotels with stunning views of tea gardens and mountains.",
+      "duration": "Per night",
+      "price": "3000",
+      "currency": "NPR",
+      "features": [
+        "Tea garden view rooms",
+        "Traditional architecture",
+        "Local cuisine",
+        "Cultural experience"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Trekking Tours",
+      "icon": "fa-hiking",
+      "description": "Explore the beautiful landscapes of Ilam with guided trekking tours to various destinations.",
+      "duration": "Customizable",
+      "price": "5000",
+      "currency": "NPR",
+      "features": [
+        "Experienced guides",
+        "Scenic routes",
+        "Cultural insights",
+        "Photography spots"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Transportation",
+      "icon": "fa-car",
+      "description": "Reliable transportation services for all your travel needs within Ilam and surrounding areas.",
+      "duration": "Per day",
+      "price": "4000",
+      "currency": "NPR",
+      "features": [
+        "Comfortable vehicles",
+        "Experienced drivers",
+        "Flexible schedules",
+        "Local knowledge"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Photography Tours",
+      "icon": "fa-camera",
+      "description": "Capture the beauty of Ilam with guided photography tours to the most picturesque locations.",
+      "duration": "4 hours",
+      "price": "3000",
+      "currency": "NPR",
+      "features": [
+        "Professional photographer guide",
+        "Best photo spots",
+        "Golden hour sessions",
+        "Editing tips"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Guided Tours",
+      "icon": "fa-map-marked-alt",
+      "description": "Expert local guides to help you explore and understand Ilam's culture and heritage.",
+      "duration": "Per day",
+      "price": "2500",
+      "currency": "NPR",
+      "features": [
+        "Local experts",
+        "Cultural insights",
+        "Flexible itineraries",
+        "Language support"
+      ]
+    }
+  ]
+} 

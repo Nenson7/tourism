@@ -1,0 +1,74 @@
+{
+  "packages": [
+    {
+      "id": 1,
+      "name": "Tea Garden Experience",
+      "description": "A comprehensive tour of Ilam's famous tea gardens with hands-on experience in tea processing.",
+      "duration": "2 Days",
+      "price": "15000",
+      "currency": "NPR",
+      "inclusions": [
+        "Tea garden tour",
+        "Tea processing demonstration",
+        "Tea tasting session",
+        "Accommodation",
+        "Meals",
+        "Transportation",
+        "Guide"
+      ],
+      "highlights": [
+        "Visit to Kanyam Tea Garden",
+        "Tea picking experience",
+        "Traditional tea processing",
+        "Tea tasting workshop"
+      ],
+      "bestFor": ["Tea enthusiasts", "Nature lovers", "Photographers"]
+    },
+    {
+      "id": 2,
+      "name": "Ilam Heritage Trail",
+      "description": "Explore the cultural and natural heritage of Ilam through its famous landmarks and scenic spots.",
+      "duration": "3 Days",
+      "price": "25000",
+      "currency": "NPR",
+      "inclusions": [
+        "All entrance fees",
+        "Accommodation",
+        "Meals",
+        "Transportation",
+        "Guide",
+        "Cultural show"
+      ],
+      "highlights": [
+        "Mai Pokhari visit",
+        "Antu Danda sunrise",
+        "Local cultural experience",
+        "Traditional cuisine"
+      ],
+      "bestFor": ["Culture enthusiasts", "History buffs", "Nature lovers"]
+    },
+    {
+      "id": 3,
+      "name": "Himalayan Adventure",
+      "description": "An adventurous journey through Ilam's mountainous terrain with stunning views of the Himalayas.",
+      "duration": "4 Days",
+      "price": "35000",
+      "currency": "NPR",
+      "inclusions": [
+        "Trekking permits",
+        "Accommodation",
+        "Meals",
+        "Transportation",
+        "Guide",
+        "Trekking equipment"
+      ],
+      "highlights": [
+        "Himalayan sunrise view",
+        "Mountain trekking",
+        "Village homestay",
+        "Local cuisine"
+      ],
+      "bestFor": ["Adventure seekers", "Trekking enthusiasts", "Nature photographers"]
+    }
+  ]
+} 

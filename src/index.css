@@ -1,23 +1,118 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
-/* Custom styles */
+/* Base styles */
 body {
   font-family: 'Inter', sans-serif;
+  @apply text-gray-800 bg-white;
+}
+
+/* Section styles */
+.section-padding {
+  @apply py-16 sm:py-24 px-4 sm:px-8;
+}
+
+.section-title {
+  @apply text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 sm:mb-12 text-gray-800;
+}
+
+.section-subtitle {
+  @apply text-lg sm:text-xl text-gray-600 text-center max-w-3xl mx-auto mb-12;
+}
+
+/* Card styles */
+.card {
+  @apply bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300;
+}
+
+.card-image {
+  @apply w-full h-48 sm:h-56 object-cover;
+}
+
+.card-content {
+  @apply p-6;
+}
+
+.card-title {
+  @apply text-xl font-bold text-gray-800 mb-2;
+}
+
+.card-description {
+  @apply text-gray-600 mb-4;
+}
+
+.card-price {
+  @apply text-green-600 font-bold;
+}
+
+/* Button styles */
+.btn {
+  @apply px-6 py-3 rounded-lg font-medium transition-all duration-300;
 }
 
 .btn-primary {
-  @apply px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors duration-200;
+  @apply bg-green-600 text-white hover:bg-green-700;
 }
 
 .btn-secondary {
-  @apply px-4 py-2 bg-white text-green-600 border border-green-600 rounded-md hover:bg-green-50 transition-colors duration-200;
+  @apply bg-gray-100 text-gray-800 hover:bg-gray-200;
 }
 
+/* Input styles */
 .input-field {
-  @apply block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm;
+  @apply w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent;
 }
 
-.card {
-  @apply bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300;
+/* Animation classes */
+.fade-in {
+  @apply opacity-0 transition-opacity duration-500;
+}
+
+.fade-in.visible {
+  @apply opacity-100;
+}
+
+.slide-up {
+  @apply transform translate-y-4 transition-transform duration-500;
+}
+
+.slide-up.visible {
+  @apply translate-y-0;
+}
+
+/* Utility classes */
+.container {
+  @apply max-w-7xl mx-auto;
+}
+
+.grid-responsive {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-10;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  @apply w-2;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-green-600 rounded-full hover:bg-green-700;
+}
+
+/* Loading spinner */
+.spinner {
+  @apply animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-green-600;
+}
+
+/* Error message */
+.error-message {
+  @apply text-center p-4 bg-red-100 text-red-600 rounded-lg;
+}
+
+/* Success message */
+.success-message {
+  @apply text-center p-4 bg-green-100 text-green-600 rounded-lg;
 }

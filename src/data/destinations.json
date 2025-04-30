@@ -1,0 +1,49 @@
+{
+  "destinations": [
+    {
+      "id": 1,
+      "name": "Mai Pokhari",
+      "description": "A beautiful lake surrounded by lush forests and tea gardens, perfect for nature lovers and photographers.",
+      "image": "/images/mai-pokhari.jpg",
+      "location": "Mai Municipality, Ilam",
+      "highlights": [
+        "Scenic lake view",
+        "Buddhist monastery",
+        "Nature trails",
+        "Bird watching"
+      ],
+      "bestTimeToVisit": "September to November",
+      "distanceFromIlam": "15 km"
+    },
+    {
+      "id": 2,
+      "name": "Kanyam Tea Garden",
+      "description": "One of the largest and most beautiful tea gardens in Nepal, offering stunning views and tea tasting experiences.",
+      "image": "/images/kanyam-tea-garden.jpg",
+      "location": "Kanyam, Ilam",
+      "highlights": [
+        "Tea plantation tour",
+        "Tea processing demonstration",
+        "Tea tasting",
+        "Photography spots"
+      ],
+      "bestTimeToVisit": "March to May",
+      "distanceFromIlam": "25 km"
+    },
+    {
+      "id": 3,
+      "name": "Antu Danda",
+      "description": "Famous for its spectacular sunrise view over Mount Kanchenjunga and the Himalayas.",
+      "image": "/images/antu-danda.jpg",
+      "location": "Antu Danda, Ilam",
+      "highlights": [
+        "Sunrise view",
+        "Mountain panorama",
+        "Hiking trails",
+        "Cultural experience"
+      ],
+      "bestTimeToVisit": "October to December",
+      "distanceFromIlam": "35 km"
+    }
+  ]
+} 

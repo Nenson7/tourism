@@ -1,6 +1,96 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-gray-50 text-gray-800;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-md transition-colors duration-300;
+  }
+
+  .btn-primary {
+    @apply bg-green-600 text-white hover:bg-green-700;
+  }
+
+  .card {
+    @apply bg-white rounded-lg shadow-md overflow-hidden;
+  }
+
+  .card-content {
+    @apply p-6;
+  }
+
+  .card-title {
+    @apply text-xl font-bold mb-2 text-gray-800;
+  }
+
+  .card-description {
+    @apply text-gray-600 mb-4;
+  }
+
+  .card-price {
+    @apply text-green-600 font-bold;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-green-600 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-green-700;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Responsive typography */
+@media (min-width: 640px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 1024px) {
+  html {
+    font-size: 20px;
+  }
+}
+
 /* Base styles */
 body {
   font-family: 'Inter', sans-serif;
@@ -9,11 +99,19 @@ body {
 
 /* Section styles */
 .section-padding {
-  @apply py-16 sm:py-24 px-4 sm:px-8;
+  @apply py-16 sm:py-20 lg:py-24;
+}
+
+.section-padding-sm {
+  @apply py-12 sm:py-16 lg:py-20;
+}
+
+.section-padding-lg {
+  @apply py-20 sm:py-24 lg:py-32;
 }
 
 .section-title {
-  @apply text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 sm:mb-12 text-gray-800;
+  @apply text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-8;
 }
 
 .section-subtitle {
@@ -21,39 +119,11 @@ body {
 }
 
 /* Card styles */
-.card {
-  @apply bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300;
-}
-
 .card-image {
   @apply w-full h-48 sm:h-56 object-cover;
 }
 
-.card-content {
-  @apply p-6;
-}
-
-.card-title {
-  @apply text-xl font-bold text-gray-800 mb-2;
-}
-
-.card-description {
-  @apply text-gray-600 mb-4;
-}
-
-.card-price {
-  @apply text-green-600 font-bold;
-}
-
 /* Button styles */
-.btn {
-  @apply px-6 py-3 rounded-lg font-medium transition-all duration-300;
-}
-
-.btn-primary {
-  @apply bg-green-600 text-white hover:bg-green-700;
-}
-
 .btn-secondary {
   @apply bg-gray-100 text-gray-800 hover:bg-gray-200;
 }
@@ -82,24 +152,15 @@ body {
 
 /* Utility classes */
 .container {
-  @apply max-w-7xl mx-auto;
+  @apply max-w-7xl mx-auto px-6 sm:px-8 lg:px-12;
+}
+
+.container-wide {
+  @apply max-w-7xl mx-auto px-8 sm:px-12 lg:px-16;
 }
 
 .grid-responsive {
   @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-10;
-}
-
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  @apply w-2;
-}
-
-::-webkit-scrollbar-track {
-  @apply bg-gray-100;
-}
-
-::-webkit-scrollbar-thumb {
-  @apply bg-green-600 rounded-full hover:bg-green-700;
 }
 
 /* Loading spinner */

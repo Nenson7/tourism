@@ -1,0 +1,69 @@
+{
+  "ilamProfile": {
+    "introduction": {
+      "title": "Welcome to Ilam",
+      "description": "Nestled in the eastern hills of Nepal, Ilam is a picturesque district known for its lush tea gardens, misty mountains, and rich cultural heritage. Often referred to as the 'Queen of Hills', Ilam offers a perfect blend of natural beauty and cultural experiences."
+    },
+    "geography": {
+      "area": "1,703 square kilometers",
+      "altitude": "140 meters to 3,636 meters above sea level",
+      "borders": {
+        "east": "Jhapa district",
+        "west": "Panchthar district",
+        "south": "Jhapa and Morang districts",
+        "north": "Taplejung district"
+      },
+      "rivers": ["Mai", "Deumai", "Jogmai", "Puwamai"]
+    },
+    "climate": {
+      "types": ["subtropical", "temperate", "alpine"],
+      "rainfall": "2,500 mm annually",
+      "bestSeasons": ["spring", "autumn"],
+      "winter": "winter brings occasional snowfall in higher altitudes"
+    },
+    "biodiversity": {
+      "birds": ["Dove", "Danphe", "Myna", "Crane", "Eagle"],
+      "animals": ["Red Panda", "Black Bear", "Spiny Babbler", "Musk deer", "Clouded Leopard", "Porcupine", "Jackal", "Tiger"],
+      "trees": ["Rhododendron", "Chimal", "Oak", "Ash", "Fir", "Pine", "Primelia", "Saal"],
+      "flora": ["Orchid", "Salep", "Lichens", "Himalayan Yew", "Magnolia", "Black Sins", "Alder", "Neem", "Chestnut", "Cypress"]
+    },
+    "economy": {
+      "agriculture": {
+        "tea": {
+          "history": "a history dating back to the 1860s",
+          "quality": "high-quality orthodox tea"
+        },
+        "crops": ["cardamom", "ginger", "potatoes", "broom grass"],
+        "foodCrops": ["Paddy", "Maize", "Millet", "Wheat"],
+        "other": ["Fruits", "Vegetables", "Cash crops", "Pulses", "Oilseeds"]
+      },
+      "livestock": ["Farming", "Bee keeping", "Dairy farming", "Ginger processing", "Poultry", "Fish farming"]
+    },
+    "culture": {
+      "ethnicGroups": ["Limbu", "Rai", "Magar", "Gurung", "Tamang", "Newar", "Brahmin", "Chhetri"],
+      "religions": ["Buddhism", "Hinduism"],
+      "dances": {
+        "limbu": ["Dhaan Naach", "Chyabrung"],
+        "rai": ["Chandi Naach", "Sakela"],
+        "tamang": ["Damphu Naach", "Tamang Selo"],
+        "brahmin": ["Sangini", "Balan Naach"],
+        "others": ["Damai Naach", "Lepcha Naach"]
+      },
+      "festivals": ["Sakela", "Chasok Tangnam", "Dashain", "Tihar"]
+    },
+    "attractions": [
+      "Antu Danda",
+      "Kanyam Tea Garden",
+      "Sandakpur",
+      "Malpokhari",
+      "Siddhi Thumka",
+      "Patenagi",
+      "Gajurmukhi Devi Temple"
+    ],
+    "accessibility": {
+      "byAir": "via Bhadrapur Airport (1.5 hours drive)",
+      "byRoad": "the Mechi Highway",
+      "baseCamp": "Ilam Bazaar"
+    }
+  }
+} 

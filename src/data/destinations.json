@@ -1,49 +1,64 @@
 {
   "destinations": [
     {
-      "id": 1,
+      "id": "tea-gardens",
+      "name": "Ilam Tea Gardens",
+      "description": "Explore the lush green tea gardens that have made Ilam famous worldwide. Visit tea factories, learn about tea processing, and enjoy fresh tea tasting sessions.",
+      "image": "https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      "price": 500,
+      "currency": "NPR",
+      "duration": "2-3 hours",
+      "features": ["Guided tour", "Tea tasting", "Factory visit", "Photo opportunities"]
+    },
+    {
+      "id": "mai-pokhari",
       "name": "Mai Pokhari",
-      "description": "A beautiful lake surrounded by lush forests and tea gardens, perfect for nature lovers and photographers.",
-      "image": "/images/mai-pokhari.jpg",
-      "location": "Mai Municipality, Ilam",
-      "highlights": [
-        "Scenic lake view",
-        "Buddhist monastery",
-        "Nature trails",
-        "Bird watching"
-      ],
-      "bestTimeToVisit": "September to November",
-      "distanceFromIlam": "15 km"
+      "description": "A sacred lake surrounded by dense forests, Mai Pokhari is a perfect spot for nature lovers and spiritual seekers. The area is rich in biodiversity and offers stunning views.",
+      "image": "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      "price": 300,
+      "currency": "NPR",
+      "duration": "3-4 hours",
+      "features": ["Nature walk", "Bird watching", "Picnic spot", "Photography"]
     },
     {
-      "id": 2,
-      "name": "Kanyam Tea Garden",
-      "description": "One of the largest and most beautiful tea gardens in Nepal, offering stunning views and tea tasting experiences.",
-      "image": "/images/kanyam-tea-garden.jpg",
-      "location": "Kanyam, Ilam",
-      "highlights": [
-        "Tea plantation tour",
-        "Tea processing demonstration",
-        "Tea tasting",
-        "Photography spots"
-      ],
-      "bestTimeToVisit": "March to May",
-      "distanceFromIlam": "25 km"
+      "id": "kanyam",
+      "name": "Kanyam",
+      "description": "Known for its beautiful tea gardens and pleasant climate, Kanyam is a popular tourist destination. Enjoy the scenic views and visit the local tea processing center.",
+      "image": "https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      "price": 400,
+      "currency": "NPR",
+      "duration": "2-3 hours",
+      "features": ["Tea garden visit", "Scenic views", "Local market", "Cultural experience"]
     },
     {
-      "id": 3,
-      "name": "Antu Danda",
-      "description": "Famous for its spectacular sunrise view over Mount Kanchenjunga and the Himalayas.",
-      "image": "/images/antu-danda.jpg",
-      "location": "Antu Danda, Ilam",
-      "highlights": [
-        "Sunrise view",
-        "Mountain panorama",
-        "Hiking trails",
-        "Cultural experience"
-      ],
-      "bestTimeToVisit": "October to December",
-      "distanceFromIlam": "35 km"
+      "id": "chhintapu",
+      "name": "Chhintapu",
+      "description": "A beautiful viewpoint offering panoramic views of the Himalayas and surrounding hills. Perfect for sunrise and sunset views.",
+      "image": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      "price": 200,
+      "currency": "NPR",
+      "duration": "1-2 hours",
+      "features": ["Mountain views", "Sunrise/sunset", "Photography", "Nature walk"]
+    },
+    {
+      "id": "antudanda",
+      "name": "Antudanda",
+      "description": "A hill station offering breathtaking views of the Himalayas and surrounding valleys. Popular for trekking and nature walks.",
+      "image": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      "price": 600,
+      "currency": "NPR",
+      "duration": "4-5 hours",
+      "features": ["Trekking", "Mountain views", "Nature walk", "Photography"]
+    },
+    {
+      "id": "shree-antu",
+      "name": "Shree Antu",
+      "description": "Famous for its sunrise views over Mount Kanchenjunga, Shree Antu is a must-visit destination for nature lovers and photographers.",
+      "image": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      "price": 800,
+      "currency": "NPR",
+      "duration": "Full day",
+      "features": ["Sunrise view", "Mountain views", "Photography", "Nature walk"]
     }
   ]
 } 

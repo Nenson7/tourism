@@ -1,94 +1,58 @@
 {
   "services": [
     {
-      "id": 1,
-      "name": "Tea Tasting",
-      "icon": "fa-utensils",
-      "description": "Experience the finest organic tea from Ilam's famous tea gardens with guided tasting sessions.",
-      "duration": "2 hours",
-      "price": "2000",
-      "currency": "NPR",
-      "features": [
-        "Expert tea sommelier",
-        "Multiple tea varieties",
-        "Traditional brewing methods",
-        "Tea pairing suggestions"
-      ]
-    },
-    {
-      "id": 2,
-      "name": "Accommodation",
-      "icon": "fa-hotel",
-      "description": "Stay in comfortable homestays and hotels with stunning views of tea gardens and mountains.",
-      "duration": "Per night",
-      "price": "3000",
-      "currency": "NPR",
-      "features": [
-        "Tea garden view rooms",
-        "Traditional architecture",
-        "Local cuisine",
-        "Cultural experience"
-      ]
-    },
-    {
-      "id": 3,
-      "name": "Trekking Tours",
-      "icon": "fa-hiking",
-      "description": "Explore the beautiful landscapes of Ilam with guided trekking tours to various destinations.",
-      "duration": "Customizable",
-      "price": "5000",
-      "currency": "NPR",
-      "features": [
-        "Experienced guides",
-        "Scenic routes",
-        "Cultural insights",
-        "Photography spots"
-      ]
-    },
-    {
-      "id": 4,
-      "name": "Transportation",
-      "icon": "fa-car",
-      "description": "Reliable transportation services for all your travel needs within Ilam and surrounding areas.",
-      "duration": "Per day",
-      "price": "4000",
-      "currency": "NPR",
-      "features": [
-        "Comfortable vehicles",
-        "Experienced drivers",
-        "Flexible schedules",
-        "Local knowledge"
-      ]
-    },
-    {
-      "id": 5,
-      "name": "Photography Tours",
-      "icon": "fa-camera",
-      "description": "Capture the beauty of Ilam with guided photography tours to the most picturesque locations.",
-      "duration": "4 hours",
-      "price": "3000",
-      "currency": "NPR",
-      "features": [
-        "Professional photographer guide",
-        "Best photo spots",
-        "Golden hour sessions",
-        "Editing tips"
-      ]
-    },
-    {
-      "id": 6,
+      "id": "guided-tours",
       "name": "Guided Tours",
-      "icon": "fa-map-marked-alt",
-      "description": "Expert local guides to help you explore and understand Ilam's culture and heritage.",
-      "duration": "Per day",
-      "price": "2500",
+      "description": "Professional guided tours to major attractions with expert local guides.",
+      "price": 2000,
       "currency": "NPR",
-      "features": [
-        "Local experts",
-        "Cultural insights",
-        "Flexible itineraries",
-        "Language support"
-      ]
+      "duration": "per day",
+      "icon": "fa-map-marked-alt"
+    },
+    {
+      "id": "transportation",
+      "name": "Transportation",
+      "description": "Comfortable and reliable transportation services for all your travel needs.",
+      "price": 3000,
+      "currency": "NPR",
+      "duration": "per day",
+      "icon": "fa-car"
+    },
+    {
+      "id": "accommodation",
+      "name": "Accommodation",
+      "description": "Comfortable lodging options ranging from budget to luxury stays.",
+      "price": 2500,
+      "currency": "NPR",
+      "duration": "per night",
+      "icon": "fa-hotel"
+    },
+    {
+      "id": "photography",
+      "name": "Photography Services",
+      "description": "Professional photography services to capture your memorable moments.",
+      "price": 5000,
+      "currency": "NPR",
+      "duration": "per session",
+      "icon": "fa-camera"
+    },
+    {
+      "id": "cultural-show",
+      "name": "Cultural Shows",
+      "description": "Traditional dance and music performances showcasing local culture.",
+      "price": 1500,
+      "currency": "NPR",
+      "duration": "per person",
+      "icon": "fa-theater-masks"
+    },
+    {
+      "id": "tea-workshop",
+      "name": "Tea Workshops",
+      "description": "Interactive workshops on tea processing and tasting techniques.",
+      "price": 1000,
+      "currency": "NPR",
+      "duration": "per session",
+      "icon": "fa-coffee"
     }
   ]
 } 

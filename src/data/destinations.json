@@ -1,34 +1,58 @@
 {
   "destinations": [
     {
-      "id": "tea-gardens",
-      "name": "Ilam Tea Gardens",
-      "description": "Explore the lush green tea gardens that have made Ilam famous worldwide. Visit tea factories, learn about tea processing, and enjoy fresh tea tasting sessions.",
-      "image": "https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      "id": 1,
+      "name": "Ilam Tea Garden",
+      "image": "https://images.unsplash.com/photo-1515696956955-34d7aae9e9a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      "description": "Ilam Tea Garden is the tea history of Nepal and hence the oldest tea garden (161 years old now). Ilam began tea cultivation in 1863 AD when the Chinese government sent tea saplings to Prime Minister Jung Bahadur Rana. It covers 49.5 hectares of land near Ilam bazaar. The Ilam orthodox tea with aromatic flavor is one of the best teas in the world. The roasting of tea leaves in machines began in Nepal after the establishment of a tea factory in 15/8 in Ilam.",
+      "details": {
+        "altitude": "1206m",
+        "bestSeason": "All Seasons",
+        "address": "Ilam Municipality, Ilam",
+        "distance": "Inside Ilam Bazar",
+        "attraction": "Nepal First Tea Plantation",
+        "workers": "62 people engaged as laborers",
+        "production": "More than 60 million kilograms of tea exported to India, America, Australia, and Europe",
+        "significance": "In 1985, Nepal's government declared five districts of eastern Nepal as tea zone. The climatic condition of all the districts except Jhapa being in terai, is perfectly suitable to produce orthodox Tea. In recent years, some Nepali tea producers have started producing organic tea similar to Darjeeling tea.",
+        "impact": "It is the tea estate that has helped to extend the adjoining human settlement with local commercial markets and income generation until today linking both rural life and city life. It is a boon that the tea garden and Ilam Municipality always complement each other offering employment to the tea pluckers and factory workers and green gem of tea garden recreation and sightseeing to the visitors."
+      },
       "price": 500,
-      "currency": "NPR",
-      "duration": "2-3 hours",
-      "features": ["Guided tour", "Tea tasting", "Factory visit", "Photo opportunities"]
+      "rating": 4.8,
+      "reviews": 120
     },
     {
-      "id": "mai-pokhari",
+      "id": 2,
       "name": "Mai Pokhari",
-      "description": "A sacred lake surrounded by dense forests, Mai Pokhari is a perfect spot for nature lovers and spiritual seekers. The area is rich in biodiversity and offers stunning views.",
-      "image": "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      "image": "https://images.unsplash.com/photo-1515696956955-34d7aae9e9a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      "description": "Mai Pokhari is a beautiful lake surrounded by lush green forests and tea gardens. It is a popular pilgrimage site and a great place for nature lovers.",
+      "details": {
+        "altitude": "2100m",
+        "bestSeason": "Spring and Autumn",
+        "address": "Mai Municipality, Ilam",
+        "distance": "15 km from Ilam Bazar",
+        "attraction": "Sacred Lake and Temple",
+        "significance": "It is one of the most important religious sites in eastern Nepal and is listed in the Ramsar Convention on Wetlands."
+      },
       "price": 300,
-      "currency": "NPR",
-      "duration": "3-4 hours",
-      "features": ["Nature walk", "Bird watching", "Picnic spot", "Photography"]
+      "rating": 4.5,
+      "reviews": 85
     },
     {
-      "id": "kanyam",
-      "name": "Kanyam",
-      "description": "Known for its beautiful tea gardens and pleasant climate, Kanyam is a popular tourist destination. Enjoy the scenic views and visit the local tea processing center.",
-      "image": "https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      "id": 3,
+      "name": "Kanyam Tea Garden",
+      "image": "https://images.unsplash.com/photo-1515696956955-34d7aae9e9a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      "description": "Kanyam Tea Garden is another beautiful tea garden in Ilam known for its scenic beauty and tea production.",
+      "details": {
+        "altitude": "1400m",
+        "bestSeason": "All Seasons",
+        "address": "Kanyam, Ilam",
+        "distance": "25 km from Ilam Bazar",
+        "attraction": "Tea Garden and Scenic Views",
+        "significance": "Known for its high-quality tea production and beautiful landscapes."
+      },
       "price": 400,
-      "currency": "NPR",
-      "duration": "2-3 hours",
-      "features": ["Tea garden visit", "Scenic views", "Local market", "Cultural experience"]
+      "rating": 4.6,
+      "reviews": 95
     },
     {
       "id": "chhintapu",

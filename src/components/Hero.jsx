@@ -2,38 +2,86 @@ import { motion } from 'framer-motion'
 
 const Hero = () => {
   return (
-    <section id="hero" className="relative h-screen flex items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 z-0">
+    <div id="hero" className="relative h-screen w-full overflow-hidden">
+      {/* Hero Image */}
+      <div className="absolute inset-0">
         <img 
-          src="https://images.unsplash.com/photo-1519046904884-53103b34b206?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
-          alt="Ilam Tea Gardens" 
-          className="w-full h-full object-cover"
+          src="https://images.pexels.com/photos/1624438/pexels-photo-1624438.jpeg?auto=compress&cs=tinysrgb&w=1920" 
+          alt="Ilam Hills" 
+          className="h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/60"></div>
       </div>
 
-      <motion.div 
-        className="relative z-10 text-center text-white px-4"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-      >
-        <h1 className="text-4xl md:text-6xl font-bold mb-6">
-          Discover the Magic of Ilam
-        </h1>
-        <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
-          Experience the breathtaking beauty of Nepal's tea capital, where nature meets culture
-        </p>
-        <motion.a 
-          href="#featured-destinations"
-          className="inline-block bg-green-600 text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-green-700 transition-colors duration-300"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
+      {/* Content */}
+      <div className="relative z-10 flex h-full items-center justify-center px-4 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="max-w-4xl"
         >
-          Explore Destinations
-        </motion.a>
+          <motion.span 
+            className="mb-4 inline-block rounded-full bg-green-500/20 px-4 py-1 text-sm font-medium text-green-300"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+          >
+            Welcome to Nepal's Tea Paradise
+          </motion.span>
+          <motion.h1 
+            className="mb-6 text-5xl font-bold text-white md:text-6xl lg:text-7xl"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+          >
+            Discover Ilam
+          </motion.h1>
+          <motion.p 
+            className="mb-8 text-lg text-gray-200 md:text-xl"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 }}
+          >
+            Experience the breathtaking beauty of Nepal's tea capital, where rolling hills meet ancient traditions and culture thrives in every corner
+          </motion.p>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8 }}
+            className="rounded-full bg-green-500 px-8 py-3 font-semibold text-white transition-all duration-300 hover:bg-green-600 hover:shadow-lg"
+          >
+            Explore Destinations
+          </motion.button>
+        </motion.div>
+      </div>
+
+      {/* Scroll Indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1, y: [0, 10, 0] }}
+        transition={{ duration: 1.5, repeat: Infinity, delay: 1.5 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+      >
+        <div className="flex flex-col items-center">
+          <span className="mb-2 text-sm font-medium text-white/80">Scroll to Explore</span>
+          <svg
+            className="h-6 w-6 text-white/80"
+            fill="none"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+          </svg>
+        </div>
       </motion.div>
-    </section>
+    </div>
   )
 }
 

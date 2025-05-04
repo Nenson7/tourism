@@ -16,13 +16,11 @@ import Footer from './components/Footer'
 function App() {
   const [destinations, setDestinations] = useState([])
   const [packages, setPackages] = useState([])
-  const [services, setServices] = useState([])
   const [ilamProfile, setIlamProfile] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState(null)
   const [isHeroVisible, setIsHeroVisible] = useState(true)
   const [activeSection, setActiveSection] = useState('hero')
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   useEffect(() => {
     const loadData = async () => {
@@ -61,15 +59,8 @@ function App() {
           isAuthenticated: false
         }))
 
-        const transformedServices = servicesData.services.map(service => ({
-          ...service,
-          price: parseInt(service.price) || 0,
-          icon: service.icon || 'fa-question'
-        }))
-
         setDestinations(transformedDestinations)
         setPackages(transformedPackages)
-        setServices(transformedServices)
         setIlamProfile(ilamProfileData.ilamProfile)
         setIsLoading(false)
       } catch (err) {
@@ -87,10 +78,10 @@ function App() {
       const heroSection = document.getElementById('hero')
       if (heroSection) {
         const rect = heroSection.getBoundingClientRect()
-        setIsHeroVisible(rect.top >= -100 && rect.bottom <= window.innerHeight + 100)
+        setIsHeroVisible(rect.bottom > window.innerHeight * 0.2)
       }
 
-      const sections = ['hero', 'about-ilam', 'featured-destinations', 'travel-packages', 'services', 'contact', 'footer']
+      const sections = ['hero', 'about-ilam', 'featured-destinations', 'travel-packages', 'services', 'contact']
       for (const section of sections) {
         const element = document.getElementById(section)
         if (element) {
@@ -103,6 +94,8 @@ function App() {
       }
     }
 
+    handleScroll()
+    
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
@@ -116,36 +109,13 @@ function App() {
     }
   }
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        duration: 0.5,
-        when: "beforeChildren",
-        staggerChildren: 0.2
-      }
-    }
-  }
-
-  const sectionVariants = {
+  const fadeInVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.5,
-        ease: "easeOut"
-      }
-    }
-  }
-
-  const cardVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
+        
         duration: 0.5,
         ease: "easeOut"
       }
@@ -168,7 +138,7 @@ function App() {
           <p className="text-gray-600">{error}</p>
           <button 
             onClick={() => window.location.reload()}
-            className="mt-4 px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700"
+            className="mt-4 px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
           >
             Try Again
           </button>
@@ -193,9 +163,9 @@ function App() {
         <div className="container">
           <motion.div 
             className="text-center mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            initial="hidden"
+            whileInView="visible"
+            variants={fadeInVariants}
             viewport={{ once: true }}
           >
             <h2 className="section-title">Destinations</h2>
@@ -216,9 +186,9 @@ function App() {
         <div className="container">
           <motion.div 
             className="text-center mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            initial="hidden"
+            whileInView="visible"
+            variants={fadeInVariants}
             viewport={{ once: true }}
           >
             <h2 className="section-title">Travel Packages</h2>
@@ -239,9 +209,9 @@ function App() {
         <div className="container">
           <motion.div 
             className="text-center mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            initial="hidden"
+            whileInView="visible"
+            variants={fadeInVariants}
             viewport={{ once: true }}
           >
             <h2 className="section-title">Our Services</h2>
@@ -251,13 +221,13 @@ function App() {
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service) => (
+            {servicesData.services.map((service) => (
               <motion.div 
                 key={service.id}
                 className="bg-white p-8 rounded-lg shadow-lg"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
+                initial="hidden"
+                whileInView="visible"
+                variants={fadeInVariants}
                 viewport={{ once: true }}
               >
                 <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
@@ -266,8 +236,8 @@ function App() {
                 <h3 className="text-xl font-bold text-gray-900 mb-4">{service.name}</h3>
                 <p className="text-gray-600 mb-4">{service.description}</p>
                 <div className="flex justify-between items-center">
-                  <span className="text-green-600 font-bold">NPR {service.price}</span>
-                  <button className="bg-green-600 text-white px-4 py-2 rounded-full hover:bg-green-700 transition-colors duration-300">
+                  <span className="text-green-600 font-bold">{service.currency} {service.price} {service.duration}</span>
+                  <button className="bg-green-600 text-white px-4 py-2 rounded-full hover:bg-green-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">
                     Learn More
                   </button>
                 </div>
@@ -278,7 +248,6 @@ function App() {
       </section>
 
       <Contact />
-
       <Footer />
     </div>
   )

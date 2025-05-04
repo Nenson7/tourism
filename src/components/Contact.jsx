@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
+import Modal from './Modal'
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -8,6 +9,7 @@ const Contact = () => {
     subject: '',
     message: ''
   })
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -21,6 +23,8 @@ const Contact = () => {
     e.preventDefault()
     // handle form submission
     console.log('Form submitted:', formData)
+    // Show success modal
+    setIsModalOpen(true)
     // Reset form
     setFormData({
       name: '',
@@ -168,6 +172,20 @@ const Contact = () => {
           </motion.div>
         </div>
       </div>
+
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+        <div className="text-center">
+          <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <h3 className="text-2xl font-bold text-gray-900 mb-2">Message Sent!</h3>
+          <p className="text-gray-600">
+            Thank you for contacting us. We will get back to you as soon as possible.
+          </p>
+        </div>
+      </Modal>
     </section>
   )
 }

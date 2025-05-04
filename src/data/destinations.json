@@ -3,8 +3,18 @@
     {
       "id": 1,
       "name": "Ilam Tea Garden",
-      "image": "https://images.unsplash.com/photo-1515696956955-34d7aae9e9a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-      "description": "Ilam Tea Garden is the tea history of Nepal and hence the oldest tea garden (161 years old now). Ilam began tea cultivation in 1863 AD when the Chinese government sent tea saplings to Prime Minister Jung Bahadur Rana. It covers 49.5 hectares of land near Ilam bazaar. The Ilam orthodox tea with aromatic flavor is one of the best teas in the world. The roasting of tea leaves in machines began in Nepal after the establishment of a tea factory in 15/8 in Ilam.",
+      "image": "https://images.unsplash.com/photo-1515696956955-34d7aae9e9a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1280&h=720&q=80",
+      "description": "Ilam Tea Garden is the tea history of Nepal and hence the oldest tea garden (161 years old now). Ilam began tea cultivation in 1863 AD when the Chinese government sent tea saplings to Prime Minister Jung Bahadur Rana. It covers 49.5 hectares of land near Ilam bazaar. The Ilam orthodox tea with aromatic flavor is one of the best teas in the world.",
+      "rating": 4.8,
+      "reviews": 120,
+      "price": 500,
+      "category": "Tea Tourism",
+      "highlights": [
+        "Oldest tea garden in Nepal",
+        "49.5 hectares of tea plantation",
+        "Aromatic orthodox tea",
+        "Historical significance"
+      ],
       "details": {
         "altitude": "1206m",
         "bestSeason": "All Seasons",
@@ -13,76 +23,189 @@
         "attraction": "Nepal First Tea Plantation",
         "workers": "62 people engaged as laborers",
         "production": "More than 60 million kilograms of tea exported to India, America, Australia, and Europe",
-        "significance": "In 1985, Nepal's government declared five districts of eastern Nepal as tea zone. The climatic condition of all the districts except Jhapa being in terai, is perfectly suitable to produce orthodox Tea. In recent years, some Nepali tea producers have started producing organic tea similar to Darjeeling tea.",
-        "impact": "It is the tea estate that has helped to extend the adjoining human settlement with local commercial markets and income generation until today linking both rural life and city life. It is a boon that the tea garden and Ilam Municipality always complement each other offering employment to the tea pluckers and factory workers and green gem of tea garden recreation and sightseeing to the visitors."
-      },
-      "price": 500,
-      "rating": 4.8,
-      "reviews": 120
+        "significance": "In 1985, Nepal's government declared five districts of eastern Nepal as tea zone. The climatic condition of all the districts except Jhapa being in terai, is perfectly suitable to produce orthodox Tea.",
+        "impact": "It is the tea estate that has helped to extend the adjoining human settlement with local commercial markets and income generation until today linking both rural life and city life."
+      }
     },
     {
       "id": 2,
-      "name": "Mai Pokhari",
-      "image": "https://images.unsplash.com/photo-1515696956955-34d7aae9e9a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-      "description": "Mai Pokhari is a beautiful lake surrounded by lush green forests and tea gardens. It is a popular pilgrimage site and a great place for nature lovers.",
+      "name": "Ilam Tea Factory",
+      "image": "https://images.unsplash.com/photo-1519046904884-53103b34b206?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1280&h=720&q=80",
+      "description": "Ilam Tea Factory, the oldest tea factory and a living legend of Ilam bazar, was established in 1878 B.S by Col. Gaja Rajsingh Thapa. This historical factory is still in existence as the beauty of Ilam hill town and glory of Nepalese tea industry. The factory is adjacent to Ilam Municipality office and Ilam campus at a walking distance of 5 minutes from Ilam bazar. The Ilam Tea Estate is still recognized as the large tea producing centre of Ilam district.",
+      "rating": 4.7,
+      "reviews": 200,
+      "price": 2000,
       "details": {
-        "altitude": "2100m",
-        "bestSeason": "Spring and Autumn",
-        "address": "Mai Municipality, Ilam",
-        "distance": "15 km from Ilam Bazar",
-        "attraction": "Sacred Lake and Temple",
-        "significance": "It is one of the most important religious sites in eastern Nepal and is listed in the Ramsar Convention on Wetlands."
-      },
-      "price": 300,
-      "rating": 4.5,
-      "reviews": 85
+        "altitude": "1,206m",
+        "bestSeason": "All Seasons",
+        "address": "Ilam Municipality-7, Ilam",
+        "distance": "Near Ilam Bazar",
+        "attraction": "Nepal's First Industry",
+        "significance": "Historical tea factory established in 1878 B.S, First tea factory in Nepal",
+        "workers": "Tea factory workers and experts",
+        "production": "Various types of tea including orthodox, green, pearl, silver, black",
+        "impact": "Major contributor to Nepal's tea industry and tourism"
+      }
     },
     {
       "id": 3,
-      "name": "Kanyam Tea Garden",
-      "image": "https://images.unsplash.com/photo-1515696956955-34d7aae9e9a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-      "description": "Kanyam Tea Garden is another beautiful tea garden in Ilam known for its scenic beauty and tea production.",
-      "details": {
-        "altitude": "1400m",
-        "bestSeason": "All Seasons",
-        "address": "Kanyam, Ilam",
-        "distance": "25 km from Ilam Bazar",
-        "attraction": "Tea Garden and Scenic Views",
-        "significance": "Known for its high-quality tea production and beautiful landscapes."
-      },
-      "price": 400,
+      "name": "Maisthan Temple",
+      "image": "https://images.unsplash.com/photo-1519046904884-53103b34b206?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1280&h=720&q=80",
+      "description": "Maisthan Temple, located in downtown Ilam Bazar, is renowned for its distinctive three-storey pagoda structure. The temple is central to the annual Devi yatra (Homage to the goddess) festival, celebrated on the full moon day of Chaitra (March-April). The Dashain festival is also a significant event here, marked by animal sacrifices including buffaloes, goats, cocks, and ducks to different deities. The temple is known as Ghantaghar or Clock Tower due to its hourly bell ringing. Historically, it served as a storage site for weapons and artillery belonging to Srinaath Gana.",
       "rating": 4.6,
-      "reviews": 95
+      "reviews": 150,
+      "price": 0,
+      "details": {
+        "altitude": "1,206m",
+        "bestSeason": "All Seasons",
+        "address": "Ilam Municipality-7, Ilam",
+        "distance": "Inside Bazar",
+        "attraction": "Nepal's Ancient Eastern Boarder Remark",
+        "significance": "Historical temple with three-storey pagoda structure, Known as Ghantaghar or Clock Tower, Contains 'Khalanga Dhunga' stone and 'Nisana' restoration",
+        "workers": "Temple priests and caretakers",
+        "production": "Religious and cultural events",
+        "impact": "Major religious and cultural center in Ilam, Hosts important festivals like Devi yatra and Dashain"
+      }
     },
     {
-      "id": "chhintapu",
-      "name": "Chhintapu",
-      "description": "A beautiful viewpoint offering panoramic views of the Himalayas and surrounding hills. Perfect for sunrise and sunset views.",
-      "image": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-      "price": 200,
-      "currency": "NPR",
-      "duration": "1-2 hours",
-      "features": ["Mountain views", "Sunrise/sunset", "Photography", "Nature walk"]
+      "id": 4,
+      "name": "Seti Devi Temple",
+      "image": "https://images.unsplash.com/photo-1519046904884-53103b34b206?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1280&h=720&q=80",
+      "description": "Seti Devi Temple is a small religious site located at Barabhaiya village, now known as Barabasti, near Ilam Bazar. It lies at a walking distance of half an hour through old tea garden at the west of Ilam bazar. It is believed to have been settled down by 12 Chhetri Subedi brothers some 200 years ago. This peaceful village is still populated by Chhetri Subedi Brothers. The temple is visited by villagers and pedestrians to worship Seti Devi especially from Baisakh Purnima to Panchami. It is also famous for watching birds of about 15 species. Near the temple lies a 365 meters long suspension bridge over the Puwa khola river, making it a popular destination for adventurous bridge walks and riverside experience.",
+      "rating": 4.5,
+      "reviews": 100,
+      "price": 0,
+      "details": {
+        "altitude": "886m",
+        "bestSeason": "All Seasons",
+        "address": "Ilam Municipality, Ilam",
+        "distance": "5.5 km, 20 min from Ilam Bazar",
+        "attraction": "Lower Mai Valley Birds Watching Zone",
+        "significance": "Historical temple established 200 years ago by 12 Chhetri Subedi brothers, Home to 15 species of birds",
+        "workers": "Temple priests and local villagers",
+        "production": "Religious and cultural events, Bird watching activities",
+        "impact": "Promotes local tourism, Connects Ilam Municipality-6 and Deumai Municipality-6, Supports local economy through improved road access"
+      }
     },
     {
-      "id": "antudanda",
-      "name": "Antudanda",
-      "description": "A hill station offering breathtaking views of the Himalayas and surrounding valleys. Popular for trekking and nature walks.",
-      "image": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-      "price": 600,
-      "currency": "NPR",
-      "duration": "4-5 hours",
-      "features": ["Trekking", "Mountain views", "Nature walk", "Photography"]
+      "id": 5,
+      "name": "Didi Bahini Jharana",
+      "image": "https://images.unsplash.com/photo-1519046904884-53103b34b206?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1280&h=720&q=80",
+      "description": "Didi-Bahini Jharna (Sisters Falls) are two beautiful waterfalls at the right and left side at Puwamajuwa falling together from about the altitude of 2100 meters from the sea-level. It is a short distance of an hour drive from Ilam Bazar, including some minute's off-road hike from near Baghkhor of Mechi Highway. It is the second long waterfall after Todke Jharna of Ilam. On the way to waterfall, there is a 15 ft high Shiva temple made by a local sculptor late Lai Prasad Rai. It is rich with the abundant beauty of green forest and bio-diversity. It carries a high prospect of adventure sports tourism like rock climbing and canyoning.",
+      "rating": 4.7,
+      "reviews": 180,
+      "price": 0,
+      "details": {
+        "altitude": "2,100m",
+        "bestSeason": "May-Sep",
+        "address": "Ilam Municipality, Ilam",
+        "distance": "31km/1 hr 10 min from Ilam Bazar",
+        "attraction": "Waterfall",
+        "significance": "Second longest waterfall in Ilam, Twin waterfalls falling together, Rich in biodiversity",
+        "workers": "Local guides and caretakers",
+        "production": "Natural attraction and adventure tourism",
+        "impact": "Promotes adventure tourism, Supports local economy through tourism, Preserves natural beauty and biodiversity"
+      }
     },
     {
-      "id": "shree-antu",
+      "id": 6,
+      "name": "Gajurmukhi Devi Temple",
+      "image": "https://images.unsplash.com/photo-1519046904884-53103b34b206?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1280&h=720&q=80",
+      "description": "Located on the hillside shaped as a pinnacle and hence, its name is Gajurmukhi, this holy place is situated on the bank of Deumai river in Tobhang village at about 700 metres' height from the sea level. This goddess is also known as a child giving deity to the childless and voice giving deity to the voiceless. It has a naturally carved stone with carved images of gods and goddesses inside the 5 to 7 metres long Cave. This temple is supposed to be sister of Pathibhara of Taplejung and Baraha of Dharan. This religious place also offers a trekking experience of about 8 hours from Ilam town or 2 hours drive by vehicles via Nepaltar and Mangalbare.",
+      "rating": 4.6,
+      "reviews": 160,
+      "price": 0,
+      "details": {
+        "altitude": "700m",
+        "bestSeason": "All Seasons",
+        "address": "Mangsebung R. Municipality, Ilam",
+        "distance": "35.7 km, 42 min from Ilam Bazar",
+        "attraction": "Hindu-Kirant site",
+        "significance": "Child giving deity to the childless, Voice giving deity to the voiceless, Naturally carved stone with images of gods and goddesses",
+        "workers": "Temple priests and local guides",
+        "production": "Religious and cultural events, Annual fair at Kartik Purnima",
+        "impact": "Promotes religious tourism, Preserves Limbu culture and traditions, Supports local economy through tourism"
+      }
+    },
+    {
+      "id": 7,
+      "name": "Sandakpur",
+      "image": "https://images.unsplash.com/photo-1519046904884-53103b34b206?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1280&h=720&q=80",
+      "description": "Sandakpur, located on the Nepal-India frontier, offers stunning views of the world's highest snow-clad mountains, including Kangchenjunga, Makalu, Lhotse, Kumbhakarma, and Mt. Everest. It is a snow land located at the height of 3636 meters and the area is known for its spectacular sunrise and sunset views next to Sri-Antu and Siddhithumka. Visitors can take a private cab from Ilam to Maimajhuwa Khorsanitar, where they can hike for 5 hours through forests to reach Sandakpur. It is the highest hill of Ilam district and also the origin of the holy Maikhola River.",
+      "rating": 4.9,
+      "reviews": 250,
+      "price": 0,
+      "details": {
+        "altitude": "3,636m",
+        "bestSeason": "Oct-May",
+        "address": "Sandakpur Rural Municipality, Ilam",
+        "distance": "45 km/5h from Ilam Bazar",
+        "attraction": "Hill Station",
+        "significance": "Highest hill of Ilam district, Origin of Maikhola River, Offers views of world's highest mountains including Everest",
+        "workers": "Local guides and tourism operators",
+        "production": "Tourism and trekking activities",
+        "impact": "Major tourist attraction, Supports local economy through tourism, Preserves natural beauty and biodiversity"
+      }
+    },
+    {
+      "id": 8,
+      "name": "Panitar Tea State",
+      "image": "https://images.unsplash.com/photo-1519046904884-53103b34b206?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1280&h=720&q=80",
+      "description": "Panitar Tea State, located 38 km from Ilam headquarter, offers a beautiful tea garden with small ridges, pine trees, and singing birds. It is a popular destination for picnicking, educational tours, field work, recreation, video shooting, and panoramic views of mountain ranges. It is situated in between Mangalbare and Jeetpur in the west of Ilam with a comparatively young and beautiful tea garden. Nowadays, it has been the best destination for tourists and nature lovers. One can enjoy the beauty of nature and cultures of Tamang, Magar and Rai communities. Near Panitar, we can also visit a religious place called Dhole Devi.",
+      "rating": 4.7,
+      "reviews": 220,
+      "price": 0,
+      "details": {
+        "altitude": "Not specified",
+        "bestSeason": "All Seasons",
+        "address": "Deumai Municipality-3, Ilam",
+        "distance": "38 km from Ilam headquarter",
+        "attraction": "Tea Garden and Cultural Experience",
+        "significance": "Young and beautiful tea garden, Cultural diversity (Tamang, Magar, Rai communities), Popular tourist destination",
+        "workers": "Tea garden workers and local guides",
+        "production": "Tea production and tourism activities",
+        "impact": "Major tourist attraction, Supports local economy, Preserves cultural heritage"
+      }
+    },
+    {
+      "id": 9,
       "name": "Shree Antu",
-      "description": "Famous for its sunrise views over Mount Kanchenjunga, Shree Antu is a must-visit destination for nature lovers and photographers.",
-      "image": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-      "price": 800,
-      "currency": "NPR",
-      "duration": "Full day",
-      "features": ["Sunrise view", "Mountain views", "Photography", "Nature walk"]
+      "image": "https://images.unsplash.com/photo-1519046904884-53103b34b206?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1280&h=720&q=80",
+      "description": "Antu Danda, located at the height of 2,328 meters above the sea level, about 53 kilometres east from Ilam bazar, offers stunning sunrise and sunset views, including the cosmic dance of sunrise particularly from October to December. The area features flatlands of terai terraced farmlands, dense pine forests, and tea gardens of both India and Nepal. Visitors can stay at famous local homes or home stays, enjoy picnicking, hiking experience, view of Kanyam's green world of tea and study of endangered Lepcha community. As the origin of home stays in Ilam, Antu Danda could serve as a model village for rural tourism through home stays.",
+      "rating": 4.8,
+      "reviews": 280,
+      "price": 0,
+      "details": {
+        "altitude": "2,328m",
+        "bestSeason": "Oct-Dec",
+        "address": "Suryodaya Municipality, Ilam",
+        "distance": "53 km/2h 30min from Ilam Bazar",
+        "attraction": "Sunrise View point",
+        "significance": "Stunning sunrise and sunset views, Origin of home stays in Ilam, Views of Indian hill stations (Kurseong, Darjeeling, etc.)",
+        "workers": "Local home stay operators and guides",
+        "production": "Tourism and home stay services",
+        "impact": "Model village for rural tourism, Preserves Lepcha community culture, Promotes sustainable tourism"
+      }
+    },
+    {
+      "id": 10,
+      "name": "Patenagi",
+      "image": "https://images.unsplash.com/photo-1519046904884-53103b34b206?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1280&h=720&q=80",
+      "description": "Patenagi, lying at the height of 3,100 meters from the sea level, is a popular tourist destination, home to high-altitude wildlife and birds. This area is Nepal's first officially designated Red Panda Conservation Forest Zone. It offers various attractions including Red Panda sighting, trekking routes (from Ranke, from Deurali Dhappar, Sukepokhari, or from Baghkhor), Sunrise and Sunset views, Sunuwar culture, farm houses and home stays, local products and local services of milk products and wines. It is also famous for Sunuwar settlement and their culture, green meadows, medicinal herbs, snowfall, Picnicking, and mountain views of Mt. Kunchenjunga and Mt. Kumbhakarna.",
+      "rating": 4.7,
+      "reviews": 190,
+      "price": 0,
+      "details": {
+        "altitude": "3,042m",
+        "bestSeason": "Oct-May",
+        "address": "Ilam Municipality, Ilam",
+        "distance": "33 km/2h 30 min from Ilam Bazar",
+        "attraction": "Red Panda Habitat",
+        "significance": "Nepal's first Red Panda Conservation Forest Zone, Sunuwar culture and settlement, High-altitude wildlife and birds",
+        "workers": "Local guides and conservation workers",
+        "production": "Tourism, local products, milk products, and wines",
+        "impact": "Wildlife conservation, Cultural preservation, Sustainable tourism development"
+      }
     }
   ]
 } 

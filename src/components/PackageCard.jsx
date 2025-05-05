@@ -35,7 +35,7 @@ const PackageCard = ({ package: pkg }) => {
           ))}
         </div>
         <div className="flex justify-between items-center">
-          <span className="text-green-600 font-bold">${pkg.price}</span>
+          <span className="text-green-600 font-bold">NPR {pkg.price}</span>
           <button className="bg-green-600 text-white px-4 py-2 rounded-full hover:bg-green-700 transition-colors duration-300">
             Book Now
           </button>

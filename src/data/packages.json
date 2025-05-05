@@ -1,87 +1,164 @@
 {
   "packages": [
     {
-      "id": "tea-tour",
-      "name": "Tea Garden Experience",
-      "description": "A comprehensive tour of Ilam's famous tea gardens, including factory visits and tea tasting sessions.",
-      "image": "https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-      "price": 5000,
+      "id": "tea-heritage",
+      "name": "Tea Heritage Experience",
+      "description": "Immerse yourself in Ilam's tea culture with visits to historic tea gardens and factories. Learn about tea processing, participate in tea plucking, and enjoy tea tasting sessions.",
+      "image": "https://images.unsplash.com/photo-1582126892906-5ba118eaf46e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1280&h=720&q=80",
+      "price": 3500,
       "currency": "NPR",
-      "duration": "2 days",
+      "duration": "1 day",
       "inclusions": [
-        "Guided tour of tea gardens",
-        "Tea factory visit",
+        "Guided tour of Ilam Tea Factory",
+        "Tea plucking experience",
         "Tea tasting session",
-        "Accommodation",
-        "Meals",
-        "Transportation"
+        "Local lunch",
+        "Transportation within Ilam",
+        "Professional guide"
       ]
     },
     {
-      "id": "nature-trek",
-      "name": "Nature Trek Package",
-      "description": "Explore the natural beauty of Ilam through guided treks to scenic viewpoints and waterfalls.",
-      "image": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-      "price": 8000,
-      "currency": "NPR",
-      "duration": "3 days",
-      "inclusions": [
-        "Guided trekking",
-        "Visit to Mai Pokhari",
-        "Waterfall exploration",
-        "Accommodation",
-        "Meals",
-        "Transportation"
-      ]
-    },
-    {
-      "id": "cultural-immersion",
-      "name": "Cultural Immersion",
-      "description": "Experience the rich culture and traditions of Ilam through village visits and cultural performances.",
-      "image": "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-      "price": 6000,
+      "id": "sunrise-trek",
+      "name": "Sunrise Trek Adventure",
+      "description": "Experience breathtaking sunrise views from Shree Antu and Sandakpur, combined with nature walks and cultural encounters.",
+      "image": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1280&h=720&q=80",
+      "price": 7500,
       "currency": "NPR",
       "duration": "2 days",
       "inclusions": [
-        "Village tour",
-        "Cultural show",
-        "Traditional meal",
-        "Accommodation",
-        "Transportation"
+        "Sunrise viewing at Shree Antu",
+        "Trek to Sandakpur",
+        "Home stay accommodation",
+        "All meals",
+        "Transportation",
+        "Professional guide",
+        "Basic first aid"
       ]
     },
     {
-      "id": "sunrise-special",
-      "name": "Sunrise Special",
-      "description": "Witness the breathtaking sunrise over Mount Kanchenjunga from Shree Antu viewpoint.",
-      "image": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      "id": "cultural-heritage",
+      "name": "Cultural Heritage Tour",
+      "description": "Discover Ilam's rich cultural heritage through visits to ancient temples, monasteries, and cultural sites.",
+      "image": "https://images.unsplash.com/photo-1605649487212-47bdab064df7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1280&h=720&q=80",
+      "price": 4500,
+      "currency": "NPR",
+      "duration": "1 day",
+      "inclusions": [
+        "Visit to Gajurmukhi Devi Temple",
+        "Maisthan Temple tour",
+        "Sukilumba Devithan visit",
+        "Traditional lunch",
+        "Transportation",
+        "Cultural guide"
+      ]
+    },
+    {
+      "id": "nature-adventure",
+      "name": "Nature and Adventure Package",
+      "description": "Combine thrilling activities with nature exploration, including rock climbing, waterfall visits, and bird watching.",
+      "image": "https://images.unsplash.com/photo-1522163182402-834f871fd851?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1280&h=720&q=80",
+      "price": 6500,
+      "currency": "NPR",
+      "duration": "2 days",
+      "inclusions": [
+        "Rock climbing at Mahabhir",
+        "Visit to Didi Bahini Jharana",
+        "Bird watching at Bhalu Dhunga",
+        "Adventure gear",
+        "Accommodation",
+        "Meals",
+        "Professional guides"
+      ]
+    },
+    {
+      "id": "wildlife-eco",
+      "name": "Wildlife and Eco Tour",
+      "description": "Explore Ilam's rich biodiversity, focusing on Red Panda habitat and bird watching areas.",
+      "image": "https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1280&h=720&q=80",
+      "price": 8500,
+      "currency": "NPR",
+      "duration": "2 days",
+      "inclusions": [
+        "Red Panda Conservation Zone visit",
+        "Guided nature walks",
+        "Bird watching sessions",
+        "Eco-lodge accommodation",
+        "All meals",
+        "Expert naturalist guide",
+        "Conservation contribution"
+      ]
+    },
+    {
+      "id": "religious-pilgrimage",
+      "name": "Religious Pilgrimage Tour",
+      "description": "Visit sacred temples and religious sites of different faiths across Ilam.",
+      "image": "https://images.unsplash.com/photo-1605649487212-47bdab064df7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1280&h=720&q=80",
       "price": 4000,
       "currency": "NPR",
       "duration": "1 day",
       "inclusions": [
-        "Early morning transport",
-        "Guided sunrise viewing",
-        "Breakfast",
-        "Return transport"
+        "Visit to Sanu Pathivara Temple",
+        "Gumba Danda monastery tour",
+        "Seti Devi Temple visit",
+        "Religious offerings",
+        "Vegetarian meals",
+        "Transportation",
+        "Religious guide"
       ]
     },
     {
-      "id": "complete-experience",
-      "name": "Complete Ilam Experience",
-      "description": "A comprehensive package covering all major attractions and experiences in Ilam.",
-      "image": "https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-      "price": 12000,
+      "id": "educational-tour",
+      "name": "Educational Heritage Tour",
+      "description": "Visit historical educational institutions and cultural museums of Ilam.",
+      "image": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1280&h=720&q=80",
+      "price": 3000,
       "currency": "NPR",
-      "duration": "5 days",
+      "duration": "1 day",
       "inclusions": [
-        "Tea garden tour",
-        "Nature trek",
-        "Cultural experience",
-        "Sunrise viewing",
-        "Accommodation",
+        "Mahendra Ratna Campus visit",
+        "Ilam Durbar Museum tour",
+        "Educational workshops",
+        "Lunch",
+        "Transportation",
+        "Expert guide"
+      ]
+    },
+    {
+      "id": "complete-ilam",
+      "name": "Complete Ilam Experience",
+      "description": "Comprehensive tour covering main attractions, culture, adventure, and nature of Ilam.",
+      "image": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1280&h=720&q=80",
+      "price": 15000,
+      "currency": "NPR",
+      "duration": "4 days",
+      "inclusions": [
+        "Tea garden and factory tours",
+        "Sunrise viewing at Shree Antu",
+        "Cultural site visits",
+        "Adventure activities",
+        "Wildlife observation",
+        "3 nights accommodation",
         "All meals",
         "Transportation",
-        "Guide services"
+        "Professional guides",
+        "All entrance fees"
+      ]
+    },
+    {
+      "id": "budget-explorer",
+      "name": "Budget Explorer Package",
+      "description": "Affordable package covering essential attractions of Ilam for budget travelers.",
+      "image": "https://images.unsplash.com/photo-1506197603052-3cc9c3a201bd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1280&h=720&q=80",
+      "price": 2500,
+      "currency": "NPR",
+      "duration": "1 day",
+      "inclusions": [
+        "Ilam View Tower visit",
+        "Local tea garden walk",
+        "Market tour",
+        "Basic lunch",
+        "Public transportation",
+        "Guide service"
       ]
     }
   ]

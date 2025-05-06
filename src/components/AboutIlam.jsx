@@ -1,47 +1,52 @@
-import { motion } from 'framer-motion'
-import { useState } from 'react'
+import { motion, useInView } from 'framer-motion'
+import { useState, useRef } from 'react'
 import ilamProfileData from '../data/ilamProfile.json'
+
+// Animation variants
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 0.4,
+      when: "beforeChildren",
+      staggerChildren: 0.15,
+      ease: [0.4, 0, 0.2, 1]
+    }
+  }
+}
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.4,
+      ease: [0.4, 0, 0.2, 1]
+    }
+  }
+}
 
 const AboutIlam = () => {
   const [expandedSection, setExpandedSection] = useState(null)
   const { ilamProfile } = ilamProfileData
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, amount: 0.1 })
 
   const toggleSection = (section) => {
     setExpandedSection(expandedSection === section ? null : section)
-  }
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        duration: 0.5,
-        when: "beforeChildren",
-        staggerChildren: 0.2
-      }
-    }
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5
-      }
-    }
   }
 
   return (
     <section id="about-ilam" className="py-20 bg-gradient-to-b from-gray-50 to-white">
       <div className="container mx-auto px-4">
         <motion.div
+          ref={ref}
           className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          variants={itemVariants}
         >
           <h2 className="text-4xl font-bold text-gray-900 mb-4">{ilamProfile.title}</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -53,8 +58,7 @@ const AboutIlam = () => {
           className="grid grid-cols-1 lg:grid-cols-2 gap-8"
           variants={containerVariants}
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
+          animate={isInView ? "visible" : "hidden"}
         >
           {/* Overview Section */}
           <motion.div
@@ -212,10 +216,9 @@ const AboutIlam = () => {
         {/* Conclusion Section */}
         <motion.div
           className="mt-16 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          variants={itemVariants}
         >
           <h3 className="text-3xl font-bold text-gray-900 mb-4">{ilamProfile.conclusion.tagline}</h3>
           <p className="text-xl text-gray-600 mb-6">{ilamProfile.conclusion.invitation}</p>

@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { motion } from 'framer-motion'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo, useCallback } from 'react'
 import destinationsData from './data/destinations.json'
 import packagesData from './data/packages.json'
 import servicesData from './data/services.json'
@@ -13,6 +13,31 @@ import PackageCard from './components/PackageCard'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 
+// Debounce function
+const debounce = (func, wait) => {
+  let timeout;
+  return function executedFunction(...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+};
+
+// Throttle function for scroll events
+const throttle = (func, limit) => {
+  let inThrottle;
+  return function executedFunction(...args) {
+    if (!inThrottle) {
+      func(...args);
+      inThrottle = true;
+      setTimeout(() => inThrottle = false, limit);
+    }
+  };
+};
+
 function App() {
   const [destinations, setDestinations] = useState([])
   const [packages, setPackages] = useState([])
@@ -22,92 +47,118 @@ function App() {
   const [isHeroVisible, setIsHeroVisible] = useState(true)
   const [activeSection, setActiveSection] = useState('hero')
 
+  // Memoized data transformation
+  const transformedData = useMemo(() => {
+    if (!destinationsData?.destinations || !packagesData?.packages || !servicesData?.services) {
+      return { destinations: [], packages: [] };
+    }
+
+    const transformedDestinations = destinationsData.destinations.map(dest => ({
+      ...dest,
+      image: dest.image || 'https://via.placeholder.com/400x300',
+      price: parseInt(dest.price) || 0,
+      rating: dest.rating || 4.5,
+      reviews: dest.reviews || 0,
+      details: dest.details || {
+        altitude: 'N/A',
+        bestSeason: 'All Seasons',
+        address: 'Ilam',
+        distance: 'N/A',
+        attraction: dest.description,
+        significance: 'A beautiful destination in Ilam'
+      }
+    }));
+
+    const transformedPackages = packagesData.packages.map(pkg => ({
+      ...pkg,
+      image: pkg.image || 'https://via.placeholder.com/400x300',
+      price: parseInt(pkg.price) || 0,
+      features: pkg.inclusions || [],
+      isAuthenticated: false
+    }));
+
+    return { destinations: transformedDestinations, packages: transformedPackages };
+  }, []);
+
   useEffect(() => {
     const loadData = async () => {
       try {
-        if (!destinationsData?.destinations || !Array.isArray(destinationsData.destinations)) {
-          throw new Error('Invalid destinations data structure')
-        }
-        if (!packagesData?.packages || !Array.isArray(packagesData.packages)) {
-          throw new Error('Invalid packages data structure')
-        }
-        if (!servicesData?.services || !Array.isArray(servicesData.services)) {
-          throw new Error('Invalid services data structure')
-        }
-
-        const transformedDestinations = destinationsData.destinations.map(dest => ({
-          ...dest,
-          image: dest.image || 'https://via.placeholder.com/400x300',
-          price: parseInt(dest.price) || 0,
-          rating: dest.rating || 4.5,
-          reviews: dest.reviews || 0,
-          details: dest.details || {
-            altitude: 'N/A',
-            bestSeason: 'All Seasons',
-            address: 'Ilam',
-            distance: 'N/A',
-            attraction: dest.description,
-            significance: 'A beautiful destination in Ilam'
-          }
-        }))
-
-        const transformedPackages = packagesData.packages.map(pkg => ({
-          ...pkg,
-          image: pkg.image || 'https://via.placeholder.com/400x300',
-          price: parseInt(pkg.price) || 0,
-          features: pkg.inclusions || [],
-          isAuthenticated: false
-        }))
-
-        setDestinations(transformedDestinations)
-        setPackages(transformedPackages)
-        setIlamProfile(ilamProfileData.ilamProfile)
-        setIsLoading(false)
+        setDestinations(transformedData.destinations);
+        setPackages(transformedData.packages);
+        setIlamProfile(ilamProfileData.ilamProfile);
+        setIsLoading(false);
       } catch (err) {
-        console.error('Error loading data:', err)
-        setError('Failed to load data. Please try again later.')
-        setIsLoading(false)
+        console.error('Error loading data:', err);
+        setError('Failed to load data. Please try again later.');
+        setIsLoading(false);
       }
+    };
+
+    loadData();
+  }, [transformedData]);
+
+  // Optimized scroll handler with throttling
+  const handleScroll = useCallback(throttle(() => {
+    const heroSection = document.getElementById('hero');
+    if (heroSection) {
+      const rect = heroSection.getBoundingClientRect();
+      setIsHeroVisible(rect.bottom > window.innerHeight * 0.2);
     }
 
-    loadData()
-  }, [])
+    // Get all sections
+    const sections = ['hero', 'about-ilam', 'featured-destinations', 'travel-packages', 'services', 'contact'];
+    
+    // Find the current section using Intersection Observer
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const sectionId = entry.target.id;
+            setActiveSection(sectionId);
+          }
+        });
+      },
+      {
+        root: null,
+        rootMargin: '-20% 0px -80% 0px',
+        threshold: 0
+      }
+    );
+
+    // Observe all sections
+    sections.forEach(section => {
+      const element = document.getElementById(section);
+      if (element) {
+        observer.observe(element);
+      }
+    });
+
+    // Cleanup observer
+    return () => {
+      sections.forEach(section => {
+        const element = document.getElementById(section);
+        if (element) {
+          observer.unobserve(element);
+        }
+      });
+    };
+  }, 100), []);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const heroSection = document.getElementById('hero')
-      if (heroSection) {
-        const rect = heroSection.getBoundingClientRect()
-        setIsHeroVisible(rect.bottom > window.innerHeight * 0.2)
-      }
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [handleScroll]);
 
-      const sections = ['hero', 'about-ilam', 'featured-destinations', 'travel-packages', 'services', 'contact']
-      for (const section of sections) {
-        const element = document.getElementById(section)
-        if (element) {
-          const rect = element.getBoundingClientRect()
-          if (rect.top <= 100 && rect.bottom >= 100) {
-            setActiveSection(section)
-            break
-          }
-        }
-      }
-    }
-
-    handleScroll()
-    
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
-  const handleNavClick = (e, section) => {
-    e.preventDefault()
-    const element = document.getElementById(section)
+  // Memoized navigation click handler
+  const handleNavClick = useCallback((e, section) => {
+    e.preventDefault();
+    const element = document.getElementById(section);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-      setActiveSection(section)
+      element.scrollIntoView({ behavior: 'smooth' });
+      setActiveSection(section);
     }
-  }
+  }, []);
 
   const fadeInVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -115,9 +166,9 @@ function App() {
       opacity: 1,
       y: 0,
       transition: {
-        
         duration: 0.5,
-        ease: "easeOut"
+        ease: "easeOut",
+        when: "beforeChildren"
       }
     }
   }
@@ -166,7 +217,7 @@ function App() {
             initial="hidden"
             whileInView="visible"
             variants={fadeInVariants}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.2 }}
           >
             <h2 className="section-title">Destinations</h2>
             <p className="section-subtitle">

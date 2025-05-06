@@ -1,19 +1,58 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { useState } from 'react';
+import { useState, memo } from 'react';
 import { Link } from 'react-router-dom';
 import { FaStar, FaMapMarkerAlt, FaCalendarAlt, FaMountain, FaInfoCircle, FaUsers, FaIndustry, FaLeaf } from 'react-icons/fa';
 import ImageWithPlaceholder from './ImageWithPlaceholder';
 
-const DestinationCard = ({ destination }) => {
+// Motion variants moved outside component
+const cardVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut",
+      when: "beforeChildren"
+    }
+  }
+};
+
+const imageHoverVariants = {
+  hover: { scale: 1.05 },
+  tap: { scale: 0.98 }
+};
+
+const expandVariants = {
+  initial: { height: 0, opacity: 0 },
+  animate: { 
+    height: 'auto', 
+    opacity: 1,
+    transition: {
+      duration: 0.3,
+      ease: "easeOut"
+    }
+  },
+  exit: { 
+    height: 0, 
+    opacity: 0,
+    transition: {
+      duration: 0.3,
+      ease: "easeIn"
+    }
+  }
+};
+
+const DestinationCard = memo(({ destination }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
     <motion.article
       className="group relative overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-300 hover:shadow-xl"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      viewport={{ once: true }}
+      initial="hidden"
+      whileInView="visible"
+      variants={cardVariants}
+      viewport={{ once: true, amount: 0.2 }}
       itemScope
       itemType="https://schema.org/TouristAttraction"
     >
@@ -23,7 +62,8 @@ const DestinationCard = ({ destination }) => {
           src={destination.image}
           alt={`${destination.name} - ${destination.description}`}
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
-          whileHover={{ scale: 1.05 }}
+          whileHover={imageHoverVariants.hover}
+          whileTap={imageHoverVariants.tap}
           transition={{ duration: 0.3 }}
           itemProp="image"
         />
@@ -74,8 +114,8 @@ const DestinationCard = ({ destination }) => {
         <motion.button
           onClick={() => setIsExpanded(!isExpanded)}
           className="block w-full rounded-lg bg-gradient-to-r from-green-500 to-green-600 px-6 py-3 text-center font-semibold text-white transition-all duration-300 hover:from-green-600 hover:to-green-700"
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
+          whileHover={imageHoverVariants.hover}
+          whileTap={imageHoverVariants.tap}
           aria-expanded={isExpanded}
           aria-controls={`destination-${destination.id}-details`}
         >
@@ -86,9 +126,10 @@ const DestinationCard = ({ destination }) => {
         <AnimatePresence>
           {isExpanded && (
             <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: 'auto', opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
+              variants={expandVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
               transition={{ duration: 0.3 }}
               className="mt-6 space-y-4"
             >
@@ -143,6 +184,8 @@ const DestinationCard = ({ destination }) => {
       </div>
     </motion.article>
   );
-};
+});
+
+DestinationCard.displayName = 'DestinationCard';
 
 export default DestinationCard; 

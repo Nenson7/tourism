@@ -1,14 +1,38 @@
-import { motion } from 'framer-motion'
+import { motion, useInView } from 'framer-motion'
+import { useRef } from 'react'
+
+// Animation variants
+const cardVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.4,
+      ease: [0.4, 0, 0.2, 1]
+    }
+  },
+  hover: {
+    y: -5,
+    transition: {
+      duration: 0.2,
+      ease: "easeOut"
+    }
+  }
+}
 
 const PackageCard = ({ package: pkg }) => {
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, amount: 0.1 })
+
   return (
     <motion.div 
+      ref={ref}
       className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      viewport={{ once: true }}
-      whileHover={{ y: -5 }}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+      whileHover="hover"
+      variants={cardVariants}
     >
       <div className="relative h-48">
         <img 

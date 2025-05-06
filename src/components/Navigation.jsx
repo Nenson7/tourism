@@ -10,6 +10,7 @@ const Navigation = ({ isHeroVisible, activeSection, handleNavClick }) => {
     { id: 'featured-destinations', label: 'Attractions' },
     { id: 'travel-packages', label: 'Packages' },
     { id: 'services', label: 'Services' },
+    { id: 'map', label: 'Map' },
     { id: 'contact', label: 'Contact' }
   ]
 
@@ -22,7 +23,7 @@ const Navigation = ({ isHeroVisible, activeSection, handleNavClick }) => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
         >
-          Ilam Tea Tourism
+          Visit Ilam
         </motion.div>
 
 

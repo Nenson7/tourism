@@ -58,6 +58,7 @@ const Footer = () => {
         </div>
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
           <p>&copy; {new Date().getFullYear()} Ilam Tea Tourism. All rights reserved.</p>
+          <p className="mt-2">Designed by Nenson Chhetri</p>
         </div>
       </div>
     </footer>

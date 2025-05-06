@@ -12,6 +12,7 @@ import DestinationCard from './components/DestinationCard'
 import PackageCard from './components/PackageCard'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import Map from './components/Map'
 
 // Debounce function
 const debounce = (func, wait) => {
@@ -199,7 +200,7 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-gray-100">
       <Navigation 
         isHeroVisible={isHeroVisible} 
         activeSection={activeSection} 
@@ -255,6 +256,8 @@ function App() {
           </div>
         </div>
       </section>
+
+      <Map />
 
       <section id="services" className="section-padding">
         <div className="container">

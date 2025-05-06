@@ -72,13 +72,13 @@ const Hero = () => {
             className="mb-6 text-5xl font-bold text-white md:text-6xl lg:text-7xl"
             variants={itemVariants}
           >
-            Discover Ilam
+            Visit Ilam
           </motion.h1>
           <motion.p 
             className="mb-8 text-lg text-gray-200 md:text-xl"
             variants={itemVariants}
           >
-            Experience the breathtaking beauty of Nepal's tea capital, where rolling hills meet ancient traditions and culture thrives in every corner
+            Your Gateway to Nepal's Tea Paradise
           </motion.p>
           <motion.button
             whileHover={{ scale: 1.05 }}

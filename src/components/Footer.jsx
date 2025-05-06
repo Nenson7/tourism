@@ -4,7 +4,7 @@ const Footer = () => {
       <div className="container py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <h3 className="text-xl font-bold mb-4">Ilam Tea Tourism</h3>
+            <h3 className="text-xl font-bold mb-4">Visit Ilam</h3>
             <p className="text-gray-400">
               Discover the beauty of Nepal's tea capital with our curated experiences and packages.
             </p>
@@ -16,6 +16,7 @@ const Footer = () => {
               <li><a href="#about-ilam" className="text-gray-400 hover:text-white transition-colors duration-300">About Ilam</a></li>
               <li><a href="#featured-destinations" className="text-gray-400 hover:text-white transition-colors duration-300">Destinations</a></li>
               <li><a href="#travel-packages" className="text-gray-400 hover:text-white transition-colors duration-300">Packages</a></li>
+              <li><a href="#map" className="text-gray-400 hover:text-white transition-colors duration-300">Explore</a></li>
             </ul>
           </div>
           <div>
@@ -31,7 +32,7 @@ const Footer = () => {
                 <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
-                <span className="text-gray-400">info@ilamteatourism.com</span>
+                <span className="text-gray-400">info@visitilam.com</span>
               </li>
             </ul>
           </div>
@@ -57,7 +58,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; {new Date().getFullYear()} Ilam Tea Tourism. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Visit Ilam. All rights reserved.</p>
           <p className="mt-2">Designed by Nenson Chhetri</p>
         </div>
       </div>

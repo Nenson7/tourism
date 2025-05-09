@@ -12,6 +12,7 @@ import DestinationCard from './components/DestinationCard'
 import PackageCard from './components/PackageCard'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import Map from './components/Map'
 
 // Debounce function
 const debounce = (func, wait) => {
@@ -106,7 +107,7 @@ function App() {
     }
 
     // Get all sections
-    const sections = ['hero', 'about-ilam', 'featured-destinations', 'travel-packages', 'services', 'contact'];
+    const sections = ['hero', 'about-ilam', 'featured-destinations', 'travel-packages', 'services', 'map', 'contact'];
     
     // Find the current section using Intersection Observer
     const observer = new IntersectionObserver(
@@ -225,7 +226,7 @@ function App() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {destinations.map((destination) => (
               <DestinationCard key={destination.id} destination={destination} />
             ))}
@@ -298,7 +299,12 @@ function App() {
         </div>
       </section>
 
-      <Contact />
+      <Map />
+
+      <section id="contact" className="section-padding">
+        <Contact />
+      </section>
+
       <Footer />
     </div>
   )

@@ -57,7 +57,7 @@ const DestinationCard = memo(({ destination }) => {
       itemType="https://schema.org/TouristAttraction"
     >
       {/* Image Container */}
-      <div className="relative h-64 overflow-hidden">
+      <div className="relative h-48 overflow-hidden">
         <ImageWithPlaceholder
           src={destination.image}
           alt={`${destination.name} - ${destination.description}`}
@@ -68,18 +68,18 @@ const DestinationCard = memo(({ destination }) => {
           itemProp="image"
         />
         {/* Price Tag */}
-        <div className="absolute right-4 top-4 rounded-full bg-white/90 px-4 py-2 text-sm font-semibold text-gray-800 shadow-md">
+        <div className="absolute right-3 top-3 rounded-full bg-white/90 px-2 py-1 text-sm font-semibold text-gray-800 shadow-md">
           NPR {destination.price}
         </div>
       </div>
 
       {/* Content */}
-      <div className="p-6">
+      <div className="p-4">
         {/* Title and Rating */}
-        <div className="mb-4 flex items-start justify-between">
-          <h3 className="text-xl font-bold text-gray-800" itemProp="name">{destination.name}</h3>
-          <div className="flex items-center gap-1 rounded-full bg-yellow-100 px-3 py-1">
-            <FaStar className="text-yellow-400" />
+        <div className="mb-3 flex items-start justify-between">
+          <h3 className="text-lg font-bold text-gray-800" itemProp="name">{destination.name}</h3>
+          <div className="flex items-center gap-1 rounded-full bg-yellow-100 px-2 py-0.5">
+            <FaStar className="text-yellow-400 text-sm" />
             <span className="text-sm font-semibold text-gray-700" itemProp="aggregateRating" itemScope itemType="https://schema.org/AggregateRating">
               <span itemProp="ratingValue">{destination.rating}</span>
             </span>
@@ -87,25 +87,25 @@ const DestinationCard = memo(({ destination }) => {
         </div>
 
         {/* Description */}
-        <p className="mb-4 line-clamp-2 text-gray-600" itemProp="description">
+        <p className="mb-3 line-clamp-2 text-base text-gray-600" itemProp="description">
           {destination.description}
         </p>
 
         {/* Details Grid */}
-        <div className="mb-6 grid grid-cols-2 gap-4">
-          <div className="flex items-center gap-2 text-gray-600">
-            <FaMapMarkerAlt className="text-green-500" />
+        <div className="mb-4 grid grid-cols-2 gap-3">
+          <div className="flex items-center gap-1.5 text-gray-600">
+            <FaMapMarkerAlt className="text-green-500 text-sm" />
             <span className="text-sm" itemProp="address">{destination.details.distance}</span>
           </div>
-          <div className="flex items-center gap-2 text-gray-600">
-            <FaCalendarAlt className="text-blue-500" />
+          <div className="flex items-center gap-1.5 text-gray-600">
+            <FaCalendarAlt className="text-blue-500 text-sm" />
             <span className="text-sm" itemProp="season">{destination.details.bestSeason}</span>
           </div>
-          <div className="flex items-center gap-2 text-gray-600">
-            <FaMountain className="text-purple-500" />
+          <div className="flex items-center gap-1.5 text-gray-600">
+            <FaMountain className="text-purple-500 text-sm" />
             <span className="text-sm" itemProp="elevation">{destination.details.altitude}</span>
           </div>
-          <div className="flex items-center gap-2 text-gray-600">
+          <div className="flex items-center gap-1.5 text-gray-600">
             <span className="text-sm" itemProp="reviewCount">{destination.reviews} reviews</span>
           </div>
         </div>
@@ -113,7 +113,7 @@ const DestinationCard = memo(({ destination }) => {
         {/* Button */}
         <motion.button
           onClick={() => setIsExpanded(!isExpanded)}
-          className="block w-full rounded-lg bg-gradient-to-r from-green-500 to-green-600 px-6 py-3 text-center font-semibold text-white transition-all duration-300 hover:from-green-600 hover:to-green-700"
+          className="block w-full rounded-lg bg-gradient-to-r from-green-500 to-green-600 px-4 py-2 text-center text-base font-semibold text-white transition-all duration-300 hover:from-green-600 hover:to-green-700"
           whileHover={imageHoverVariants.hover}
           whileTap={imageHoverVariants.tap}
           aria-expanded={isExpanded}
@@ -131,51 +131,51 @@ const DestinationCard = memo(({ destination }) => {
               animate="animate"
               exit="exit"
               transition={{ duration: 0.3 }}
-              className="mt-6 space-y-4"
+              className="mt-4 space-y-3"
             >
-              <div className="rounded-lg bg-gray-50 p-4">
-                <h4 className="mb-2 flex items-center gap-2 font-semibold text-gray-800">
-                  <FaInfoCircle className="text-green-500" />
+              <div className="rounded-lg bg-gray-50 p-3">
+                <h4 className="mb-1.5 flex items-center gap-1.5 text-base font-semibold text-gray-800">
+                  <FaInfoCircle className="text-green-500 text-sm" />
                   Attraction
                 </h4>
-                <p className="text-gray-600">{destination.details.attraction}</p>
+                <p className="text-sm text-gray-600">{destination.details.attraction}</p>
               </div>
 
-              <div className="rounded-lg bg-gray-50 p-4">
-                <h4 className="mb-2 flex items-center gap-2 font-semibold text-gray-800">
-                  <FaIndustry className="text-blue-500" />
+              <div className="rounded-lg bg-gray-50 p-3">
+                <h4 className="mb-1.5 flex items-center gap-1.5 text-base font-semibold text-gray-800">
+                  <FaIndustry className="text-blue-500 text-sm" />
                   Significance
                 </h4>
-                <p className="text-gray-600">{destination.details.significance}</p>
+                <p className="text-sm text-gray-600">{destination.details.significance}</p>
               </div>
 
               {destination.details.workers && (
-                <div className="rounded-lg bg-gray-50 p-4">
-                  <h4 className="mb-2 flex items-center gap-2 font-semibold text-gray-800">
-                    <FaUsers className="text-purple-500" />
+                <div className="rounded-lg bg-gray-50 p-3">
+                  <h4 className="mb-1.5 flex items-center gap-1.5 text-base font-semibold text-gray-800">
+                    <FaUsers className="text-purple-500 text-sm" />
                     Workers
                   </h4>
-                  <p className="text-gray-600">{destination.details.workers}</p>
+                  <p className="text-sm text-gray-600">{destination.details.workers}</p>
                 </div>
               )}
 
               {destination.details.production && (
-                <div className="rounded-lg bg-gray-50 p-4">
-                  <h4 className="mb-2 flex items-center gap-2 font-semibold text-gray-800">
-                    <FaLeaf className="text-yellow-500" />
+                <div className="rounded-lg bg-gray-50 p-3">
+                  <h4 className="mb-1.5 flex items-center gap-1.5 text-base font-semibold text-gray-800">
+                    <FaLeaf className="text-yellow-500 text-sm" />
                     Production
                   </h4>
-                  <p className="text-gray-600">{destination.details.production}</p>
+                  <p className="text-sm text-gray-600">{destination.details.production}</p>
                 </div>
               )}
 
               {destination.details.impact && (
-                <div className="rounded-lg bg-gray-50 p-4">
-                  <h4 className="mb-2 flex items-center gap-2 font-semibold text-gray-800">
-                    <FaInfoCircle className="text-red-500" />
+                <div className="rounded-lg bg-gray-50 p-3">
+                  <h4 className="mb-1.5 flex items-center gap-1.5 text-base font-semibold text-gray-800">
+                    <FaInfoCircle className="text-red-500 text-sm" />
                     Impact
                   </h4>
-                  <p className="text-gray-600">{destination.details.impact}</p>
+                  <p className="text-sm text-gray-600">{destination.details.impact}</p>
                 </div>
               )}
             </motion.div>

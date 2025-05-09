@@ -1,9 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @layer base {
   html {
     scroll-behavior: smooth;
+    font-size: 16px;
   }
 
   body {
@@ -20,11 +23,43 @@
   .motion-element {
     will-change: transform, opacity;
   }
+
+  /* Map styles */
+  .leaflet-container {
+    @apply rounded-xl relative z-0;
+  }
+
+  .leaflet-popup-content-wrapper {
+    @apply rounded-lg shadow-lg;
+  }
+
+  .leaflet-popup-content {
+    @apply m-0;
+  }
+
+  .leaflet-popup-tip {
+    @apply bg-white;
+  }
+
+  /* Navigation styles */
+  .nav-link {
+    @apply relative;
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-green-500 transition-all duration-300;
+  }
+
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    @apply w-full;
+  }
 }
 
 @layer components {
   .btn {
-    @apply px-4 py-2 rounded-md transition-colors duration-300;
+    @apply px-3 py-1.5 text-base rounded-md transition-colors duration-300;
   }
 
   .btn-primary {
@@ -36,25 +71,25 @@
   }
 
   .card-content {
-    @apply p-6;
+    @apply p-4;
   }
 
   .card-title {
-    @apply text-xl font-bold mb-2 text-gray-800;
+    @apply text-lg font-bold mb-2 text-gray-800;
   }
 
   .card-description {
-    @apply text-gray-600 mb-4;
+    @apply text-base text-gray-600 mb-3;
   }
 
   .card-price {
-    @apply text-green-600 font-bold;
+    @apply text-base text-green-600 font-bold;
   }
 }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -83,55 +118,30 @@
   animation: fadeIn 0.5s ease-in-out;
 }
 
-/* Responsive typography */
-@media (min-width: 640px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 18px;
-  }
-}
-
-@media (min-width: 1024px) {
-  html {
-    font-size: 20px;
-  }
-}
-
-/* Base styles */
-body {
-  font-family: 'Inter', sans-serif;
-  @apply text-gray-800 bg-white;
-}
-
 /* Section styles */
 .section-padding {
-  @apply py-16 sm:py-20 lg:py-24;
+  @apply min-h-screen py-8 sm:py-12 lg:py-16;
 }
 
 .section-padding-sm {
-  @apply py-12 sm:py-16 lg:py-20;
+  @apply min-h-screen py-6 sm:py-8 lg:py-12;
 }
 
 .section-padding-lg {
-  @apply py-20 sm:py-24 lg:py-32;
+  @apply min-h-screen py-12 sm:py-16 lg:py-20;
 }
 
 .section-title {
-  @apply text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-8;
+  @apply text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-6;
 }
 
 .section-subtitle {
-  @apply text-lg sm:text-xl text-gray-600 text-center max-w-3xl mx-auto mb-12;
+  @apply text-base sm:text-lg text-gray-600 text-center max-w-3xl mx-auto mb-8;
 }
 
 /* Card styles */
 .card-image {
-  @apply w-full h-48 sm:h-56 object-cover;
+  @apply w-full h-40 sm:h-48 object-cover;
 }
 
 /* Button styles */
@@ -156,7 +166,7 @@ body {
 
 /* Input styles */
 .input-field {
-  @apply w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent;
+  @apply w-full px-3 py-1.5 text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent;
 }
 
 /* Animation classes */
@@ -178,28 +188,28 @@ body {
 
 /* Utility classes */
 .container {
-  @apply max-w-7xl mx-auto px-6 sm:px-8 lg:px-12;
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
 }
 
 .container-wide {
-  @apply max-w-7xl mx-auto px-8 sm:px-12 lg:px-16;
+  @apply max-w-7xl mx-auto px-6 sm:px-8 lg:px-12;
 }
 
 .grid-responsive {
-  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-10;
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6;
 }
 
 /* Loading spinner */
 .spinner {
-  @apply animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-green-600;
+  @apply animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-green-600;
 }
 
 /* Error message */
 .error-message {
-  @apply text-center p-4 bg-red-100 text-red-600 rounded-lg;
+  @apply text-center p-3 bg-red-100 text-red-600 rounded-lg text-base;
 }
 
 /* Success message */
 .success-message {
-  @apply text-center p-4 bg-green-100 text-green-600 rounded-lg;
+  @apply text-center p-3 bg-green-100 text-green-600 rounded-lg text-base;
 }

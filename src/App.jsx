@@ -14,19 +14,6 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 import Map from './components/Map'
 
-// Debounce function
-const debounce = (func, wait) => {
-  let timeout;
-  return function executedFunction(...args) {
-    const later = () => {
-      clearTimeout(timeout);
-      func(...args);
-    };
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-  };
-};
-
 // Throttle function for scroll events
 const throttle = (func, limit) => {
   let inThrottle;
@@ -257,53 +244,9 @@ function App() {
         </div>
       </section>
 
-      <section id="services" className="section-padding">
-        <div className="container">
-          <motion.div 
-            className="text-center mb-12"
-            initial="hidden"
-            whileInView="visible"
-            variants={fadeInVariants}
-            viewport={{ once: true }}
-          >
-            <h2 className="section-title">Our Services</h2>
-            <p className="section-subtitle">
-              We provide comprehensive services for your Ilam experience
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {servicesData.services.map((service) => (
-              <motion.div 
-                key={service.id}
-                className="bg-white p-8 rounded-lg shadow-lg"
-                initial="hidden"
-                whileInView="visible"
-                variants={fadeInVariants}
-                viewport={{ once: true }}
-              >
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
-                  <i className={`fas ${service.icon} text-2xl text-green-600`}></i>
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4">{service.name}</h3>
-                <p className="text-gray-600 mb-4">{service.description}</p>
-                <div className="flex justify-between items-center">
-                  <span className="text-green-600 font-bold">{service.currency} {service.price} {service.duration}</span>
-                  <button className="bg-green-600 text-white px-4 py-2 rounded-full hover:bg-green-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">
-                    Learn More
-                  </button>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <Map />
 
-      <section id="contact" className="section-padding">
-        <Contact />
-      </section>
+      <Contact />
 
       <Footer />
     </div>

@@ -13,6 +13,7 @@ import PackageCard from './components/PackageCard'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import Map from './components/Map'
+import Services from './components/Services'
 
 // Throttle function for scroll events
 const throttle = (func, limit) => {
@@ -243,6 +244,8 @@ function App() {
           </div>
         </div>
       </section>
+
+      <Services />
 
       <Map />
 

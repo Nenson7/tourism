@@ -28,7 +28,7 @@ const PackageCard = ({ package: pkg }) => {
   return (
     <motion.div 
       ref={ref}
-      className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
+      className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col h-full"
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
       whileHover="hover"
@@ -46,7 +46,7 @@ const PackageCard = ({ package: pkg }) => {
           <p className="text-white/80">{pkg.duration}</p>
         </div>
       </div>
-      <div className="p-6">
+      <div className="p-6 flex flex-col flex-grow">
         <p className="text-gray-600 mb-4">{pkg.description}</p>
         <div className="space-y-2 mb-4">
           {pkg.inclusions.map((inclusion, index) => (
@@ -58,11 +58,13 @@ const PackageCard = ({ package: pkg }) => {
             </div>
           ))}
         </div>
-        <div className="flex justify-between items-center">
-          <span className="text-green-600 font-bold">NPR {pkg.price}</span>
-          <button className="bg-green-600 text-white px-4 py-2 rounded-full hover:bg-green-700 transition-colors duration-300">
-            Book Now
-          </button>
+        <div className="mt-auto border-t border-gray-200 pt-4">
+          <div className="flex justify-between items-center">
+            <span className="text-green-600 font-bold">NPR {pkg.price}</span>
+            <button className="bg-green-600 text-white px-4 py-2 rounded-full hover:bg-green-700 transition-colors duration-300">
+              Book Now
+            </button>
+          </div>
         </div>
       </div>
     </motion.div>

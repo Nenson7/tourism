@@ -1,6 +1,20 @@
 import { motion, AnimatePresence } from 'framer-motion'
+import { useEffect } from 'react'
+import { FaTimes } from 'react-icons/fa'
 
 const Modal = ({ isOpen, onClose, children }) => {
+  // Prevent background scrolling when modal is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'unset'
+    }
+    return () => {
+      document.body.style.overflow = 'unset'
+    }
+  }, [isOpen])
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -8,23 +22,23 @@ const Modal = ({ isOpen, onClose, children }) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/50"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 overflow-y-auto"
           onClick={onClose}
         >
           <motion.div
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
-            className="bg-white rounded-lg p-8 max-w-md w-full mx-4 shadow-xl"
+            className="relative bg-white rounded-2xl shadow-2xl my-8"
             onClick={e => e.stopPropagation()}
           >
-            {children}
             <button
               onClick={onClose}
-              className="mt-6 w-full bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 transition-colors duration-300"
+              className="absolute -right-3 -top-3 bg-white rounded-full p-2 shadow-lg hover:bg-gray-100 transition-colors duration-300 z-10"
             >
-              Close
+              <FaTimes className="text-gray-600 text-lg" />
             </button>
+            {children}
           </motion.div>
         </motion.div>
       )}

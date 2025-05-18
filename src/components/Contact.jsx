@@ -6,7 +6,7 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    subject: '',
+    subject: '',  
     message: ''
   })
   const [isModalOpen, setIsModalOpen] = useState(false)

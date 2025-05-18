@@ -7,7 +7,7 @@ const Navigation = ({ isHeroVisible, activeSection, handleNavClick }) => {
   const sections = [
     { id: 'hero', label: 'Home' },
     { id: 'about-ilam', label: 'About Ilam' },
-    { id: 'featured-destinations', label: 'Attractions' },
+    { id: 'featured-destinations', label: 'Destinations' },
     { id: 'travel-packages', label: 'Packages' },
     { id: 'services', label: 'Services' },
     { id: 'map', label: 'Map' },

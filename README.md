@@ -2,16 +2,55 @@
 
 A modern, responsive website for Ilam Tea Tourism, showcasing the beauty of Ilam's tea gardens and tourism services. Built with React, Tailwind CSS, and Framer Motion.
 
+🌐 [Visit Live Site](https://github.com/nenson7/tourism)
+
 ## Features
 
-- Modern, responsive design
-- Smooth animations and transitions
-- Interactive booking system
-- Tea garden information and services
+- Modern, responsive design optimized for all devices
+- Interactive destination cards with detailed previews
+- Dynamic modal system with image slideshow
+- Smooth animations and transitions using Framer Motion
+- Comprehensive destination information display
 - Beautiful UI with professional typography
 - Mobile-first approach
+- Blur effects and spring animations for enhanced UX
 
-## Technologies Used
+## Key Components
+
+### DestinationCard
+- Responsive grid layout
+- Image handling with placeholder support
+- Information display including:
+  - Ratings and reviews with star visualization
+  - Altitude indicators with mountain icon
+  - Distance information with location markers
+  - Best season recommendations
+  - 2x2 grid layout for key details
+
+### Modal
+- Responsive side-by-side layout
+- Image slideshow functionality
+- Content section with gray background
+- Backdrop blur effects
+- Spring animations for smooth transitions
+- ESC key support for closing
+- Mobile-optimized stacked layout
+- Proper scroll handling
+
+## Project Structure
+```
+src/
+├── components/
+│   ├── DestinationCard/    # Destination preview cards
+│   ├── Modal/              # Interactive modal component
+│   ├── ImageSlideshow/     # Image gallery component
+│   └── shared/             # Reusable UI components
+├── pages/                  # Main page components
+├── styles/                 # Global styles and utilities
+└── App.jsx                 # Main application component
+```
+
+## Technologies
 
 - React 19
 - Tailwind CSS 4
@@ -20,81 +59,6 @@ A modern, responsive website for Ilam Tea Tourism, showcasing the beauty of Ilam
 - Google Fonts (Inter)
 - Vite
 
-## Project Structure
+## Creator
 
-```
-src/
-├── components/     # Reusable UI components
-├── pages/         # Main page components
-│   ├── About.jsx
-│   ├── Services.jsx
-│   └── Booking.jsx
-├── App.jsx        # Main application component
-├── main.jsx       # Application entry point
-└── index.css      # Global styles and Tailwind imports
-```
-
-## Getting Started
-
-### Prerequisites
-
-- Node.js (v16 or higher)
-- pnpm (v10.10.0 or higher)
-
-### Installation
-
-1. Clone the repository:
-```bash
-git clone https://github.com/nenson7/tourism.git
-cd tourism
-```
-
-2. Install dependencies:
-```bash
-pnpm install
-```
-
-3. Start the development server:
-```bash
-pnpm dev
-```
-
-4. Build for production:
-```bash
-pnpm build
-```
-
-## Styling
-
-The project uses Tailwind CSS v4 for styling with a custom configuration. Key features include:
-
-- Custom utility classes for buttons, inputs, and cards
-- Professional Inter font from Google Fonts
-- Responsive design breakpoints
-- Consistent color scheme with green theme
-
-## Customization
-
-### Colors
-The primary color scheme uses various shades of green:
-- Primary: `#16a34a` (green-600)
-- Hover: `#15803d` (green-700)
-- Light: `#f0fdf4` (green-50)
-
-### Typography
-- Font Family: Inter
-- Weights: 300, 400, 500, 600, 700
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Authors
-
-- Nenson - Initial work
-
-## Acknowledgments
-
-- Font Awesome for icons
-- Google Fonts for typography
-- Tailwind CSS
+Created with 💚 by Nenson

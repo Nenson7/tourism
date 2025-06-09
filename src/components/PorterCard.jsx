@@ -59,8 +59,9 @@ const PorterCard = ({ porter }) => {
                 >
                   Learn More
                 </motion.button>
-                <div className="text-white font-semibold">
-                  <span className="text-2xl text-green-400">${basePrice}</span>/day
+                <div className="text-white font-medium">
+                  <FaWeightHanging className="inline-block mr-2 text-blue-400" />
+                  Max: {maxWeight}
                 </div>
               </div>
             </div>
@@ -133,16 +134,13 @@ const PorterCard = ({ porter }) => {
                   <p className="text-gray-600 leading-relaxed">{description}</p>
                 </div>
 
-                <div className="flex items-center justify-between pt-6 border-t">
-                  <div className="text-gray-600">
-                    <span className="text-2xl font-bold text-green-600">${basePrice}</span>/day
-                  </div>
+                <div className="flex items-center justify-end pt-6 border-t">
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     className="px-8 py-3 bg-green-600 text-white rounded-full hover:bg-green-700 transition-colors duration-300"
                   >
-                    Book Now
+                    Contact Porter
                   </motion.button>
                 </div>
               </div>

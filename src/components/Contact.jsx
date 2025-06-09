@@ -1,6 +1,7 @@
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
 import Modal from './Modal'
+import { FaCheckCircle, FaSpinner } from 'react-icons/fa'
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -10,6 +11,8 @@ const Contact = () => {
     message: ''
   })
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState(null)
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -19,19 +22,31 @@ const Contact = () => {
     }))
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    // handle form submission
-    console.log('Form submitted:', formData)
-    // Show success modal
-    setIsModalOpen(true)
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      subject: '',
-      message: ''
-    })
+    setIsSubmitting(true)
+    
+    try {
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 1500))
+      
+      // Show success modal
+      setSubmitStatus('success')
+      setIsModalOpen(true)
+      
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        subject: '',
+        message: ''
+      })
+    } catch (error) {
+      setSubmitStatus('error')
+      setIsModalOpen(true)
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -119,6 +134,7 @@ const Contact = () => {
                     onChange={handleChange}
                     className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent"
                     required
+                    disabled={isSubmitting}
                   />
                 </div>
 
@@ -132,6 +148,7 @@ const Contact = () => {
                     onChange={handleChange}
                     className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent"
                     required
+                    disabled={isSubmitting}
                   />
                 </div>
 
@@ -145,6 +162,7 @@ const Contact = () => {
                     onChange={handleChange}
                     className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent"
                     required
+                    disabled={isSubmitting}
                   />
                 </div>
 
@@ -158,15 +176,26 @@ const Contact = () => {
                     rows="4"
                     className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent"
                     required
+                    disabled={isSubmitting}
                   ></textarea>
                 </div>
 
-                <button
+                <motion.button
                   type="submit"
-                  className="w-full bg-green-600 text-white py-3 px-6 rounded-md hover:bg-green-700 transition-colors duration-300"
+                  className="w-full bg-green-600 text-white py-3 px-6 rounded-md hover:bg-green-700 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+                  disabled={isSubmitting}
+                  whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
+                  whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
                 >
-                  Send Message
-                </button>
+                  {isSubmitting ? (
+                    <>
+                      <FaSpinner className="animate-spin mr-2" />
+                      Sending...
+                    </>
+                  ) : (
+                    'Send Message'
+                  )}
+                </motion.button>
               </form>
             </div>
           </motion.div>
@@ -174,16 +203,38 @@ const Contact = () => {
       </div>
 
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-        <div className="text-center">
-          <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-            </svg>
-          </div>
-          <h3 className="text-2xl font-bold text-gray-900 mb-2">Message Sent!</h3>
-          <p className="text-gray-600">
-            Thank you for contacting us. We will get back to you as soon as possible.
-          </p>
+        <div className="text-center p-6">
+          {submitStatus === 'success' ? (
+            <>
+              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <FaCheckCircle className="w-8 h-8 text-green-600" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">Message Sent!</h3>
+              <p className="text-gray-600">
+                Thank you for contacting us. We will get back to you as soon as possible.
+              </p>
+            </>
+          ) : (
+            <>
+              <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">Oops!</h3>
+              <p className="text-gray-600">
+                Something went wrong. Please try again later or contact us directly.
+              </p>
+            </>
+          )}
+          <motion.button
+            onClick={() => setIsModalOpen(false)}
+            className="mt-6 px-6 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors duration-300"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            Close
+          </motion.button>
         </div>
       </Modal>
     </section>

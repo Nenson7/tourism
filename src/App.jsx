@@ -353,8 +353,7 @@ function App() {
                 Professional Drivers
               </h2>
               <p className="text-gray-600 max-w-2xl mx-auto">
-                Travel comfortably and safely with our experienced drivers who know the best routes
-                and scenic spots around Ilam.
+                Travel comfortably with our experienced drivers who know every road and route in Ilam.
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -365,10 +364,12 @@ function App() {
           </div>
         </section>
 
+        {/* Map Section */}
         <section id="map" className="py-20 px-4 bg-gray-50">
           <Map />
         </section>
 
+        {/* Contact Section */}
         <section id="contact" className="py-20 px-4 bg-white">
           <Contact />
         </section>

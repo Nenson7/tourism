@@ -41,6 +41,13 @@ const scrollIndicatorVariants = {
 }
 
 const Hero = () => {
+  const handleExploreClick = () => {
+    const destinationsSection = document.getElementById('featured-destinations');
+    if (destinationsSection) {
+      destinationsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div id="hero" className="relative h-screen w-full overflow-hidden">
       {/* Hero Image */}
@@ -81,6 +88,7 @@ const Hero = () => {
             Your Gateway to Nepal's Tea Paradise
           </motion.p>
           <motion.button
+            onClick={handleExploreClick}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             variants={itemVariants}
@@ -96,12 +104,12 @@ const Hero = () => {
         variants={scrollIndicatorVariants}
         initial="hidden"
         animate="visible"
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        className="absolute inset-x-0 bottom-8 mx-auto flex justify-center z-20"
       >
-        <div className="flex flex-col items-center">
-          <span className="mb-2 text-sm font-medium text-white/80">Scroll to Explore</span>
+        <div className="flex flex-col items-center bg-black/20 backdrop-blur-sm px-4 py-2 rounded-full">
+          <span className="mb-1 text-sm font-medium text-white">Scroll to Explore</span>
           <svg
-            className="h-6 w-6 text-white/80"
+            className="h-5 w-5 text-white animate-bounce"
             fill="none"
             strokeLinecap="round"
             strokeLinejoin="round"

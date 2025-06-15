@@ -13,6 +13,7 @@ import Map from './components/Map'
 import GuideCard from './components/GuideCard'
 import PorterCard from './components/PorterCard'
 import DriverCard from './components/DriverCard'
+import LiveChat from './components/LiveChat'
 
 // Throttle function for scroll events
 const throttle = (func, limit) => {
@@ -376,6 +377,7 @@ function App() {
       </main>
 
       <Footer />
+      <LiveChat />
     </div>
   )
 }

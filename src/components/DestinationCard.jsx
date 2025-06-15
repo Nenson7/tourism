@@ -84,64 +84,73 @@ const DestinationCard = memo(({ destination = {} }) => {
   return (
     <>
       <motion.div
-        className="group relative overflow-hidden rounded-lg sm:rounded-xl bg-white shadow-lg hover:shadow-xl transition-all duration-300"
+        className="group relative overflow-hidden rounded-xl bg-white shadow-lg hover:shadow-xl transition-all duration-300"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
       >
-        {/* Image Container - Responsive height */}
-        <div className="relative h-[24rem] sm:h-[28rem] md:h-[32rem] overflow-hidden">
-          <ImageWithPlaceholder
+        {/* Image Section */}
+        <div className="relative h-64 overflow-hidden">
+          <img
             src={image}
             alt={name}
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent">
-            <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 text-white">
-              <h3 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">{name}</h3>
-              <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-4">
-                <div className="flex items-center gap-2">
-                  <FaStar className="text-yellow-400 w-4 h-4 sm:w-5 sm:h-5" />
-                  <div>
-                    <p className="text-xs sm:text-sm text-white/80">Rating</p>
-                    <p className="text-sm sm:text-base font-medium flex items-center gap-1">
-                      {rating} <span className="text-xs sm:text-sm text-white/80">({reviews} reviews)</span>
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-2">
-                  <FaMountain className="text-blue-400 w-4 h-4 sm:w-5 sm:h-5" />
-                  <div>
-                    <p className="text-xs sm:text-sm text-white/80">Altitude</p>
-                    <p className="text-sm sm:text-base font-medium">{details.altitude}</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-2">
-                  <FaMapMarkerAlt className="text-green-400 w-4 h-4 sm:w-5 sm:h-5" />
-                  <div>
-                    <p className="text-xs sm:text-sm text-white/80">Distance</p>
-                    <p className="text-sm sm:text-base font-medium">{details.distance}</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-2">
-                  <FaCalendarAlt className="text-purple-400 w-4 h-4 sm:w-5 sm:h-5" />
-                  <div>
-                    <p className="text-xs sm:text-sm text-white/80">Best Season</p>
-                    <p className="text-sm sm:text-base font-medium">{details.bestSeason}</p>
-                  </div>
-                </div>
-              </div>
-              <div className="flex items-center justify-center mt-4 sm:mt-6">
-                <motion.button
-                  onClick={() => setIsModalOpen(true)}
-                  className="px-4 sm:px-6 py-2 sm:py-3 bg-white/20 backdrop-blur-sm text-white text-sm sm:text-base rounded-full hover:bg-white/30 transition-colors duration-300"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Learn More
-                </motion.button>
+        </div>
+
+        {/* Content Section */}
+        <div className="p-4 sm:p-6">
+          <div className="mb-4">
+            <h3 className="text-xl sm:text-2xl font-bold text-gray-800">{name}</h3>
+            <p className="text-sm text-gray-500 mt-1">{details.distance}</p>
+          </div>
+          
+          <div className="grid grid-cols-2 gap-3 mb-4">
+            <div className="flex items-center gap-2">
+              <FaStar className="text-yellow-400 w-4 h-4" />
+              <div>
+                <p className="text-xs text-gray-500">Rating</p>
+                <p className="text-sm font-medium flex items-center gap-1">
+                  {rating} <span className="text-xs text-gray-500">({reviews} reviews)</span>
+                </p>
               </div>
             </div>
+            <div className="flex items-center gap-2">
+              <FaMountain className="text-blue-400 w-4 h-4" />
+              <div>
+                <p className="text-xs text-gray-500">Altitude</p>
+                <p className="text-sm font-medium">{details.altitude}</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-2">
+              <FaMapMarkerAlt className="text-green-400 w-4 h-4" />
+              <div>
+                <p className="text-xs text-gray-500">Distance</p>
+                <p className="text-sm font-medium">{details.distance}</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-2">
+              <FaCalendarAlt className="text-purple-400 w-4 h-4" />
+              <div>
+                <p className="text-xs text-gray-500">Best Season</p>
+                <p className="text-sm font-medium">{details.bestSeason}</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex items-center justify-between mt-4 pt-4 border-t border-gray-100">
+            <div className="flex items-center gap-2">
+              <FaCalendarAlt className="text-green-500" />
+              <span className="text-sm text-gray-600">Best time: {details.bestSeason}</span>
+            </div>
+            <motion.button
+              onClick={() => setIsModalOpen(true)}
+              className="px-3 sm:px-4 py-1.5 sm:py-2 bg-green-600 text-white text-sm sm:text-base rounded-full hover:bg-green-700 transition-colors duration-300"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Learn More
+            </motion.button>
           </div>
         </div>
       </motion.div>

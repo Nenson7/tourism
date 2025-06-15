@@ -19,52 +19,59 @@ const PorterCard = ({ porter }) => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
       >
-        <div className="relative h-[32rem] overflow-hidden">
+        {/* Image Section */}
+        <div className="relative h-64 overflow-hidden">
           <img
             src={photo}
             alt={name}
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent">
-            <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-              <h3 className="text-3xl font-bold mb-3">{name}</h3>
-              <div className="flex items-center gap-4 mb-3 text-white/90">
-                <div className="flex items-center gap-2">
-                  <FaStar className="text-yellow-400" />
-                  <span>{rating}</span>
-                  <span className="text-sm">({reviews} reviews)</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <FaWeightHanging className="text-blue-400" />
-                  <span>Up to {maxWeight}</span>
-                </div>
-              </div>
-              <div className="flex flex-wrap gap-2 mb-4">
-                {routes.slice(0, 2).map((route, index) => (
-                  <span
-                    key={index}
-                    className="px-3 py-1 bg-white/20 backdrop-blur-sm text-white rounded-full text-sm flex items-center gap-1"
-                  >
-                    <FaRoute className="text-green-400" />
-                    {route}
-                  </span>
-                ))}
-              </div>
-              <div className="flex items-center justify-between">
-                <motion.button
-                  onClick={() => setIsModalOpen(true)}
-                  className="px-6 py-3 bg-white/20 backdrop-blur-sm text-white rounded-full hover:bg-white/30 transition-colors duration-300"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Learn More
-                </motion.button>
-                <div className="text-white font-medium">
-                  <FaWeightHanging className="inline-block mr-2 text-blue-400" />
-                  Max: {maxWeight}
-                </div>
-              </div>
+        </div>
+
+        {/* Content Section */}
+        <div className="p-4 sm:p-6">
+          <div className="mb-4">
+            <h3 className="text-xl sm:text-2xl font-bold text-gray-800">{name}</h3>
+            <p className="text-sm text-gray-500 mt-1">Experience: {experience}</p>
+          </div>
+          
+          <div className="flex items-center gap-4 mb-3">
+            <div className="flex items-center gap-2">
+              <FaStar className="text-yellow-400" />
+              <span className="text-sm">{rating}</span>
+              <span className="text-xs text-gray-500">({reviews} reviews)</span>
             </div>
+            <div className="flex items-center gap-2">
+              <FaWeightHanging className="text-blue-400" />
+              <span className="text-sm">Up to {maxWeight}</span>
+            </div>
+          </div>
+
+          <div className="flex flex-wrap gap-2 mb-4">
+            {routes.slice(0, 2).map((route, index) => (
+              <span
+                key={index}
+                className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm flex items-center gap-1"
+              >
+                <FaRoute className="text-green-500" />
+                {route}
+              </span>
+            ))}
+          </div>
+
+          <div className="flex items-center justify-between mt-4 pt-4 border-t border-gray-100">
+            <div className="flex items-center gap-2">
+              <FaWeightHanging className="text-green-500" />
+              <span className="text-sm text-gray-600">Max weight: {maxWeight}</span>
+            </div>
+            <motion.button
+              onClick={() => setIsModalOpen(true)}
+              className="px-3 py-1.5 bg-green-600 text-white rounded-full hover:bg-green-700 transition-colors duration-300"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Learn More
+            </motion.button>
           </div>
         </div>
       </motion.div>

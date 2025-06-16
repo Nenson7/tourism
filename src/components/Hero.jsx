@@ -99,28 +99,17 @@ const Hero = () => {
         </motion.div>
       </div>
 
-      {/* Scroll Indicator */}
-      <motion.div
-        variants={scrollIndicatorVariants}
-        initial="hidden"
-        animate="visible"
-        className="absolute inset-x-0 bottom-8 mx-auto flex justify-center z-20"
-      >
-        <div className="flex flex-col items-center bg-black/20 backdrop-blur-sm px-4 py-2 rounded-full">
-          <span className="mb-1 text-sm font-medium text-white">Scroll to Explore</span>
-          <svg
-            className="h-5 w-5 text-white animate-bounce"
-            fill="none"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-          </svg>
-        </div>
-      </motion.div>
+
+      {/* Economy Section */}
+      <div className="mt-8 text-center">
+        <h2 className="text-2xl font-bold text-gray-800">Economy</h2>
+        <p className="mt-2 text-gray-600">Learn about Ilam's thriving economy.</p>
+      </div>
+
+      {/* 7_a's Image */}
+      <div className="mt-4 flex justify-center">
+        <img src="/static/seven_a.jpg" alt="7_a's" className="max-w-full h-auto rounded-lg shadow-lg" />
+      </div>
     </div>
   )
 }

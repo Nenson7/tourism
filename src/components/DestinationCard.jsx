@@ -102,47 +102,10 @@ const DestinationCard = memo(({ destination = {} }) => {
         <div className="p-4 sm:p-6">
           <div className="mb-4">
             <h3 className="text-xl sm:text-2xl font-bold text-gray-800">{name}</h3>
-            <p className="text-sm text-gray-500 mt-1">{details.distance}</p>
-          </div>
-          
-          <div className="grid grid-cols-2 gap-3 mb-4">
-            <div className="flex items-center gap-2">
-              <FaStar className="text-yellow-400 w-4 h-4" />
-              <div>
-                <p className="text-xs text-gray-500">Rating</p>
-                <p className="text-sm font-medium flex items-center gap-1">
-                  {rating} <span className="text-xs text-gray-500">({reviews} reviews)</span>
-                </p>
-              </div>
-            </div>
-            <div className="flex items-center gap-2">
-              <FaMountain className="text-blue-400 w-4 h-4" />
-              <div>
-                <p className="text-xs text-gray-500">Altitude</p>
-                <p className="text-sm font-medium">{details.altitude}</p>
-              </div>
-            </div>
-            <div className="flex items-center gap-2">
-              <FaMapMarkerAlt className="text-green-400 w-4 h-4" />
-              <div>
-                <p className="text-xs text-gray-500">Distance</p>
-                <p className="text-sm font-medium">{details.distance}</p>
-              </div>
-            </div>
-            <div className="flex items-center gap-2">
-              <FaCalendarAlt className="text-purple-400 w-4 h-4" />
-              <div>
-                <p className="text-xs text-gray-500">Best Season</p>
-                <p className="text-sm font-medium">{details.bestSeason}</p>
-              </div>
-            </div>
           </div>
 
           <div className="flex items-center justify-between mt-4 pt-4 border-t border-gray-100">
-            <div className="flex items-center gap-2">
-              <FaCalendarAlt className="text-green-500" />
-              <span className="text-sm text-gray-600">Best time: {details.bestSeason}</span>
-            </div>
+            <span className="text-sm text-gray-600 mr-4">Best time to visit: {details.bestSeason}</span>
             <motion.button
               onClick={() => setIsModalOpen(true)}
               className="px-3 sm:px-4 py-1.5 sm:py-2 bg-green-600 text-white text-sm sm:text-base rounded-full hover:bg-green-700 transition-colors duration-300"

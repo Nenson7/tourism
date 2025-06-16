@@ -212,21 +212,9 @@ const AboutIlam = () => {
             </div>
           </motion.div>
         </motion.div>
-
-        {/* Conclusion Section */}
-        <motion.div
-          className="mt-16 text-center"
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          variants={itemVariants}
-        >
-          <h3 className="text-3xl font-bold text-gray-900 mb-4">{ilamProfile.conclusion.tagline}</h3>
-          <p className="text-xl text-gray-600 mb-6">{ilamProfile.conclusion.invitation}</p>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">{ilamProfile.conclusion.summary}</p>
-        </motion.div>
       </div>
     </section>
   )
 }
 
-export default AboutIlam 
+export default AboutIlam  

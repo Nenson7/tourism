@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { useEffect, useCallback, useState } from 'react';
-import { FaTimes, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { useEffect } from 'react';
+import { FaTimes } from 'react-icons/fa';
 
 const overlayVariants = {
   hidden: { opacity: 0 },
@@ -35,66 +35,6 @@ const modalVariants = {
   }
 };
 
-const ImageSlideshow = ({ images, alt }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const nextSlide = useCallback(() => {
-    setCurrentIndex((prev) => (prev + 1) % images.length);
-  }, [images.length]);
-
-  const prevSlide = useCallback(() => {
-    setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
-  }, [images.length]);
-
-  return (
-    <div className="relative h-full w-full bg-gray-900">
-      <motion.img
-        key={currentIndex}
-        src={images[currentIndex]}
-        alt={`${alt} - Image ${currentIndex + 1}`}
-        className="w-full h-full object-cover"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.3 }}
-        loading="lazy"
-      />
-      
-      {images.length > 1 && (
-        <>
-          <button
-            onClick={prevSlide}
-            className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-colors duration-200 backdrop-blur-sm"
-            aria-label="Previous image"
-          >
-            <FaChevronLeft className="w-6 h-6" />
-          </button>
-          <button
-            onClick={nextSlide}
-            className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-colors duration-200 backdrop-blur-sm"
-            aria-label="Next image"
-          >
-            <FaChevronRight className="w-6 h-6" />
-          </button>
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-            {images.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentIndex(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-200 ${
-                  index === currentIndex 
-                    ? 'bg-white scale-110' 
-                    : 'bg-white/50 hover:bg-white/70'
-                }`}
-                aria-label={`Go to image ${index + 1}`}
-              />
-            ))}
-          </div>
-        </>
-      )}
-    </div>
-  );
-};
-
 const Modal = ({ isOpen, onClose, destination }) => {
   // Close on ESC key
   useEffect(() => {
@@ -124,15 +64,6 @@ const Modal = ({ isOpen, onClose, destination }) => {
     reviews
   } = destination;
 
-  // Create an array of images
-  const images = [
-    image,
-    image.includes('photo-') 
-      ? `https://images.unsplash.com/photo-${image.split('photo-')[1].split('?')[0]}?w=1280&h=720&q=80`
-      : image,
-    'https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=60'
-  ];
-
   return (
     <AnimatePresence>
       {isOpen && (
@@ -145,7 +76,7 @@ const Modal = ({ isOpen, onClose, destination }) => {
           onClick={onClose}
         >
           <motion.div
-            className="relative w-full max-w-7xl bg-white rounded-xl sm:rounded-2xl shadow-2xl overflow-hidden max-h-[95vh]"
+            className="relative w-full max-w-[90rem] bg-white rounded-xl sm:rounded-2xl shadow-2xl overflow-hidden max-h-[95vh]"
             variants={modalVariants}
             onClick={e => e.stopPropagation()}
           >
@@ -158,9 +89,16 @@ const Modal = ({ isOpen, onClose, destination }) => {
             </button>
 
             <div className="flex flex-col lg:flex-row h-[95vh] lg:h-[90vh]">
-              {/* Left side - Image Slideshow */}
+              {/* Left side - Single Image */}
               <div className="lg:w-1/2 h-[35vh] sm:h-[40vh] lg:h-full">
-                <ImageSlideshow images={images} alt={name} />
+                <div className="relative h-full w-full bg-gray-900">
+                  <img
+                    src={image}
+                    alt={name}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
               </div>
 
               {/* Right side - Content */}

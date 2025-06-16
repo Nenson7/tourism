@@ -62,7 +62,7 @@ const AboutIlam = () => {
         >
           {/* Overview Section */}
           <motion.div
-            className="bg-white rounded-xl shadow-lg p-8"
+            className="bg-gray-50 rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.1)] p-8 hover:shadow-[0_8px_30px_rgba(0,0,0,0.15)] transition-shadow duration-300"
             variants={itemVariants}
           >
             <h3 className="text-2xl font-bold text-gray-900 mb-4">Overview</h3>
@@ -80,7 +80,7 @@ const AboutIlam = () => {
 
           {/* Geography Section */}
           <motion.div
-            className="bg-white rounded-xl shadow-lg p-8"
+            className="bg-gray-50 rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.1)] p-8 hover:shadow-[0_8px_30px_rgba(0,0,0,0.15)] transition-shadow duration-300"
             variants={itemVariants}
           >
             <h3 className="text-2xl font-bold text-gray-900 mb-4">Geography</h3>
@@ -109,7 +109,7 @@ const AboutIlam = () => {
 
           {/* Biodiversity Section */}
           <motion.div
-            className="bg-white rounded-xl shadow-lg p-8"
+            className="bg-gray-50 rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.1)] p-8 hover:shadow-[0_8px_30px_rgba(0,0,0,0.15)] transition-shadow duration-300"
             variants={itemVariants}
           >
             <h3 className="text-2xl font-bold text-gray-900 mb-4">Biodiversity</h3>
@@ -139,7 +139,7 @@ const AboutIlam = () => {
 
           {/* Economy Section */}
           <motion.div
-            className="bg-white rounded-xl shadow-lg p-8"
+            className="bg-gray-50 rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.1)] p-8 hover:shadow-[0_8px_30px_rgba(0,0,0,0.15)] transition-shadow duration-300"
             variants={itemVariants}
           >
             <h3 className="text-2xl font-bold text-gray-900 mb-4">Economy</h3>
@@ -167,9 +167,23 @@ const AboutIlam = () => {
             </div>
           </motion.div>
 
+          {/* Seven A Image Section */}
+          <motion.div
+            className="col-span-1 lg:col-span-2"
+            variants={itemVariants}
+          >
+            <div className="bg-gray-50 rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.1)] overflow-hidden hover:shadow-[0_8px_30px_rgba(0,0,0,0.15)] transition-shadow duration-300">
+              <img 
+                src="/static/seven_a.png" 
+                alt="Seven A Tea Garden" 
+                className="w-full h-auto object-cover"
+              />
+            </div>
+          </motion.div>
+
           {/* Culture Section */}
           <motion.div
-            className="bg-white rounded-xl shadow-lg p-8"
+            className="bg-gray-50 rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.1)] p-8 hover:shadow-[0_8px_30px_rgba(0,0,0,0.15)] transition-shadow duration-300"
             variants={itemVariants}
           >
             <h3 className="text-2xl font-bold text-gray-900 mb-4">Culture</h3>
@@ -199,7 +213,7 @@ const AboutIlam = () => {
 
           {/* Attractions Section */}
           <motion.div
-            className="bg-white rounded-xl shadow-lg p-8"
+            className="bg-gray-50 rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.1)] p-8 hover:shadow-[0_8px_30px_rgba(0,0,0,0.15)] transition-shadow duration-300"
             variants={itemVariants}
           >
             <h3 className="text-2xl font-bold text-gray-900 mb-4">Attractions</h3>

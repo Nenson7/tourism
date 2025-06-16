@@ -105,11 +105,6 @@ const Hero = () => {
         <h2 className="text-2xl font-bold text-gray-800">Economy</h2>
         <p className="mt-2 text-gray-600">Learn about Ilam's thriving economy.</p>
       </div>
-
-      {/* 7_a's Image */}
-      <div className="mt-4 flex justify-center">
-        <img src="/static/seven_a.jpg" alt="7_a's" className="max-w-full h-auto rounded-lg shadow-lg" />
-      </div>
     </div>
   )
 }

@@ -127,7 +127,9 @@ const Modal = ({ isOpen, onClose, destination }) => {
   // Create an array of images
   const images = [
     image,
-    `https://images.unsplash.com/photo-${image.split('photo-')[1].split('?')[0]}?w=1280&h=720&q=80`,
+    image.includes('photo-') 
+      ? `https://images.unsplash.com/photo-${image.split('photo-')[1].split('?')[0]}?w=1280&h=720&q=80`
+      : image,
     'https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=60'
   ];
 

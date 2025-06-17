@@ -23,43 +23,34 @@ const LiveChat = () => {
   };
 
   const handleSendMessage = async (e) => {
-    e.preventDefault();
-    if (!message.trim()) return;
+    e.preventDefault()
+    if (!message.trim()) return
 
     // Add user message to chat
-    const userMessage = {
-      type: 'user',
+    setChatHistory(prev => [...prev, { 
+      type: 'user', 
       text: message,
       timestamp: new Date().toLocaleTimeString()
-    };
-    setChatHistory(prev => [...prev, userMessage]);
+    }])
+    setMessage('')
 
-    // Check for different types of messages
-    const lowerMessage = message.toLowerCase();
-    
-    if (lowerMessage.includes('ho') || 
-        lowerMessage.includes('hello') || 
-        lowerMessage.includes('hi') || 
-        lowerMessage.includes('namaste')) {
-      await simulateTyping('Hello! 👋 Thank you for reaching out. For immediate assistance, please contact us on WhatsApp: +977 9841234567 or visit our Contact Us section for more options.');
-    } else if (lowerMessage.includes('inquiry') || 
-               lowerMessage.includes('question') || 
-               lowerMessage.includes('ask') || 
-               lowerMessage.includes('help')) {
-      await simulateTyping('For detailed inquiries, please visit our Contact Us section where you can find our email, phone numbers, and office location. You can also reach us through WhatsApp for quick responses.');
+    // Check for greetings
+    const lowerMessage = message.toLowerCase()
+    if (lowerMessage.includes('hi') || lowerMessage.includes('hello') || lowerMessage.includes('namaste') || lowerMessage.includes('ho')) {
+      await simulateTyping("Namaste! 🙏 Thank you for reaching out. For any inquiries, you can use our contact section or reach us directly on WhatsApp at 9842781044. We're here to help! 😊")
+    } else if (lowerMessage.includes('inquiry') || lowerMessage.includes('question') || lowerMessage.includes('help')) {
+      await simulateTyping("For any inquiries, please use our contact section or reach us directly on WhatsApp at 9842781044. We'll be happy to assist you! 📱")
     } else {
-      await simulateTyping('Thank you for your message! For the best assistance, please visit our Contact Us section or reach us on WhatsApp: +977 9841234567');
+      await simulateTyping("For any inquiries, please use our contact section or reach us directly on WhatsApp at 9842781044. We're here to help! 📱")
     }
-
-    setMessage('');
-  };
+  }
 
   const scrollToContact = () => {
     setIsOpen(false);
     const contactSection = document.getElementById('contact');
     if (contactSection) {
       contactSection.scrollIntoView({ behavior: 'smooth' });
-    }
+    }   
   };
 
   return (

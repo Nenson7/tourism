@@ -77,7 +77,7 @@ const Contact = () => {
               <img 
                 src="/static/info_img/important_numbers.jpg" 
                 alt="Important Contact Numbers" 
-                className="w-full h-[500px] object-cover rounded-lg shadow-lg"
+                className="w-full h-auto rounded-lg shadow-lg"
               />
             </div>
           </motion.div>

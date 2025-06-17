@@ -1,7 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
-import Modal from './Modal'
-import { FaCheckCircle, FaSpinner } from 'react-icons/fa'
+import { FaCheckCircle, FaSpinner, FaWhatsapp } from 'react-icons/fa'
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -30,6 +29,11 @@ const Contact = () => {
       // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 1500))
       
+      // Format message for WhatsApp
+      const whatsappMessage = `New Contact Form Submission:\n\nName: ${formData.name}\nEmail: ${formData.email}\nSubject: ${formData.subject}\nMessage: ${formData.message}`
+      const encodedMessage = encodeURIComponent(whatsappMessage)
+      const whatsappUrl = `https://wa.me/9779841234567?text=${encodedMessage}`
+      
       // Show success modal
       setSubmitStatus('success')
       setIsModalOpen(true)
@@ -41,6 +45,11 @@ const Contact = () => {
         subject: '',
         message: ''
       })
+
+      //Open WhatsApp in a new tab after showing the success animation
+      // setTimeout(() => {
+      //   window.open(whatsappUrl, '_blank')
+      // }, 2000)
     } catch (error) {
       setSubmitStatus('error')
       setIsModalOpen(true)
@@ -160,7 +169,10 @@ const Contact = () => {
                       Sending...
                     </>
                   ) : (
-                    'Send Message'
+                    <>
+                      <FaWhatsapp className="mr-2" />
+                      Send via WhatsApp
+                    </>
                   )}
                 </motion.button>
               </form>
@@ -169,43 +181,65 @@ const Contact = () => {
         </div>
       </div>
 
-      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-        <div className="text-center p-6">
-          {submitStatus === 'success' ? (
-            <>
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <FaCheckCircle className="w-8 h-8 text-green-600" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">Message Sent!</h3>
-              <p className="text-gray-600">
-                Thank you for contacting us. We will get back to you as soon as possible.
-              </p>
-            </>
-          ) : (
-            <>
-              <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">Oops!</h3>
-              <p className="text-gray-600">
-                Something went wrong. Please try again later or contact us directly.
-              </p>
-            </>
-          )}
-          <motion.button
+      <AnimatePresence>
+        {isModalOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm"
             onClick={() => setIsModalOpen(false)}
-            className="mt-6 px-6 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors duration-300"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
           >
-            Close
-          </motion.button>
-        </div>
-      </Modal>
+            <motion.div
+              initial={{ scale: 0.5, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.5, opacity: 0 }}
+              className="bg-white rounded-lg p-6 max-w-sm w-full mx-4"
+              onClick={e => e.stopPropagation()}
+            >
+              {submitStatus === 'success' ? (
+                <motion.div
+                  initial={{ scale: 0.5, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ duration: 0.3 }}
+                  className="flex flex-col items-center"
+                >
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ delay: 0.2, type: "spring", stiffness: 200, damping: 10 }}
+                    className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-3"
+                  >
+                    <FaCheckCircle className="w-6 h-6 text-green-600" />
+                  </motion.div>
+                  <motion.p
+                    initial={{ y: 10, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.3 }}
+                    className="text-lg font-medium text-gray-900"
+                  >
+                    Message Sent!
+                  </motion.p>
+                </motion.div>
+              ) : (
+                <>
+                  <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <svg className="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <p className="text-lg font-medium text-gray-900">Oops!</p>
+                  <p className="text-sm text-gray-600 mt-1">
+                    Something went wrong. Please try again.
+                  </p>
+                </>
+              )}
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   )
 }
 
-export default Contact 
+export default Contact  

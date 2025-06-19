@@ -1,6 +1,4 @@
-import { motion, AnimatePresence } from 'framer-motion'
-import { useState, useEffect } from 'react'
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
+import { motion } from 'framer-motion'
 
 // Animation variants
 const containerVariants = {
@@ -42,58 +40,7 @@ const scrollIndicatorVariants = {
   }
 }
 
-// Hero images array
-const heroImages = [
-  '/static/ilam_tea_garden.jpg',
-  '/static/ilam_tea_factory.jpg',
-  '/static/maipokhari.jpg',
-  '/static/sandakpur.jpg',
-  '/static/panitar_tea_state.jpg',
-  '/static/didi_bahini_jharna.jpg',
-  '/static/gajurmukhi_devi_temple.jpg',
-  '/static/maisthan_temple.jpg',
-  '/static/seti_devi_temple.jpg',
-  '/static/sukilumba_devithan.jpg',
-  '/static/sukilumba_airport.jpg',
-  '/static/gumba_danda.jpg',
-  '/static/mangmalung.jpg',
-  '/static/ilam_durbar.jpg',
-  '/static/ratna_kumar.jpg',
-  '/static/bhalu_dhunga.jpg',
-  '/static/ilam_view_tower.jpg',
-  '/static/narayanthan_temple.jpg',
-  '/static/singhabahini.jpg',
-  '/static/bouddha_park.jpg',
-  '/static/mahabhir_rock_climbing.jpg',
-  '/static/sanu_pathivara_temple.jpg',
-  '/static/siddhithumka.jpg',
-  '/static/sakela_tham.jpg',
-  '/static/bhimsenthan.jpg',
-  '/static/patenagi.jpg',
-  '/static/shree_antu.jpg'
-]
-
 const Hero = () => {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0)
-  const [isLoading, setIsLoading] = useState(true)
-
-  // Auto-advance carousel
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentImageIndex((prev) => (prev + 1) % heroImages.length)
-    }, 5000) // Change image every 5 seconds
-
-    return () => clearInterval(timer)
-  }, [])
-
-  const handlePrevImage = () => {
-    setCurrentImageIndex((prev) => (prev - 1 + heroImages.length) % heroImages.length)
-  }
-
-  const handleNextImage = () => {
-    setCurrentImageIndex((prev) => (prev + 1) % heroImages.length)
-  }
-
   const handleExploreClick = () => {
     const destinationsSection = document.getElementById('featured-destinations')
     if (destinationsSection) {
@@ -103,55 +50,15 @@ const Hero = () => {
 
   return (
     <div id="hero" className="relative h-screen w-full overflow-hidden">
-      {/* Hero Image Carousel */}
-      <div className="absolute inset-0 bg-black">
-        <AnimatePresence initial={false}>
-          <motion.div
-            key={currentImageIndex}
-            initial={{ x: 1000, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            exit={{ x: -1000, opacity: 0 }}
-            transition={{ 
-              type: "spring",
-              stiffness: 100,
-              damping: 20,
-              duration: 0.5
-            }}
-            className="absolute inset-0"
-          >
-            <img 
-              src={heroImages[currentImageIndex]}
-              alt="Ilam Scenery"
-              className="h-full w-full object-cover"
-              onLoad={() => setIsLoading(false)}
-            />
-            {/* Blurred background for images that don't match viewport */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/60"></div>
-          </motion.div>
-        </AnimatePresence>
-
-        {/* Navigation Buttons */}
-        <button
-          onClick={handlePrevImage}
-          className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-colors duration-200 backdrop-blur-sm z-20"
-          aria-label="Previous image"
-        >
-          <FaChevronLeft className="w-6 h-6" />
-        </button>
-        <button
-          onClick={handleNextImage}
-          className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-colors duration-200 backdrop-blur-sm z-20"
-          aria-label="Next image"
-        >
-          <FaChevronRight className="w-6 h-6" />
-        </button>
-
-        {/* Loading State */}
-        {isLoading && (
-          <div className="absolute inset-0 flex items-center justify-center bg-black/50">
-            <div className="h-12 w-12 animate-spin rounded-full border-4 border-white border-t-transparent"></div>
-          </div>
-        )}
+      {/* Hero Image */}
+      <div className="absolute inset-0">
+        <img 
+          src="/static/sandakpur.jpg"
+          alt="Sandakpur Ilam"
+          className="h-full w-full object-cover"
+        />
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/60"></div>
       </div>
 
       {/* Content */}

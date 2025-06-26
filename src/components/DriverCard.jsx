@@ -1,12 +1,12 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
-import { FaStar, FaCar, FaLanguage } from 'react-icons/fa';
+import { FaStar, FaCar, FaLanguage, FaUser, FaMapMarkerAlt, FaPhone } from 'react-icons/fa';
 import Modal from './Modal';
 import ImageGallery from './ImageGallery';
 
 const DriverCard = ({ driver }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { name, photo, experience, vehicleType, rating, reviews, basePrice, routes, languages, certifications, description } = driver;
+  const { name, photo, address, contact, vehicleType, numberPlate } = driver;
 
   // Create an array of images (in a real app, this would come from the API)
   const images = [photo, photo, photo];
@@ -20,7 +20,7 @@ const DriverCard = ({ driver }) => {
         viewport={{ once: true }}
       >
         {/* Image Section */}
-        <div className="relative h-64 overflow-hidden">
+        <div className="relative h-48 sm:h-56 lg:h-64 overflow-hidden">
           <img
             src={photo}
             alt={name}
@@ -29,49 +29,38 @@ const DriverCard = ({ driver }) => {
         </div>
 
         {/* Content Section */}
-        <div className="p-4 sm:p-6">
-          <div className="mb-4">
-            <h3 className="text-xl sm:text-2xl font-bold text-gray-800">{name}</h3>
-            <p className="text-sm text-gray-500 mt-1">Experience: {experience}</p>
+        <div className="p-3 sm:p-4 lg:p-6">
+          <div className="mb-3 sm:mb-4">
+            <div className="flex items-center gap-2 mb-2 sm:mb-3">
+              <FaUser className="text-green-600 w-4 h-4 sm:w-5 sm:h-5" />
+              <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800">{name}</h3>
+            </div>
+            
+            <div className="space-y-1.5 sm:space-y-2 mb-3 sm:mb-4">
+              <div className="flex items-center gap-2">
+                <FaMapMarkerAlt className="text-blue-500 w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
+                <p className="text-xs sm:text-sm text-gray-600">{address}</p>
+              </div>
+              
+              <div className="flex items-center gap-2">
+                <FaPhone className="text-green-500 w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
+                <p className="text-xs sm:text-sm text-gray-600">{contact || 'Not available'}</p>
+              </div>
+              
+              <div className="flex items-center gap-2">
+                <FaCar className="text-purple-500 w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
+                <p className="text-xs sm:text-sm text-gray-600">{vehicleType}</p>
+              </div>
+            </div>
           </div>
           
-          <div className="flex items-center gap-4 mb-3">
-            <div className="flex items-center gap-2">
-              <FaStar className="text-yellow-400" />
-              <span className="text-sm">{rating}</span>
-              <span className="text-xs text-gray-500">({reviews} reviews)</span>
+          <div className="mb-4">
+            <div className="bg-blue-100 border-2 border-blue-300 rounded-lg p-3 text-center">
+              <p className="text-xs text-blue-600 mb-1">Number Plate</p>
+              <p className="text-lg font-bold text-blue-800" style={{ fontFamily: 'Noto Sans Devanagari, Arial, sans-serif' }}>
+                {numberPlate}
+              </p>
             </div>
-            <div className="flex items-center gap-2">
-              <FaCar className="text-blue-400" />
-              <span className="text-sm">{vehicleType}</span>
-            </div>
-          </div>
-
-          <div className="flex flex-wrap gap-2 mb-4">
-            {routes.slice(0, 2).map((route, index) => (
-              <span
-                key={index}
-                className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm flex items-center gap-1"
-              >
-                <FaCar className="text-green-500" />
-                {route}
-              </span>
-            ))}
-          </div>
-
-          <div className="flex items-center justify-between mt-4 pt-4 border-t border-gray-100">
-            <div className="flex items-center gap-2">
-              <FaCar className="text-green-500" />
-              <span className="text-sm text-gray-600">Vehicle: {vehicleType}</span>
-            </div>
-            <motion.button
-              onClick={() => setIsModalOpen(true)}
-              className="px-3 py-1.5 bg-green-600 text-white rounded-full hover:bg-green-700 transition-colors duration-300"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Learn More
-            </motion.button>
           </div>
         </div>
       </motion.div>

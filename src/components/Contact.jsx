@@ -46,10 +46,7 @@ const Contact = () => {
         message: ''
       })
 
-      //Open WhatsApp in a new tab after showing the success animation
-      // setTimeout(() => {
-      //   window.open(whatsappUrl, '_blank')
-      // }, 2000)
+
     } catch (error) {
       setSubmitStatus('error')
       setIsModalOpen(true)

@@ -26,20 +26,6 @@ const itemVariants = {
   }
 }
 
-const scrollIndicatorVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    y: [0, 10, 0],
-    transition: {
-      duration: 1.2,
-      repeat: Infinity,
-      delay: 1.2,
-      ease: "easeInOut"
-    }
-  }
-}
-
 const Hero = () => {
   const handleExploreClick = () => {
     const destinationsSection = document.getElementById('featured-destinations')
@@ -98,31 +84,6 @@ const Hero = () => {
           </motion.button>
         </motion.div>
       </div>
-
-      {/* Scroll Indicator */}
-      <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white"
-        variants={scrollIndicatorVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        <div className="flex flex-col items-center">
-          <span className="mb-2 text-sm">Scroll Down</span>
-          <svg
-            className="h-6 w-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M19 14l-7 7m0 0l-7-7m7 7V3"
-            />
-          </svg>
-        </div>
-      </motion.div>
     </div>
   )
 }

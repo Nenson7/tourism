@@ -1,19 +1,38 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 
 const Navigation = ({ isHeroVisible, activeSection, handleNavClick }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const location = useLocation()
+  const navigate = useNavigate()
 
-  const sections = [
+  const homeSections = [
     { id: 'hero', label: 'Home' },
     { id: 'about-ilam', label: 'About Ilam' },
     { id: 'featured-destinations', label: 'Destinations' },
-    { id: 'guides', label: 'Guides' },
-    { id: 'porters', label: 'Porters' },
-    { id: 'drivers', label: 'Drivers' },
     { id: 'map', label: 'Map' },
     { id: 'contact', label: 'Contact' }
   ]
+
+  const routeSections = [
+    { path: '/guides', label: 'Guides' },
+    { path: '/porters', label: 'Porters' },
+    { path: '/drivers', label: 'Drivers' }
+  ]
+
+  // Helper for section navigation
+  const handleSectionNav = (e, id) => {
+    e.preventDefault();
+    if (location.pathname === '/') {
+      // Already on home, just scroll
+      handleNavClick(e, id)
+    } else {
+      // Navigate to home and scroll after navigation
+      navigate(`/#${id}`)
+      setIsMenuOpen(false)
+    }
+  }
 
   return (
     <header className={`fixed w-full top-0 z-50 transition-all duration-300 ${isHeroVisible ? 'backdrop-blur-sm' : 'bg-white shadow-md'}`}>
@@ -24,9 +43,10 @@ const Navigation = ({ isHeroVisible, activeSection, handleNavClick }) => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
         >
-          Visit Ilam
+          <Link to="/" className="hover:text-green-600 transition-colors">
+            Visit Ilam
+          </Link>
         </motion.div>
-
 
         <button 
           className={`md:hidden transition-colors duration-300 ${isHeroVisible ? 'text-white' : 'text-gray-800'} focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 rounded-md`}
@@ -44,16 +64,17 @@ const Navigation = ({ isHeroVisible, activeSection, handleNavClick }) => {
         </button>
 
         <motion.ul 
-          className="hidden md:flex gap-6"
+          className="hidden md:flex gap-6 items-center"
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
         >
-          {sections.map(({ id, label }) => (
+          {/* Section links (scroll) */}
+          {homeSections.map(({ id, label }) => (
             <li key={id}>
-              <a 
-                href={`#${id}`} 
-                onClick={(e) => handleNavClick(e, id)}
+              <Link
+                to={`/#${id}`}
+                onClick={e => handleSectionNav(e, id)}
                 className={`font-medium transition-colors duration-300 ${
                   isHeroVisible 
                     ? 'text-white hover:text-green-300' 
@@ -62,7 +83,25 @@ const Navigation = ({ isHeroVisible, activeSection, handleNavClick }) => {
                 aria-current={activeSection === id ? 'page' : undefined}
               >
                 {label}
-              </a>
+              </Link>
+            </li>
+          ))}
+          {/* Route links (distinct style) */}
+          {routeSections.map(({ path, label }) => (
+            <li key={path}>
+              <Link 
+                to={path}
+                className={`ml-2 px-4 py-2 rounded font-semibold transition-colors duration-300 border border-green-600 ${
+                  location.pathname === path
+                    ? 'bg-green-600 text-white'
+                    : isHeroVisible
+                      ? 'bg-white/10 text-white hover:bg-green-600 hover:text-white'
+                      : 'bg-white text-green-600 hover:bg-green-600 hover:text-white'
+                }`}
+                aria-current={location.pathname === path ? 'page' : undefined}
+              >
+                {label}
+              </Link>
             </li>
           ))}
         </motion.ul>
@@ -83,14 +122,12 @@ const Navigation = ({ isHeroVisible, activeSection, handleNavClick }) => {
               </svg>
             </button>
             <ul className="flex flex-col gap-6">
-              {sections.map(({ id, label }) => (
+              {/* Section links (scroll) */}
+              {homeSections.map(({ id, label }) => (
                 <li key={id}>
-                  <a 
-                    href={`#${id}`} 
-                    onClick={(e) => {
-                      handleNavClick(e, id)
-                      setIsMenuOpen(false)
-                    }}
+                  <Link
+                    to={`/#${id}`}
+                    onClick={e => { handleSectionNav(e, id); setIsMenuOpen(false); }}
                     className={`text-xl font-medium transition-colors duration-300 ${
                       isHeroVisible 
                         ? 'text-white hover:text-green-300' 
@@ -99,7 +136,26 @@ const Navigation = ({ isHeroVisible, activeSection, handleNavClick }) => {
                     aria-current={activeSection === id ? 'page' : undefined}
                   >
                     {label}
-                  </a>
+                  </Link>
+                </li>
+              ))}
+              {/* Route links (distinct style) */}
+              {routeSections.map(({ path, label }) => (
+                <li key={path}>
+                  <Link 
+                    to={path}
+                    onClick={() => setIsMenuOpen(false)}
+                    className={`mt-2 px-4 py-2 rounded font-semibold transition-colors duration-300 border border-green-600 ${
+                      location.pathname === path
+                        ? 'bg-green-600 text-white'
+                        : isHeroVisible
+                          ? 'bg-white/10 text-white hover:bg-green-600 hover:text-white'
+                          : 'bg-white text-green-600 hover:bg-green-600 hover:text-white'
+                    }`}
+                    aria-current={location.pathname === path ? 'page' : undefined}
+                  >
+                    {label}
+                  </Link>
                 </li>
               ))}
             </ul>

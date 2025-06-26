@@ -2,7 +2,7 @@
 
 A modern, responsive website for Ilam Tea Tourism, showcasing the beauty of Ilam's tea gardens and tourism services. Built with React, Tailwind CSS, and Framer Motion.
 
-🌐 [Visit Live Site](https://nenson7.github.io/tourism)
+🌐 [Visit Live Site](https://visitilam.vercel.app)
 
 ## Features
 

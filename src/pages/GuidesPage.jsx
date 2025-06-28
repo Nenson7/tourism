@@ -7,12 +7,12 @@ import GuideCard from '../components/GuideCard'
 function GuidesPage() {
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col">
-      <Navigation 
-        isHeroVisible={false} 
-        activeSection="" 
-        handleNavClick={() => {}} 
+      <Navigation
+        isHeroVisible={false}
+        activeSection=""
+        handleNavClick={() => { }}
       />
-      
+
       <div className="flex-1 pt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-20">
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 mb-6 sm:mb-8 text-center">Guides</h1>

@@ -20,7 +20,7 @@ const DriverCard = ({ driver }) => {
         viewport={{ once: true }}
       >
         {/* Image Section */}
-        <div className="relative h-48 sm:h-56 lg:h-64 overflow-hidden">
+        <div className="relative h-56 sm:h-56 lg:h-64 overflow-hidden">
           <img
             src={photo}
             alt={name}
@@ -35,25 +35,21 @@ const DriverCard = ({ driver }) => {
               <FaUser className="text-green-600 w-4 h-4 sm:w-5 sm:h-5" />
               <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800">{name}</h3>
             </div>
-            
+
             <div className="space-y-1.5 sm:space-y-2 mb-3 sm:mb-4">
               <div className="flex items-center gap-2">
                 <FaMapMarkerAlt className="text-blue-500 w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
                 <p className="text-xs sm:text-sm text-gray-600">{address}</p>
               </div>
-              
+
               <div className="flex items-center gap-2">
                 <FaPhone className="text-green-500 w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
                 <p className="text-xs sm:text-sm text-gray-600">{contact || 'Not available'}</p>
               </div>
-              
-              <div className="flex items-center gap-2">
-                <FaCar className="text-purple-500 w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
-                <p className="text-xs sm:text-sm text-gray-600">{vehicleType}</p>
-              </div>
+
             </div>
           </div>
-          
+
           <div className="mb-4">
             <div className="bg-blue-100 border-2 border-blue-300 rounded-lg p-3 text-center">
               <p className="text-xs text-blue-600 mb-1">Number Plate</p>
@@ -70,10 +66,10 @@ const DriverCard = ({ driver }) => {
           <Modal onClose={() => setIsModalOpen(false)} size="lg">
             <div className="overflow-y-auto">
               <ImageGallery images={images} alt={name} />
-              
+
               <div className="p-6 md:p-8">
                 <h2 className="text-3xl font-bold mb-6">{name}</h2>
-                
+
                 <div className="grid md:grid-cols-2 gap-6 mb-8">
                   <div className="space-y-4">
                     <div>
@@ -88,7 +84,7 @@ const DriverCard = ({ driver }) => {
                       </div>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-center gap-2 bg-gray-50 p-4 rounded-xl">
                     <FaStar className="text-yellow-400 w-8 h-8" />
                     <div>

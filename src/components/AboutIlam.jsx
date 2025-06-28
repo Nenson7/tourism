@@ -107,66 +107,6 @@ const AboutIlam = () => {
             </div>
           </motion.div>
 
-          {/* Biodiversity Section */}
-          <motion.div
-            className="bg-gray-50 rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.1)] p-8 hover:shadow-[0_8px_30px_rgba(0,0,0,0.15)] transition-shadow duration-300"
-            variants={itemVariants}
-          >
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">Biodiversity</h3>
-            <div className="space-y-4">
-              <div>
-                <h4 className="font-semibold text-gray-800 mb-2">Birds</h4>
-                <div className="flex flex-wrap gap-2">
-                  {ilamProfile.biodiversity.birds.map((bird, index) => (
-                    <span key={index} className="bg-green-50 text-green-700 px-3 py-1 rounded-full text-sm">
-                      {bird}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              <div>
-                <h4 className="font-semibold text-gray-800 mb-2">Animals</h4>
-                <div className="flex flex-wrap gap-2">
-                  {ilamProfile.biodiversity.animals.map((animal, index) => (
-                    <span key={index} className="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm">
-                      {animal}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Economy Section */}
-          <motion.div
-            className="bg-gray-50 rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.1)] p-8 hover:shadow-[0_8px_30px_rgba(0,0,0,0.15)] transition-shadow duration-300"
-            variants={itemVariants}
-          >
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">Economy</h3>
-            <div className="space-y-4">
-              <div>
-                <h4 className="font-semibold text-gray-800 mb-2">Main Crops</h4>
-                <div className="flex flex-wrap gap-2">
-                  {ilamProfile.economy.agriculture.mainCrops.map((crop, index) => (
-                    <span key={index} className="bg-yellow-50 text-yellow-700 px-3 py-1 rounded-full text-sm">
-                      {crop}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              <div>
-                <h4 className="font-semibold text-gray-800 mb-2">Famous Products</h4>
-                <div className="flex flex-wrap gap-2">
-                  {ilamProfile.economy.products.famous.map((product, index) => (
-                    <span key={index} className="bg-purple-50 text-purple-700 px-3 py-1 rounded-full text-sm">
-                      {product}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
           {/* Seven A Image Section */}
           <motion.div
             className="col-span-1 lg:col-span-2"
@@ -178,51 +118,6 @@ const AboutIlam = () => {
                 alt="Seven A Tea Garden" 
                 className="w-full h-auto object-cover"
               />
-            </div>
-          </motion.div>
-
-          {/* Culture Section */}
-          <motion.div
-            className="bg-gray-50 rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.1)] p-8 hover:shadow-[0_8px_30px_rgba(0,0,0,0.15)] transition-shadow duration-300"
-            variants={itemVariants}
-          >
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">Culture</h3>
-            <div className="space-y-4">
-              <div>
-                <h4 className="font-semibold text-gray-800 mb-2">Ethnic Groups</h4>
-                <div className="flex flex-wrap gap-2">
-                  {ilamProfile.culture.ethnicGroups.map((group, index) => (
-                    <span key={index} className="bg-red-50 text-red-700 px-3 py-1 rounded-full text-sm">
-                      {group}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              <div>
-                <h4 className="font-semibold text-gray-800 mb-2">Traditional Dances</h4>
-                <div className="flex flex-wrap gap-2">
-                  {ilamProfile.culture.dances.map((dance, index) => (
-                    <span key={index} className="bg-indigo-50 text-indigo-700 px-3 py-1 rounded-full text-sm">
-                      {dance}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Attractions Section */}
-          <motion.div
-            className="bg-gray-50 rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.1)] p-8 hover:shadow-[0_8px_30px_rgba(0,0,0,0.15)] transition-shadow duration-300"
-            variants={itemVariants}
-          >
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">Attractions</h3>
-            <div className="grid grid-cols-2 gap-4">
-              {ilamProfile.attractions.map((attraction, index) => (
-                <div key={index} className="bg-gray-50 p-4 rounded-lg">
-                  <p className="font-medium text-gray-900">{attraction}</p>
-                </div>
-              ))}
             </div>
           </motion.div>
         </motion.div>

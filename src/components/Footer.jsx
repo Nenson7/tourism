@@ -4,7 +4,7 @@ const Footer = () => {
       <div className="container py-6 sm:py-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
           <div>
-            <h3 className="text-lg font-bold mb-3">Visit Ilam</h3>
+            <h3 className="text-lg font-bold mb-3">Guides, Porters and Drivers</h3>
             <p className="text-gray-400 text-sm">
               Discover the beauty of Nepal's tea capital with our local guides and drivers.
             </p>

@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import iconLogo from '/logo.png'
+import iconLogoBlack from '/blk_logo.png'
 
 const Navigation = ({ isHeroVisible, activeSection, handleNavClick }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -39,13 +40,17 @@ const Navigation = ({ isHeroVisible, activeSection, handleNavClick }) => {
     <header className={`fixed w-full top-0 z-50 transition-all duration-300 ${isHeroVisible ? 'backdrop-blur-sm' : 'bg-white shadow-md'}`}>
       <nav className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
         <motion.div
-          className={`text-xl md:text-2xl font-bold transition-colors duration-300 ${isHeroVisible ? 'text-white' : 'text-gray-800'}`}
+          className="transition-all duration-300"
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <Link to="/" className="hover:text-green-600 transition-colors">
-            Visit Ilam
+          <Link to="/" className="block">
+            <img 
+              src={isHeroVisible ? iconLogo : iconLogoBlack} 
+              alt="Visit Ilam" 
+              className="h-8 md:h-10 w-auto"
+            />
           </Link>
         </motion.div>
 

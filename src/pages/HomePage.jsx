@@ -11,17 +11,7 @@ import Map from '../components/Map'
 import Footer from '../components/Footer'
 import LiveChat from '../components/LiveChat'
 
-// Throttle function for scroll events
-const throttle = (func, limit) => {
-  let inThrottle;
-  return function executedFunction(...args) {
-    if (!inThrottle) {
-      func(...args);
-      inThrottle = true;
-      setTimeout(() => inThrottle = false, limit);
-    }
-  };
-};
+
 
 // Sample data for guides, porters, and drivers
 const guides = [
@@ -149,8 +139,6 @@ function HomePage() {
   const [ilamProfile, setIlamProfile] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState(null)
-  const [isHeroVisible, setIsHeroVisible] = useState(true)
-  const [activeSection, setActiveSection] = useState('hero')
   const location = useLocation()
 
   useEffect(() => {
@@ -169,58 +157,7 @@ function HomePage() {
     loadData();
   }, []);
 
-  // Optimized scroll handler with throttling
-  const handleScroll = useCallback(throttle(() => {
-    const heroSection = document.getElementById('hero');
-    if (heroSection) {
-      const rect = heroSection.getBoundingClientRect();
-      setIsHeroVisible(rect.bottom > window.innerHeight * 0.2);
-    }
 
-    // Get all sections
-    const sections = ['hero', 'about-ilam', 'featured-destinations', 'map', 'contact'];
-    
-    // Find the current section using Intersection Observer
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const sectionId = entry.target.id;
-            setActiveSection(sectionId);
-          }
-        });
-      },
-      {
-        root: null,
-        rootMargin: '-20% 0px -80% 0px',
-        threshold: 0
-      }
-    );
-
-    // Observe all sections
-    sections.forEach(section => {
-      const element = document.getElementById(section);
-      if (element) {
-        observer.observe(element);
-      }
-    });
-
-    // Cleanup observer
-    return () => {
-      sections.forEach(section => {
-        const element = document.getElementById(section);
-        if (element) {
-          observer.unobserve(element);
-        }
-      });
-    };
-  }, 100), []);
-
-  useEffect(() => {
-    handleScroll();
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [handleScroll]);
 
   // Scroll to section if hash is present in URL
   useEffect(() => {
@@ -232,18 +169,13 @@ function HomePage() {
           el.scrollIntoView({ behavior: 'smooth' });
         }
       }, 100); // Wait for DOM to update
+    } else {
+      // Reset to top when no hash is present
+      window.scrollTo(0, 0);
     }
   }, [location.hash]);
 
-  // Memoized navigation click handler
-  const handleNavClick = useCallback((e, section) => {
-    e.preventDefault();
-    const element = document.getElementById(section);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setActiveSection(section);
-    }
-  }, []);
+
 
   const fadeInVariants = {
     hidden: { opacity: 0, y: 20 },

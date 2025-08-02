@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import iconLogo from '/logo.png'
-import iconLogoBlack from '/blk_logo.png'
+import iconLogo from '/logos/logo.png'
+import iconLogoBlack from '/logos/blk_logo.png'
 
 const Navigation = ({ isHeroVisible, activeSection, handleNavClick }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -20,7 +20,8 @@ const Navigation = ({ isHeroVisible, activeSection, handleNavClick }) => {
   const routeSections = [
     { path: '/guides', label: 'Guides' },
     { path: '/porters', label: 'Porters' },
-    { path: '/drivers', label: 'Drivers' }
+    { path: '/drivers', label: 'Drivers' },
+    { path: '/about', label: 'About Us' }
   ]
 
   // Helper for section navigation

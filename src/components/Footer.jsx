@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <footer id="footer" className="bg-gray-900 text-white">
@@ -11,19 +12,20 @@ const Footer = () => {
           </div>
           <div>
             <h4 className="text-md font-semibold mb-3">Quick Links</h4>
-            <ul className="space-y-1 text-sm">
-              <li><a href="#hero" className="text-gray-400 hover:text-white transition-colors duration-300">Home</a></li>
-              <li><a href="#about-ilam" className="text-gray-400 hover:text-white transition-colors duration-300">About Ilam</a></li>
-              <li><a href="#featured-destinations" className="text-gray-400 hover:text-white transition-colors duration-300">Destinations</a></li>
-              <li><a href="#map" className="text-gray-400 hover:text-white transition-colors duration-300">Map</a></li>
-            </ul>
+                         <ul className="space-y-1 text-sm">
+               <li><a href="#hero" className="text-gray-400 hover:text-white transition-colors duration-300">Home</a></li>
+               <li><a href="#about-ilam" className="text-gray-400 hover:text-white transition-colors duration-300">About Ilam</a></li>
+               <li><a href="#featured-destinations" className="text-gray-400 hover:text-white transition-colors duration-300">Destinations</a></li>
+               <li><a href="#map" className="text-gray-400 hover:text-white transition-colors duration-300">Map</a></li>
+               <li><Link to="/about" className="text-gray-400 hover:text-white transition-colors duration-300">About Us</Link></li>
+             </ul>
           </div>
           <div>
             <h4 className="text-md font-semibold mb-3">Services</h4>
             <ul className="space-y-1 text-sm">
-              <li><a href="/guides" className="text-gray-400 hover:text-white transition-colors duration-300">Local Guides (23)</a></li>
-              <li><a href="/drivers" className="text-gray-400 hover:text-white transition-colors duration-300">Drivers (17)</a></li>
-              <li><a href="/porters" className="text-gray-400 hover:text-white transition-colors duration-300">Porters (Coming Soon)</a></li>
+              <li><Link to="/guides" className="text-gray-400 hover:text-white transition-colors duration-300">Local Guides (23)</Link></li>
+              <li><Link to="/drivers" className="text-gray-400 hover:text-white transition-colors duration-300">Drivers (17)</Link></li>
+              <li><Link to="/porters" className="text-gray-400 hover:text-white transition-colors duration-300">Porters (Coming Soon)</Link></li>
             </ul>
           </div>
           <div>
@@ -39,7 +41,7 @@ const Footer = () => {
                 <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
-                <span className="text-gray-400">info@visitilam.com</span>
+                <span className="text-gray-400">info@visitilamm.com</span>
               </li>
             </ul>
           </div>

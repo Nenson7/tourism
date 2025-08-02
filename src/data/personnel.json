@@ -6,7 +6,7 @@
             "contact": "9863563183",
             "remarks": "Redpanda, Forest Guide",
             "bloodGroup": "O+",
-            "photo": "/static/guides/1.JPG"
+            "photo": "/static/guides/1.jpg"
         },
         {
             "name": "Bhimsigeh Rai",
@@ -14,7 +14,7 @@
             "contact": "9744320940",
             "remarks": "Local Guide",
             "bloodGroup": "A+",
-            "photo": "/static/guides/2.JPG"
+            "photo": "/static/guides/2.jpg"
         },
         {
             "name": "Shiba Kumar Rai",
@@ -22,7 +22,7 @@
             "contact": "9701722835",
             "remarks": "Local Guide",
             "bloodGroup": "A+",
-            "photo": "/static/guides/3.JPG"
+            "photo": "/static/guides/3.jpg"
         },
         {
             "name": "Ram Kumar Rai",
@@ -30,7 +30,7 @@
             "contact": "9845498393",
             "remarks": "Local Guide + Homestay",
             "bloodGroup": "A+",
-            "photo": "/static/guides/4.JPG"
+            "photo": "/static/guides/4.jpg"
         },
         {
             "name": "Ganesh Subba",
@@ -38,7 +38,7 @@
             "contact": "",
             "remarks": "Local Guide + Homestay",
             "bloodGroup": "",
-            "photo": "/static/guides/5.JPG"
+            "photo": "/static/guides/5.jpg"
         },
         {
             "name": "Furba Gyalje Sherpa",
@@ -54,7 +54,7 @@
             "contact": "9744336141",
             "remarks": "Local Guide",
             "bloodGroup": "",
-            "photo": "/static/guides/7.JPG"
+            "photo": "/static/guides/7.jpg"
         },
         {
             "name": "Til Bikram Sunuwar",
@@ -62,7 +62,7 @@
             "contact": "9807944002",
             "remarks": "Local Guide",
             "bloodGroup": "",
-            "photo": "/static/guides/8.JPG"
+            "photo": "/static/guides/8.jpg"
         },
         {
             "name": "Hari Dhungel",
@@ -70,7 +70,7 @@
             "contact": "9803740121",
             "remarks": "Framstay + Local Guide",
             "bloodGroup": "",
-            "photo": "/static/guides/9.JPG"
+            "photo": "/static/guides/9.jpg"
         },
         {
             "name": "Laachhe Sherpa",
@@ -78,7 +78,7 @@
             "contact": "9824947160",
             "remarks": "Local Guide + Homestay",
             "bloodGroup": "",
-            "photo": "/static/guides/10.JPG"
+            "photo": "/static/guides/10.jpg"
         },
         {
             "name": "Ram Kumar Gurung",
@@ -86,7 +86,7 @@
             "contact": "9804995856",
             "remarks": "Local Guide",
             "bloodGroup": "O+",
-            "photo": "/static/guides/11.JPG"
+            "photo": "/static/guides/11.jpg"
         },
         {
             "name": "Lakpa Thopgayl",
@@ -94,7 +94,7 @@
             "contact": "9768394889",
             "remarks": "Local Guide",
             "bloodGroup": "",
-            "photo": "/static/guides/12.JPG"
+            "photo": "/static/guides/12.jpg"
         },
         {
             "name": "Puspay Rai",
@@ -102,7 +102,7 @@
             "contact": "9762995677",
             "remarks": "Local Guide",
             "bloodGroup": "",
-            "photo": "/static/guides/13.JPG"
+            "photo": "/static/guides/13.jpg"
         },
         {
             "name": "Dawa Gyalje Sherpa",
@@ -110,7 +110,7 @@
             "contact": "9847796851",
             "remarks": "Local Guide",
             "bloodGroup": "B+",
-            "photo": "/static/guides/14.JPG"
+            "photo": "/static/guides/14.jpg"
         },
         {
             "name": "Sonam Rai",
@@ -118,7 +118,7 @@
             "contact": "9744327760",
             "remarks": "Local Guide + Homestay",
             "bloodGroup": "",
-            "photo": "/static/guides/15.JPG"
+            "photo": "/static/guides/15.jpg"
         },
         {
             "name": "Sabin Limbu",
@@ -134,7 +134,7 @@
             "contact": "9825984442",
             "remarks": "Local Guide + Homestay + Driver",
             "bloodGroup": "A+",
-            "photo": "/static/guides/17.JPG"
+            "photo": "/static/guides/17.jpg"
         },
         {
             "name": "Prasan Rai",
@@ -142,7 +142,7 @@
             "contact": "9824900323",
             "remarks": "Local Guide",
             "bloodGroup": "A+",
-            "photo": "/static/guides/18.JPG"
+            "photo": "/static/guides/18.jpg"
         },
         {
             "name": "Prabesh Tamang",
@@ -166,7 +166,7 @@
             "contact": "9818808487",
             "remarks": "Local Guide",
             "bloodGroup": "A+",
-            "photo": "/static/guides/21.JPG"
+            "photo": "/static/guides/21.jpg"
         },
         {
             "name": "Mousam Rai",
@@ -174,7 +174,7 @@
             "contact": "9843961652",
             "remarks": "Local Guide + Homestay",
             "bloodGroup": "B+",
-            "photo": "/static/guides/22.JPG"
+            "photo": "/static/guides/22.jpg"
         },
         {
             "name": "Sabin Tamang",
@@ -182,7 +182,7 @@
             "contact": "9847163953",
             "remarks": "Local Guide + Homestay",
             "bloodGroup": "",
-            "photo": "/static/guides/23.JPG"
+            "photo": "/static/guides/23.jpg"
         }
     ],
     "drivers": [
@@ -191,119 +191,119 @@
             "address": "Ilam-5",
             "contact": "9842675817",
             "numberPlate": "बा १ पा १२३४",
-            "photo": "/static/drivers/1.JPG"
+            "photo": "/static/drivers/1.jpg"
         },
         {
             "name": "Bhim Bahadur Jogi",
             "address": "Ilam-5",
             "contact": "9842686762",
             "numberPlate": "बा १ पा १२३५",
-            "photo": "/static/drivers/2.JPG"
+            "photo": "/static/drivers/2.jpg"
         },
         {
             "name": "Arjun Gurung",
             "address": "Ilam-5",
             "contact": "9819105090",
             "numberPlate": "को १ च २३२१",
-            "photo": "/static/drivers/3.JPG"
+            "photo": "/static/drivers/3.jpg"
         },
         {
             "name": "Gyaljen Sherpa",
             "address": "Ilam-6",
             "contact": "9844692400",
             "numberPlate": "बा २ पा च २१२१",
-            "photo": "/static/drivers/4.JPG"
+            "photo": "/static/drivers/4.jpg"
         },
         {
             "name": "Rupesh Gurung",
             "address": "Sandakpur-2",
             "contact": "9844613228",
             "numberPlate": "मे १ ह ३२६१",
-            "photo": "/static/drivers/5.JPG"
+            "photo": "/static/drivers/5.jpg"
         },
         {
             "name": "Saujan Gurung",
             "address": "Sandakpur-2",
             "contact": "9842127366",
             "numberPlate": "मे १ ह २१७",
-            "photo": "/static/drivers/6.JPG"
+            "photo": "/static/drivers/6.jpg"
         },
         {
             "name": "Bishal Rai",
             "address": "Sandakpur-4",
             "contact": "9823586025",
             "numberPlate": "बा १ पा च ६२३४",
-            "photo": "/static/drivers/7.JPG"
+            "photo": "/static/drivers/7.jpg"
         },
         {
             "name": "Aayush Rai",
             "address": "Sandakpur-4",
             "contact": "9817004600",
             "numberPlate": "मे १ च ४८४२",
-            "photo": "/static/drivers/8.JPG"
+            "photo": "/static/drivers/8.jpg"
         },
         {
             "name": "Prabin Khatowada",
             "address": "Sandakpur-5",
             "contact": "9815169757",
             "numberPlate": "बा १ च २२८",
-            "photo": "/static/drivers/9.JPG"
+            "photo": "/static/drivers/9.jpg"
         },
         {
             "name": "Tulsi Bhandari",
             "address": "Sandakpur-5",
             "contact": "9860285465",
             "numberPlate": "",
-            "photo": "/static/drivers/10.JPG"
+            "photo": "/static/drivers/10.jpg"
         },
         {
             "name": "Pema Chhiring Sherpa",
             "address": "Sandakpur-5",
             "contact": "9769797004",
             "numberPlate": "बग ११ च ७४२४",
-            "photo": "/static/drivers/11.JPG"
+            "photo": "/static/drivers/11.jpg"
         },
         {
             "name": "Bikesh Subba Phago",
             "address": "Sandakpur-1",
             "contact": "9763706377",
             "numberPlate": "मे १ ह ५३३",
-            "photo": "/static/drivers/12.JPG"
+            "photo": "/static/drivers/12.jpg"
         },
         {
             "name": "Tika Gurung",
             "address": "Sandakpur-5",
             "contact": "9842627055",
             "numberPlate": "झ १ च १२७५",
-            "photo": "/static/drivers/13.JPG"
+            "photo": "/static/drivers/13.jpg"
         },
         {
             "name": "Lakpa Sherpa",
             "address": "Ilam-7",
             "contact": "9842627579",
             "numberPlate": "",
-            "photo": "/static/drivers/14.JPG"
+            "photo": "/static/drivers/14.jpg"
         },
         {
             "name": "Pasang Dawa Sherpa",
             "address": "Sandakpur-4",
             "contact": "9865484474",
             "numberPlate": "",
-            "photo": "/static/drivers/15.JPG"
+            "photo": "/static/drivers/15.jpg"
         },
         {
             "name": "Nikesh Kafle",
             "address": "Ilam-5",
             "contact": "9842768888",
             "numberPlate": "",
-            "photo": "/static/drivers/16.JPG"
+            "photo": "/static/drivers/16.jpg"
         },
         {
             "name": "Dipesh Rai",
             "address": "FA.GA.PA.-5",
             "contact": "9746216368",
             "numberPlate": "",
-            "photo": "/static/drivers/17.JPG"
+            "photo": "/static/drivers/17.jpg"
         }
     ]
 }

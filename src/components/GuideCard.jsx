@@ -14,7 +14,7 @@ const GuideCard = ({ guide }) => {
   return (
     <>
       <motion.div
-        className="group relative overflow-hidden rounded-xl bg-white shadow-lg hover:shadow-xl transition-all duration-300"
+        className="group relative overflow-hidden rounded-xl bg-white shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -24,7 +24,7 @@ const GuideCard = ({ guide }) => {
           <img
             src={photo}
             alt={name}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-90"
+            className="w-full h-full object-cover"
           />
         </div>
 

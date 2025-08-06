@@ -1,32 +1,41 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 
+import Navigation from '../components/Navigation'
+import Footer from '../components/Footer'
+import LiveChat from '../components/LiveChat'
+
 const AboutUsPage = () => {
   const organizationStructure = [
     {
       title: "President",
-      name: "Arjin Gurung",
-      role: "Club President"
+      name: "Arjun Gurung",
+      role: "Club President",
+      image: "/static/drivers/3.jpg"
     },
     {
       title: "Vice-President", 
       name: "Lakpa Sherpa",
-      role: "Club Vice-President"
+      role: "Club Vice-President",
+      image: "/static/drivers/14.jpg"
     },
     {
       title: "Sachiv",
       name: "Nikesh Kafle", 
-      role: "Club Secretary"
+      role: "Club Secretary",
+      image: "/static/drivers/16.jpg"
     },
     {
       title: "Saha-Sachiv",
       name: "Ikashahang Nengwan",
-      role: "Assistant Secretary"
+      role: "Assistant Secretary",
+      image: "/static/ratna_kumar.jpg"
     },
     {
       title: "Project Coordinator",
       name: "Prashant Giri",
-      role: "Project Coordinator"
+      role: "Project Coordinator",
+      image: "/static/ratna_kumar.jpg"
     }
   ]
 
@@ -38,34 +47,41 @@ const AboutUsPage = () => {
     },
     {
       name: "Nepal Tourism Board", 
-      image: "/logos/government/nepal-tourism-logo.png",
+      image: "/logos/government/nepal-tourism-logo.jpg",
       alt: "Nepal Tourism Board Logo"
     },
     {
       name: "Ilam Municipality",
-      image: "/logos/government/ilam-municipality-logo.png", 
+      image: "/logos/government/ilam-municipality-logo.jpeg", 
       alt: "Ilam Municipality Logo"
     },
     {
       name: "Tourism Office Kakarvita",
-      image: "/logos/government/kakarvita-tourism-logo.png",
+      image: "/logos/government/nepal-government-logo.png",
       alt: "Tourism Office Kakarvita Logo"
     },
     {
       name: "Sandakpur Rural Municipality",
-      image: "/logos/government/sandakpur-rural-logo.png",
+      image: "/logos/government/nepal-government-logo.png",
       alt: "Sandakpur Rural Municipality Logo"
     },
     {
       name: "Ilam District",
-      image: "/logos/government/ilam-district-logo.png",
+      image: "/logos/government/ilam-municipality-logo.jpeg",
       alt: "Ilam District Logo"
     }
   ]
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-20">
-      <div className="container mx-auto px-4 py-8">
+    <div className="min-h-screen bg-gray-50 flex flex-col">
+      <Navigation 
+        isHeroVisible={false} 
+        activeSection="" 
+        handleNavClick={() => {}} 
+      />
+      
+      <div className="flex-1 pt-20">
+        <div className="container mx-auto px-4 py-8">
         {/* Header */}
         <motion.div 
           className="text-center mb-12"
@@ -94,26 +110,35 @@ const AboutUsPage = () => {
               Guide, Porter & Driver Club
             </h2>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {organizationStructure.map((member, index) => (
                 <motion.div
                   key={index}
-                  className="bg-gradient-to-br from-green-50 to-blue-50 rounded-lg p-6 text-center border border-green-200"
+                  className="bg-gradient-to-br from-green-50 to-blue-50 rounded-xl p-8 text-center border border-green-200"
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
                   whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
                 >
-                  <div className="w-16 h-16 bg-green-500 rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <span className="text-white text-xl font-bold">
+                  <div className="w-40 h-40 bg-green-500 rounded-full mx-auto mb-6 flex items-center justify-center overflow-hidden">
+                    <img 
+                      src={member.image} 
+                      alt={member.name}
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                        e.target.nextSibling.style.display = 'flex';
+                      }}
+                    />
+                    <span className="text-white text-2xl font-bold hidden">
                       {member.name.split(' ').map(n => n[0]).join('')}
                     </span>
                   </div>
-                  <h3 className="text-lg font-semibold text-gray-800 mb-1">
+                  <h3 className="text-xl font-semibold text-gray-800 mb-2">
                     {member.title}
                   </h3>
-                  <p className="text-green-600 font-medium">{member.name}</p>
-                  <p className="text-sm text-gray-600 mt-2">{member.role}</p>
+                  <p className="text-green-600 font-medium text-lg">{member.name}</p>
+                  <p className="text-base text-gray-600 mt-3">{member.role}</p>
                 </motion.div>
               ))}
             </div>
@@ -212,7 +237,11 @@ const AboutUsPage = () => {
             Back to Home
           </Link>
         </motion.div>
+        </div>
       </div>
+      
+      <Footer />
+      <LiveChat />
     </div>
   )
 }

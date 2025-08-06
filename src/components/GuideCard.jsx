@@ -1,15 +1,11 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
-import { FaStar, FaLanguage, FaMapMarkerAlt, FaPhone, FaUser, FaTint, FaInfoCircle } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaPhone, FaUser, FaTint, FaInfoCircle } from 'react-icons/fa';
 import Modal from './Modal';
-import ImageGallery from './ImageGallery';
 
 const GuideCard = ({ guide }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { name, photo, address, contact, remarks, bloodGroup } = guide;
-
-  // Create an array of images (in a real app, this would come from the API)
-  const images = [photo, photo, photo];
 
   return (
     <>

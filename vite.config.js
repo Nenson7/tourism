@@ -30,11 +30,19 @@ export default defineConfig({
                     vendor: ['react', 'react-dom'],
                     router: ['react-router-dom'],
                     icons: ['react-icons'],
-                    maps: ['leaflet', 'react-leaflet']
+                    maps: ['leaflet', 'react-leaflet'],
+                    animations: ['framer-motion']
                 }
             }
         },
-        chunkSizeWarningLimit: 1000
+        chunkSizeWarningLimit: 1000,
+        minify: 'terser',
+        terserOptions: {
+            compress: {
+                drop_console: true,
+                drop_debugger: true
+            }
+        }
     }
 })
 

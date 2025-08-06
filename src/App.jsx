@@ -32,44 +32,6 @@ function AppContent() {
       const rect = heroSection.getBoundingClientRect();
       setIsHeroVisible(rect.bottom > window.innerHeight * 0.2);
     }
-
-    // Get all sections
-    const sections = ['hero', 'about-ilam', 'featured-destinations', 'map', 'contact'];
-    
-    // Find the current section using Intersection Observer
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const sectionId = entry.target.id;
-            setActiveSection(sectionId);
-          }
-        });
-      },
-      {
-        root: null,
-        rootMargin: '-20% 0px -80% 0px',
-        threshold: 0
-      }
-    );
-
-    // Observe all sections
-    sections.forEach(section => {
-      const element = document.getElementById(section);
-      if (element) {
-        observer.observe(element);
-      }
-    });
-
-    // Cleanup observer
-    return () => {
-      sections.forEach(section => {
-        const element = document.getElementById(section);
-        if (element) {
-          observer.unobserve(element);
-        }
-      });
-    };
   }, 100), []);
 
   useEffect(() => {

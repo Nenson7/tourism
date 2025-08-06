@@ -1,23 +1,6 @@
-import { motion, AnimatePresence } from 'framer-motion';
-import { useState, memo, useCallback, useMemo } from 'react';
-import { 
-  FaMapMarkerAlt, 
-  FaCalendarAlt, 
-  FaMountain, 
-  FaInfoCircle, 
-  FaUsers, 
-  FaIndustry, 
-  FaLeaf, 
-  FaChevronLeft, 
-  FaChevronRight,
-  FaClock,
-  FaMoneyBillWave,
-  FaUserFriends,
-  FaStar
-} from 'react-icons/fa';
-import ImageWithPlaceholder from './ImageWithPlaceholder';
+import { motion } from 'framer-motion';
+import { useState, memo } from 'react';
 import Modal from './Modal';
-import ImageGallery from './ImageGallery';
 
 // Motion variants for animations
 const cardVariants = {
@@ -33,53 +16,17 @@ const cardVariants = {
   }
 };
 
-const buttonVariants = {
-  hover: { scale: 1.05 },
-  tap: { scale: 0.98 }
-};
-
-// Default image if none provided
-const DEFAULT_IMAGE = 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=60';
-
 const DestinationCard = memo(({ destination = {} }) => {
   // Provide default values for all required properties
   const {
     name = 'Destination',
-    description = 'No description available',
-    image = DEFAULT_IMAGE,
+    image = 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=60',
     details = {
-      distance: 'Not specified',
-      bestSeason: 'Any time',
-      altitude: 'Not specified',
-      significance: 'Not specified'
-    },
-    reviews = 0,
-    rating = 0
+      bestSeason: 'Any time'
+    }
   } = destination;
 
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  // Create an array of images with similar alternatives if not provided
-  const images = useMemo(() => {
-    try {
-      return [
-        image,
-        `https://images.unsplash.com/photo-${image.split('photo-')[1].split('?')[0]}?w=1280&h=720&q=80`,
-        DEFAULT_IMAGE
-      ];
-    } catch (error) {
-      return [image, DEFAULT_IMAGE, DEFAULT_IMAGE];
-    }
-  }, [image]);
-
-  const nextSlide = useCallback(() => {
-    setCurrentSlide((prev) => (prev + 1) % images.length);
-  }, [images.length]);
-
-  const prevSlide = useCallback(() => {
-    setCurrentSlide((prev) => (prev - 1 + images.length) % images.length);
-  }, [images.length]);
 
   return (
     <>

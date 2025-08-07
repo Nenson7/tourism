@@ -1,5 +1,4 @@
-import { useState, useEffect } from 'react';
-import { generateImageSrcset, generateSizes } from '../utils/imageOptimization';
+import React from 'react';
 
 const OptimizedImage = ({ 
     src, 
@@ -12,78 +11,24 @@ const OptimizedImage = ({
     priority = false,
     ...props 
 }) => {
-    const [imageSrc, setImageSrc] = useState('');
-    const [srcset, setSrcset] = useState({ webp: '', avif: '', original: '' });
-    const [isLoaded, setIsLoaded] = useState(false);
-    const [hasError, setHasError] = useState(false);
-
-    useEffect(() => {
-        if (!src) return;
-
-        // Generate optimized image paths and srcsets
-        const generatedSrcset = generateImageSrcset(src);
-        setSrcset(generatedSrcset);
-        setImageSrc(src);
-    }, [src]);
-
-    const handleLoad = () => {
-        setIsLoaded(true);
-        onLoad?.();
-    };
-
-    const handleError = (error) => {
-        setHasError(true);
-        onError?.(error);
-    };
-
-    // Generate sizes attribute if not provided
-    const sizesAttr = sizes || generateSizes({
-        mobile: '100vw',
-        tablet: '50vw',
-        desktop: '33vw'
-    });
-
-    if (hasError) {
+    if (!src) {
         return (
             <div className={`bg-gray-200 flex items-center justify-center ${className}`} {...props}>
-                <span className="text-gray-500 text-sm">Image not available</span>
+                <span className="text-gray-500 text-sm">No image provided</span>
             </div>
         );
     }
 
     return (
-        <picture className={className}>
-            {/* AVIF format - best compression */}
-            {srcset.avif && (
-                <source
-                    type="image/avif"
-                    srcSet={srcset.avif}
-                    sizes={sizesAttr}
-                />
-            )}
-            
-            {/* WebP format - good compression */}
-            {srcset.webp && (
-                <source
-                    type="image/webp"
-                    srcSet={srcset.webp}
-                    sizes={sizesAttr}
-                />
-            )}
-            
-            {/* Original format as fallback */}
-            <img
-                src={imageSrc}
-                alt={alt}
-                className={`${className} ${isLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-300`}
-                loading={priority ? 'eager' : loading}
-                fetchPriority={priority ? 'high' : 'auto'}
-                decoding="async"
-                onLoad={handleLoad}
-                onError={handleError}
-                {...props}
-            />
-        </picture>
+        <img
+            src={src}
+            alt={alt}
+            className={className}
+            loading={priority ? 'eager' : loading}
+            onLoad={onLoad}
+            onError={onError}
+            {...props}
+        />
     );
 };
 

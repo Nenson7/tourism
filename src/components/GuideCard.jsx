@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { FaMapMarkerAlt, FaPhone, FaUser, FaTint, FaInfoCircle } from 'react-icons/fa';
 import Modal from './Modal';
+import OptimizedImage from './OptimizedImage';
 
 const GuideCard = ({ guide }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -17,10 +18,11 @@ const GuideCard = ({ guide }) => {
       >
         {/* Image Section */}
         <div className="relative h-72 sm:h-76 lg:h-80 overflow-hidden">
-          <img
+          <OptimizedImage
             src={photo}
             alt={name}
             className="w-full h-full object-cover"
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
           />
         </div>
 

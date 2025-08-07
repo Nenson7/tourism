@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import OptimizedImage from './OptimizedImage'
 
 // Animation variants
 const containerVariants = {
@@ -38,10 +39,12 @@ const Hero = () => {
     <div id="hero" className="relative h-screen w-full overflow-hidden">
       {/* Hero Image */}
       <div className="absolute inset-0">
-        <img 
+        <OptimizedImage 
           src="/static/sandakpur.jpg"
           alt="Sandakpur Ilam"
           className="h-full w-full object-cover"
+          priority={true}
+          sizes="100vw"
         />
         {/* Overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/60"></div>

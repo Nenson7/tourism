@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { FaUser, FaMapMarkerAlt, FaPhone } from 'react-icons/fa';
+import OptimizedImage from './OptimizedImage';
 
 const DriverCard = ({ driver }) => {
   const { name, photo, address, contact, numberPlate } = driver;
@@ -14,10 +15,11 @@ const DriverCard = ({ driver }) => {
       >
         {/* Image Section */}
         <div className="relative h-72 sm:h-76 lg:h-80 overflow-hidden">
-          <img
+          <OptimizedImage
             src={photo}
             alt={name}
             className="w-full h-full object-cover"
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
           />
         </div>
 

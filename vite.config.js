@@ -6,15 +6,57 @@ export default defineConfig({
     plugins: [
         react(),
         viteSharp({
-            include: ['public/static/**/*.{jpg,jpeg,png}'], // your images
-            jpeg: { quality: 75 },
-            webp: true, // also generate .webp versions
+            include: [
+                'public/static/**/*.{jpg,jpeg,png}',
+                'public/logos/**/*.{jpg,jpeg,png}',
+                'public/markers/**/*.{jpg,jpeg,png}'
+            ],
+            jpeg: { 
+                quality: 70, // 70% compression as requested
+                progressive: true,
+                mozjpeg: true
+            },
+            png: { 
+                quality: 70,
+                progressive: true,
+                compressionLevel: 9
+            },
+            webp: { 
+                quality: 70,
+                effort: 6,
+                nearLossless: true
+            },
+            avif: { 
+                quality: 70,
+                effort: 9
+            },
             resize: [
                 {
-                    width: 1600,               // prevent large image sizes
-                    withoutEnlargement: true, // don't upscale small images
+                    width: 1920,
+                    height: 1080,
+                    withoutEnlargement: true,
+                    fit: 'inside'
+                },
+                {
+                    width: 1280,
+                    height: 720,
+                    withoutEnlargement: true,
+                    fit: 'inside'
+                },
+                {
+                    width: 800,
+                    height: 600,
+                    withoutEnlargement: true,
+                    fit: 'inside'
+                },
+                {
+                    width: 400,
+                    height: 300,
+                    withoutEnlargement: true,
+                    fit: 'inside'
                 }
-            ]
+            ],
+            format: ['webp', 'avif', 'original']
         })
     ],
     base: "/",

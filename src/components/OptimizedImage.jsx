@@ -16,7 +16,6 @@ const OptimizedImage = ({
     const [srcset, setSrcset] = useState({ webp: '', avif: '', original: '' });
     const [isLoaded, setIsLoaded] = useState(false);
     const [hasError, setHasError] = useState(false);
-    const [useOptimized, setUseOptimized] = useState(true);
 
     useEffect(() => {
         if (!src) return;
@@ -33,15 +32,6 @@ const OptimizedImage = ({
     };
 
     const handleError = (error) => {
-        console.error('Image failed to load:', src, error);
-        
-        // If optimized version failed, try original
-        if (useOptimized) {
-            setUseOptimized(false);
-            setHasError(false);
-            return;
-        }
-        
         setHasError(true);
         onError?.(error);
     };
@@ -58,21 +48,6 @@ const OptimizedImage = ({
             <div className={`bg-gray-200 flex items-center justify-center ${className}`} {...props}>
                 <span className="text-gray-500 text-sm">Image not available</span>
             </div>
-        );
-    }
-
-    // If optimized versions failed, just use the original image
-    if (!useOptimized) {
-        return (
-            <img
-                src={imageSrc}
-                alt={alt}
-                className={`${className} ${isLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-300`}
-                loading={priority ? 'eager' : loading}
-                onLoad={handleLoad}
-                onError={handleError}
-                {...props}
-            />
         );
     }
 
@@ -102,6 +77,8 @@ const OptimizedImage = ({
                 alt={alt}
                 className={`${className} ${isLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-300`}
                 loading={priority ? 'eager' : loading}
+                fetchPriority={priority ? 'high' : 'auto'}
+                decoding="async"
                 onLoad={handleLoad}
                 onError={handleError}
                 {...props}

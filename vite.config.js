@@ -82,9 +82,19 @@ export default defineConfig({
         terserOptions: {
             compress: {
                 drop_console: true,
-                drop_debugger: true
+                drop_debugger: true,
+                pure_funcs: ['console.log', 'console.info', 'console.debug', 'console.warn']
+            },
+            mangle: {
+                safari10: true
             }
-        }
+        },
+        cssCodeSplit: true,
+        sourcemap: false,
+        target: 'es2015'
+    },
+    optimizeDeps: {
+        include: ['react', 'react-dom', 'framer-motion', 'react-router-dom']
     }
 })
 

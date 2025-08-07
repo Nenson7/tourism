@@ -2,8 +2,10 @@
 export const generateImageSrcset = (originalSrc, sizes = [400, 800, 1280, 1920]) => {
     if (!originalSrc) return { webp: '', avif: '', original: '' };
 
-    const basePath = originalSrc.replace(/\.(jpg|jpeg|png)$/i, '');
-    const extension = originalSrc.match(/\.(jpg|jpeg|png)$/i)?.[1]?.toLowerCase() || 'jpg';
+    // Handle both absolute and relative paths
+    const normalizedSrc = originalSrc.startsWith('/') ? originalSrc : `/${originalSrc}`;
+    const basePath = normalizedSrc.replace(/\.(jpg|jpeg|png)$/i, '');
+    const extension = normalizedSrc.match(/\.(jpg|jpeg|png)$/i)?.[1]?.toLowerCase() || 'jpg';
 
     const srcset = sizes.map(size => {
         const webpPath = `${basePath}-${size}.webp`;

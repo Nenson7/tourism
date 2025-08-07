@@ -7,6 +7,8 @@ import GuidesPage from './pages/GuidesPage'
 import PortersPage from './pages/PortersPage'
 import DriversPage from './pages/DriversPage'
 import AboutUsPage from './pages/AboutUsPage'
+import ImageTest from './components/ImageTest'
+import SimpleImageTest from './components/SimpleImageTest'
 
 // Throttle function for scroll events
 const throttle = (func, limit) => {
@@ -74,6 +76,8 @@ function AppContent() {
         <Route path="/porters" element={<PortersPage />} />
         <Route path="/drivers" element={<DriversPage />} />
         <Route path="/about" element={<AboutUsPage />} />
+        <Route path="/test-images" element={<ImageTest />} />
+        <Route path="/simple-test" element={<SimpleImageTest />} />
       </Routes>
     </div>
   )

@@ -9,8 +9,7 @@
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "optimize-images": "node scripts/optimize-images.js",
-    "optimize-images:watch": "node scripts/optimize-images.js --watch",
-    "verify-images": "node scripts/verify-images.js"
+    "optimize-images:watch": "node scripts/optimize-images.js --watch"
   },
   "dependencies": {
     "framer-motion": "^11.0.3",

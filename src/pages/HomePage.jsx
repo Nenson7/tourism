@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import destinationsData from '../data/destinations.json'
 import ilamProfileData from '../data/ilamProfile.json'
@@ -10,129 +10,6 @@ import Contact from '../components/Contact'
 import Map from '../components/Map'
 import Footer from '../components/Footer'
 import LiveChat from '../components/LiveChat'
-
-
-
-// Sample data for guides, porters, and drivers
-const guides = [
-  {
-    name: 'Ram Gurung',
-    photo: 'https://images.unsplash.com/photo-1542909168-82c3e7fdca5c?w=400',
-    experience: '7+ years',
-    languages: ['English', 'Nepali', 'Hindi'],
-    specialties: ['Trekking', 'Cultural Tours', 'Photography'],
-    rating: 4.9,
-    reviews: 124,
-    certifications: ['Licensed Guide', 'First Aid Certified', 'Mountain Rescue Trained'],
-    basePrice: 50,
-    description: 'Experienced mountain guide with extensive knowledge of Ilam region and its cultural heritage.'
-  },
-  {
-    name: 'Sita Tamang',
-    photo: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400',
-    experience: '5+ years',
-    languages: ['English', 'Nepali'],
-    specialties: ['Tea Garden Tours', 'Nature Walks', 'Bird Watching'],
-    rating: 4.8,
-    reviews: 98,
-    certifications: ['Licensed Guide', 'Bird Watching Expert', 'Tea Culture Specialist'],
-    basePrice: 45,
-    description: 'Specialized in tea garden tours and nature experiences around Ilam.'
-  },
-  {
-    name: 'Hari Thapa',
-    photo: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400',
-    experience: '6+ years',
-    languages: ['English', 'Nepali', 'Japanese'],
-    specialties: ['Adventure Tours', 'Rock Climbing', 'Camping'],
-    rating: 4.7,
-    reviews: 87,
-    certifications: ['Adventure Guide', 'Rock Climbing Instructor', 'Wilderness First Aid'],
-    basePrice: 55,
-    description: 'Adventure specialist with expertise in rock climbing and camping experiences.'
-  }
-];
-
-const porters = [
-  {
-    name: 'Krishna Rai',
-    photo: 'https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?w=400',
-    experience: '4+ years',
-    maxWeight: '25kg',
-    routes: ['Annapurna Circuit', 'Everest Base Camp', 'Sandakphu Trek'],
-    rating: 4.8,
-    reviews: 76,
-    certifications: ['Certified Porter', 'High Altitude Training', 'First Aid Basic'],
-    basePrice: 30,
-    description: 'Experienced porter with excellent knowledge of mountain trails and safety protocols.'
-  },
-  {
-    name: 'Pemba Sherpa',
-    photo: 'https://images.unsplash.com/photo-1546525848-3ce03ca516f6?w=400',
-    experience: '6+ years',
-    maxWeight: '30kg',
-    routes: ['Kanchenjunga Base Camp', 'Makalu Base Camp', 'Ilam Tea Garden Trek'],
-    rating: 4.9,
-    reviews: 92,
-    certifications: ['Senior Porter', 'Mountain Safety', 'Load Management Expert'],
-    basePrice: 35,
-    description: 'Senior porter with extensive experience in high-altitude treks and tea garden routes.'
-  },
-  {
-    name: 'Dawa Tamang',
-    photo: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400',
-    experience: '3+ years',
-    maxWeight: '22kg',
-    routes: ['Mai Pokhari Trek', 'Singalila Ridge', 'Ilam Valley Trek'],
-    rating: 4.7,
-    reviews: 45,
-    certifications: ['Certified Porter', 'Basic First Aid', 'Local Trail Expert'],
-    basePrice: 28,
-    description: 'Knowledgeable porter specializing in Ilam region trails and tea garden routes.'
-  }
-];
-
-const drivers = [
-  {
-    name: 'Rajesh Kumar',
-    photo: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400',
-    experience: '8+ years',
-    vehicleType: 'SUV',
-    routes: ['Ilam City Tour', 'Tea Garden Routes', 'Mountain Viewpoint Circuit'],
-    rating: 4.9,
-    reviews: 156,
-    certifications: ['Professional Driver License', 'Mountain Driving Expert', 'First Aid Certified'],
-    basePrice: 40,
-    languages: ['English', 'Nepali', 'Hindi'],
-    description: 'Professional driver with extensive knowledge of Ilam\'s roads and tourist spots.'
-  },
-  {
-    name: 'Binod Pradhan',
-    photo: 'https://images.unsplash.com/photo-1566492031773-4f4e44671857?w=400',
-    experience: '6+ years',
-    vehicleType: 'Jeep',
-    routes: ['Adventure Trails', 'Off-road Experience', 'Scenic Mountain Routes'],
-    rating: 4.8,
-    reviews: 112,
-    certifications: ['Off-road Driving Expert', 'Vehicle Maintenance', 'Safety Specialist'],
-    basePrice: 45,
-    languages: ['English', 'Nepali'],
-    description: 'Specialized in off-road driving and adventure tours around Ilam.'
-  },
-  {
-    name: 'Sunita Shrestha',
-    photo: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400',
-    experience: '5+ years',
-    vehicleType: 'Van',
-    routes: ['Group Tours', 'City Sightseeing', 'Cultural Circuit'],
-    rating: 4.7,
-    reviews: 89,
-    certifications: ['Professional Driver License', 'Tour Guide', 'Customer Service'],
-    basePrice: 35,
-    languages: ['English', 'Nepali', 'Japanese'],
-    description: 'Experienced driver specializing in group tours and cultural experiences.'
-  }
-];
 
 function HomePage() {
   const [destinations, setDestinations] = useState([])
@@ -157,8 +34,6 @@ function HomePage() {
     loadData();
   }, []);
 
-
-
   // Scroll to section if hash is present in URL
   useEffect(() => {
     if (location.hash) {
@@ -174,8 +49,6 @@ function HomePage() {
       window.scrollTo(0, 0);
     }
   }, [location.hash]);
-
-
 
   const fadeInVariants = {
     hidden: { opacity: 0, y: 20 },

@@ -30,14 +30,9 @@ const itemVariants = {
 }
 
 const AboutIlam = () => {
-  const [expandedSection, setExpandedSection] = useState(null)
   const { ilamProfile } = ilamProfileData
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.1 })
-
-  const toggleSection = (section) => {
-    setExpandedSection(expandedSection === section ? null : section)
-  }
 
   return (
     <section id="about-ilam" className="py-20 bg-gradient-to-b from-gray-100 to-white">

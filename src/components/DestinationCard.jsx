@@ -21,7 +21,7 @@ const DestinationCard = memo(({ destination = {} }) => {
   // Provide default values for all required properties
   const {
     name = 'Destination',
-    image = 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=60',
+    image = '/static/ilam_tea_garden.jpg',
     details = {
       bestSeason: 'Any time'
     }

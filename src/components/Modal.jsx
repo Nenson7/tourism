@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect } from 'react';
 import { FaTimes } from 'react-icons/fa';
+import OptimizedImage from './OptimizedImage';
 
 const overlayVariants = {
   hidden: { opacity: 0 },
@@ -92,11 +93,11 @@ const Modal = ({ isOpen, onClose, destination }) => {
               {/* Left side - Single Image */}
               <div className="lg:w-1/2 h-[35vh] sm:h-[40vh] lg:h-full">
                 <div className="relative h-full w-full bg-gray-900">
-                  <img
+                  <OptimizedImage
                     src={image}
                     alt={name}
                     className="w-full h-full object-cover"
-                    loading="lazy"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
                   />
                 </div>
               </div>

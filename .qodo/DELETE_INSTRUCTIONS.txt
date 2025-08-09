@@ -1,0 +1,8 @@
+Please delete the following files from the repository as part of removing the optimized image component and related scripts:
+
+- src/components/OptimizedImage.jsx
+- src/utils/imageOptimization.js
+- scripts/optimize-images.js
+- IMAGE_OPTIMIZATION.md
+
+These files are no longer referenced in the codebase after the updates.

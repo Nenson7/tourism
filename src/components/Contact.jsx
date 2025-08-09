@@ -1,7 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
 import { FaCheckCircle, FaSpinner, FaWhatsapp } from 'react-icons/fa'
-import OptimizedImage from './OptimizedImage'
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -81,11 +80,10 @@ const Contact = () => {
           >
             <div className="bg-white p-8 rounded-lg shadow-lg">
               <h3 className="text-2xl font-bold text-gray-900 mb-6">Contact Information</h3>
-              <OptimizedImage 
+              <img 
                 src="/static/info_img/important_numbers.jpg" 
                 alt="Important Contact Numbers" 
                 className="w-full h-auto rounded-lg shadow-lg"
-                sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
           </motion.div>

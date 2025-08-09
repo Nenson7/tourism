@@ -10,81 +10,81 @@ import AboutUsPage from './pages/AboutUsPage'
 
 // Throttle function for scroll events
 const throttle = (func, limit) => {
-  let inThrottle;
-  return function executedFunction(...args) {
-    if (!inThrottle) {
-      func(...args);
-      inThrottle = true;
-      setTimeout(() => inThrottle = false, limit);
-    }
-  };
+    let inThrottle;
+    return function executedFunction(...args) {
+        if (!inThrottle) {
+            func(...args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
+        }
+    };
 };
 
 function AppContent() {
-  const [isHeroVisible, setIsHeroVisible] = useState(true)
-  const [activeSection, setActiveSection] = useState('hero')
-  const location = useLocation()
+    const [isHeroVisible, setIsHeroVisible] = useState(true)
+    const [activeSection, setActiveSection] = useState('hero')
+    const location = useLocation()
 
-  // Optimized scroll handler with throttling
-  const handleScroll = useCallback(throttle(() => {
-    const heroSection = document.getElementById('hero');
-    if (heroSection) {
-      const rect = heroSection.getBoundingClientRect();
-      setIsHeroVisible(rect.bottom > window.innerHeight * 0.2);
-    }
-  }, 100), []);
+    // Optimized scroll handler with throttling
+    const handleScroll = useCallback(throttle(() => {
+        const heroSection = document.getElementById('hero');
+        if (heroSection) {
+            const rect = heroSection.getBoundingClientRect();
+            setIsHeroVisible(rect.bottom > window.innerHeight * 0.2);
+        }
+    }, 100), []);
 
-  useEffect(() => {
-    handleScroll();
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [handleScroll]);
+    useEffect(() => {
+        handleScroll();
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [handleScroll]);
 
-  // Reset hero visibility when route changes
-  useEffect(() => {
-    if (location.pathname === '/') {
-      // Reset to top and hero visible when navigating to home
-      window.scrollTo(0, 0);
-      setIsHeroVisible(true);
-      setActiveSection('hero');
-    }
-  }, [location.pathname]);
+    // Reset hero visibility when route changes
+    useEffect(() => {
+        if (location.pathname === '/') {
+            // Reset to top and hero visible when navigating to home
+            window.scrollTo(0, 0);
+            setIsHeroVisible(true);
+            setActiveSection('hero');
+        }
+    }, [location.pathname]);
 
-  // Memoized navigation click handler
-  const handleNavClick = useCallback((e, section) => {
-    e.preventDefault();
-    const element = document.getElementById(section);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setActiveSection(section);
-    }
-  }, []);
+    // Memoized navigation click handler
+    const handleNavClick = useCallback((e, section) => {
+        e.preventDefault();
+        const element = document.getElementById(section);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+            setActiveSection(section);
+        }
+    }, []);
 
-  return (
-    <div className="min-h-screen bg-gray-100">
-      <Navigation 
-        isHeroVisible={isHeroVisible} 
-        activeSection={activeSection} 
-        handleNavClick={handleNavClick} 
-      />
-      
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/guides" element={<GuidesPage />} />
-        <Route path="/porters" element={<PortersPage />} />
-        <Route path="/drivers" element={<DriversPage />} />
-        <Route path="/about" element={<AboutUsPage />} />
-      </Routes>
-    </div>
-  )
+    return (
+        <div className="min-h-screen bg-gray-100">
+            <Navigation
+                isHeroVisible={isHeroVisible}
+                activeSection={activeSection}
+                handleNavClick={handleNavClick}
+            />
+
+            <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/guides" element={<GuidesPage />} />
+                <Route path="/porters" element={<PortersPage />} />
+                <Route path="/drivers" element={<DriversPage />} />
+                <Route path="/about" element={<AboutUsPage />} />
+            </Routes>
+        </div>
+    )
 }
 
 function App() {
-  return (
-    <Router>
-      <AppContent />
-    </Router>
-  )
+    return (
+        <Router>
+            <AppContent />
+        </Router>
+    )
 }
 
 export default App

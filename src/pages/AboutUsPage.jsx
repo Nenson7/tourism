@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import Navigation from '../components/Navigation'
 import Footer from '../components/Footer'
 import LiveChat from '../components/LiveChat'
-import OptimizedImage from '../components/OptimizedImage'
 
 const AboutUsPage = () => {
   const organizationStructure = [
@@ -122,11 +121,10 @@ const AboutUsPage = () => {
                   whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
                 >
                   <div className="w-40 h-40 bg-green-500 rounded-full mx-auto mb-6 flex items-center justify-center overflow-hidden">
-                    <OptimizedImage 
+                    <img 
                       src={member.image} 
                       alt={member.name}
                       className="w-full h-full object-cover"
-                      sizes="160px"
                     />
                     <span className="text-white text-2xl font-bold hidden">
                       {member.name.split(' ').map(n => n[0]).join('')}
@@ -166,11 +164,10 @@ const AboutUsPage = () => {
                    whileHover={{ y: -5, transition: { duration: 0.2 } }}
                  >
                    <div className="w-16 h-16 bg-gray-200 rounded-lg mb-3 flex items-center justify-center">
-                     <OptimizedImage 
+                     <img 
                        src={logo.image} 
                        alt={logo.alt}
                        className="w-full h-full object-contain p-2"
-                       sizes="64px"
                      />
                      <div className="hidden w-full h-full items-center justify-center">
                        <span className="text-gray-500 text-xs text-center font-medium">

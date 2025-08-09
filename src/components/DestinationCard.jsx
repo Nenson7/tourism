@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { useState, memo } from 'react';
 import Modal from './Modal';
-import OptimizedImage from './OptimizedImage';
 
 // Motion variants for animations
 const cardVariants = {
@@ -39,11 +38,10 @@ const DestinationCard = memo(({ destination = {} }) => {
       >
         {/* Image Section */}
         <div className="relative h-64 overflow-hidden">
-          <OptimizedImage
+          <img
             src={image}
             alt={name}
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
           />
         </div>
 

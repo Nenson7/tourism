@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import OptimizedImage from './OptimizedImage'
 
 const Navigation = ({ isHeroVisible, activeSection, handleNavClick }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -46,12 +45,10 @@ const Navigation = ({ isHeroVisible, activeSection, handleNavClick }) => {
           transition={{ duration: 0.5 }}
         >
           <Link to="/" className="block">
-            <OptimizedImage 
+            <img 
               src={isHeroVisible ? '/logos/logo.png' : '/logos/blk_logo.png'} 
               alt="Visit Ilam" 
               className="h-8 md:h-10 w-auto"
-              priority={true}
-              sizes="120px"
             />
           </Link>
         </motion.div>

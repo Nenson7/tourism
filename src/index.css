@@ -59,7 +59,6 @@
   img {
     content-visibility: auto;
     will-change: transform;
-    loading: lazy;
   }
 
   /* Animation performance */

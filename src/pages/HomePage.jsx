@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense, lazy } from 'react'
 import { useLocation } from 'react-router-dom'
 import destinationsData from '../data/destinations.json'
 import ilamProfileData from '../data/ilamProfile.json'
@@ -7,9 +7,10 @@ import Hero from '../components/Hero'
 import AboutIlam from '../components/AboutIlam'
 import DestinationCard from '../components/DestinationCard'
 import Contact from '../components/Contact'
-import Map from '../components/Map'
 import Footer from '../components/Footer'
-import LiveChat from '../components/LiveChat'
+
+const Map = lazy(() => import('../components/Map'))
+const LiveChat = lazy(() => import('../components/LiveChat'))
 
 function HomePage() {
   const [destinations, setDestinations] = useState([])
@@ -117,7 +118,9 @@ function HomePage() {
 
         {/* Map Section */}
         <section id="map" className="py-20 px-4 bg-gray-50">
-          <Map />
+          <Suspense fallback={<div className="min-h-[300px] flex items-center justify-center"><div className="spinner" /></div>}>
+            <Map />
+          </Suspense>
         </section>
 
         {/* Contact Section */}
@@ -127,7 +130,9 @@ function HomePage() {
       </main>
 
       <Footer />
-      <LiveChat />
+      <Suspense fallback={null}>
+        <LiveChat />
+      </Suspense>
     </div>
   )
 }

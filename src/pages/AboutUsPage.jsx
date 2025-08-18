@@ -27,21 +27,21 @@ const AboutUsPage = () => {
     },
     {
       title: "Saha-Sachiv",
-      name: "Ikashahang Nengwan",
+      name: "Ikashahang Nembang",
       role: "Assistant Secretary",
-      image: "/static/ratna_kumar.jpg"
+      image: "/static/person1.jpg"
     },
     {
       title: "Project Coordinator",
       name: "Prashant Giri",
       role: "Project Coordinator",
-      image: "/static/ratna_kumar.jpg"
+      image: "/static/person2.jpg"
     },
     {
       title: "Content Creator",
-      name: "Prashant Giri",
+      name: "Madhav",
       role: "Content Creator",
-      image: "/static/ratna_kumar.jpg"
+      image: "/static/person3.jpg"
     }
   ]
 

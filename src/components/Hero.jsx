@@ -39,7 +39,7 @@ const Hero = () => {
       {/* Hero Image */}
       <div className="absolute inset-0">
         <img 
-          src="/static/sandakpur.jpg"
+          src="/static/sandakpur.webp"
           alt="Sandakpur Ilam"
           className="h-full w-full object-cover"
         />

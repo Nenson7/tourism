@@ -36,6 +36,12 @@ const AboutUsPage = () => {
       name: "Prashant Giri",
       role: "Project Coordinator",
       image: "/static/ratna_kumar.jpg"
+    },
+    {
+      title: "Content Creator",
+      name: "Prashant Giri",
+      role: "Content Creator",
+      image: "/static/ratna_kumar.jpg"
     }
   ]
 

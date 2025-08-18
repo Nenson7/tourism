@@ -9,7 +9,6 @@ import DestinationCard from '../components/DestinationCard'
 import Contact from '../components/Contact'
 import Footer from '../components/Footer'
 
-const Map = lazy(() => import('../components/Map'))
 const LiveChat = lazy(() => import('../components/LiveChat'))
 
 function HomePage() {
@@ -116,15 +115,8 @@ function HomePage() {
           </div>
         </section>
 
-        {/* Map Section */}
-        <section id="map" className="py-20 px-4 bg-gray-50">
-          <Suspense fallback={<div className="min-h-[300px] flex items-center justify-center"><div className="spinner" /></div>}>
-            <Map />
-          </Suspense>
-        </section>
-
         {/* Contact Section */}
-        <section id="contact" className="py-20 px-4 bg-white">
+        <section id="contact" className="py-10 px-4 bg-white">
           <Contact />
         </section>
       </main>

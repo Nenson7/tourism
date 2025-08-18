@@ -11,11 +11,11 @@ const Navigation = ({ isHeroVisible, activeSection, handleNavClick }) => {
     { id: 'hero', label: 'Home' },
     { id: 'about-ilam', label: 'About Ilam' },
     { id: 'featured-destinations', label: 'Destinations' },
-    { id: 'map', label: 'Map' },
     { id: 'contact', label: 'Contact' }
   ]
 
   const routeSections = [
+    { path: '/map', label: 'Map' },
     { path: '/guides', label: 'Guides' },
     { path: '/porters', label: 'Porters' },
     { path: '/drivers', label: 'Drivers' },
@@ -30,13 +30,24 @@ const Navigation = ({ isHeroVisible, activeSection, handleNavClick }) => {
       handleNavClick(e, id)
     } else {
       // Navigate to home and scroll after navigation
-      navigate(`/#${id}`)
+      navigate('/')
+      // Use setTimeout to ensure navigation completes before scrolling
+      setTimeout(() => {
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
       setIsMenuOpen(false)
     }
   }
 
   return (
-    <header className={`fixed w-full top-0 z-50 transition-all duration-300 ${isHeroVisible ? 'backdrop-blur-sm' : 'bg-white shadow-md'}`}>
+    <header className={`fixed w-full top-0 z-50 transition-all duration-300 ${
+      isHeroVisible 
+        ? 'backdrop-blur-sm bg-black/10' 
+        : 'bg-white shadow-md'
+    }`}>
       <nav className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
         <motion.div
           className="transition-all duration-300"
@@ -48,13 +59,15 @@ const Navigation = ({ isHeroVisible, activeSection, handleNavClick }) => {
             <img 
               src={isHeroVisible ? '/logos/logo.png' : '/logos/blk_logo.png'} 
               alt="Visit Ilam" 
-              className="h-8 md:h-10 w-auto"
+              className="h-8 md:h-10 w-auto transition-all duration-300"
             />
           </Link>
         </motion.div>
 
         <button
-          className={`md:hidden transition-colors duration-300 ${isHeroVisible ? 'text-white' : 'text-gray-800'} focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 rounded-md`}
+          className={`md:hidden transition-colors duration-300 ${
+            isHeroVisible ? 'text-white' : 'text-gray-800'
+          } focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 rounded-md`}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Toggle menu"
           aria-expanded={isMenuOpen}
@@ -80,10 +93,15 @@ const Navigation = ({ isHeroVisible, activeSection, handleNavClick }) => {
               <Link
                 to={`/#${id}`}
                 onClick={e => handleSectionNav(e, id)}
-                className={`font-medium transition-colors duration-300 ${isHeroVisible
-                  ? 'text-white hover:text-green-300'
-                  : 'text-gray-800 hover:text-green-600'
-                  } ${activeSection === id ? 'text-green-600 font-bold border-b-2 border-green-600' : ''}`}
+                className={`font-medium transition-colors duration-300 ${
+                  isHeroVisible
+                    ? 'text-white hover:text-green-300'
+                    : 'text-gray-800 hover:text-green-600'
+                } ${
+                  activeSection === id 
+                    ? (isHeroVisible ? 'text-green-300 font-bold border-b-2 border-green-300' : 'text-green-600 font-bold border-b-2 border-green-600')
+                    : ''
+                }`}
                 aria-current={activeSection === id ? 'page' : undefined}
               >
                 {label}
@@ -95,12 +113,13 @@ const Navigation = ({ isHeroVisible, activeSection, handleNavClick }) => {
             <li key={path}>
               <Link
                 to={path}
-                className={`ml-2 px-4 py-2 rounded font-semibold transition-colors duration-300 border border-green-600 ${location.pathname === path
-                  ? 'bg-green-600 text-white'
-                  : isHeroVisible
-                    ? 'bg-white/10 text-white hover:bg-green-600 hover:text-white'
-                    : 'bg-white text-green-600 hover:bg-green-600 hover:text-white'
-                  }`}
+                className={`ml-2 px-4 py-2 rounded font-semibold transition-all duration-300 border border-green-600 ${
+                  location.pathname === path
+                    ? 'bg-green-600 text-white'
+                    : isHeroVisible
+                      ? 'bg-white/10 text-white hover:bg-green-600 hover:text-white backdrop-blur-sm'
+                      : 'bg-white text-green-600 hover:bg-green-600 hover:text-white'
+                }`}
                 aria-current={location.pathname === path ? 'page' : undefined}
               >
                 {label}
@@ -110,13 +129,21 @@ const Navigation = ({ isHeroVisible, activeSection, handleNavClick }) => {
         </motion.ul>
 
         <motion.div
-          className={`md:hidden fixed inset-0 ${isHeroVisible ? 'bg-black/20 backdrop-blur-sm' : 'bg-white'} z-40 transform ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-300 ease-in-out ${!isMenuOpen ? 'pointer-events-none' : ''}`}
+          className={`md:hidden fixed inset-0 ${
+            isHeroVisible ? 'bg-black/20 backdrop-blur-sm' : 'bg-white'
+          } z-40 transform ${
+            isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+          } transition-transform duration-300 ease-in-out ${
+            !isMenuOpen ? 'pointer-events-none' : ''
+          }`}
           initial={{ x: '100%' }}
           animate={{ x: isMenuOpen ? 0 : '100%' }}
         >
           <div className="flex flex-col h-full p-6">
             <button
-              className={`self-end mb-8 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 rounded-md ${isHeroVisible ? 'text-white' : 'text-gray-800'}`}
+              className={`self-end mb-8 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 rounded-md ${
+                isHeroVisible ? 'text-white' : 'text-gray-800'
+              }`}
               onClick={() => setIsMenuOpen(false)}
               aria-label="Close menu"
             >
@@ -130,11 +157,19 @@ const Navigation = ({ isHeroVisible, activeSection, handleNavClick }) => {
                 <li key={id}>
                   <Link
                     to={`/#${id}`}
-                    onClick={e => { handleSectionNav(e, id); setIsMenuOpen(false); }}
-                    className={`text-xl font-medium transition-colors duration-300 ${isHeroVisible
-                      ? 'text-white hover:text-green-300'
-                      : 'text-gray-800 hover:text-green-600'
-                      } ${activeSection === id ? 'text-green-600 font-bold border-b-2 border-green-600' : ''}`}
+                    onClick={e => { 
+                      handleSectionNav(e, id); 
+                      setIsMenuOpen(false); 
+                    }}
+                    className={`text-xl font-medium transition-colors duration-300 ${
+                      isHeroVisible
+                        ? 'text-white hover:text-green-300'
+                        : 'text-gray-800 hover:text-green-600'
+                    } ${
+                      activeSection === id 
+                        ? (isHeroVisible ? 'text-green-300 font-bold border-b-2 border-green-300' : 'text-green-600 font-bold border-b-2 border-green-600')
+                        : ''
+                    }`}
                     aria-current={activeSection === id ? 'page' : undefined}
                   >
                     {label}
@@ -147,12 +182,13 @@ const Navigation = ({ isHeroVisible, activeSection, handleNavClick }) => {
                   <Link
                     to={path}
                     onClick={() => setIsMenuOpen(false)}
-                    className={`mt-2 px-4 py-2 rounded font-semibold transition-colors duration-300 border border-green-600 ${location.pathname === path
-                      ? 'bg-green-600 text-white'
-                      : isHeroVisible
-                        ? 'bg-white/10 text-white hover:bg-green-600 hover:text-white'
-                        : 'bg-white text-green-600 hover:bg-green-600 hover:text-white'
-                      }`}
+                    className={`inline-block mt-2 px-2 py-2 rounded font-semibold transition-all duration-300 border border-green-600 ${
+                      location.pathname === path
+                        ? 'bg-green-600 text-white'
+                        : isHeroVisible
+                          ? 'bg-white/10 text-white hover:bg-green-600 hover:text-white backdrop-blur-sm'
+                          : 'bg-white text-green-600 hover:bg-green-600 hover:text-white'
+                    }`}
                     aria-current={location.pathname === path ? 'page' : undefined}
                   >
                     {label}
@@ -167,4 +203,4 @@ const Navigation = ({ isHeroVisible, activeSection, handleNavClick }) => {
   )
 }
 
-export default Navigation 
+export default Navigation

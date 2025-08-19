@@ -57,7 +57,7 @@ const Navigation = ({ isHeroVisible, activeSection, handleNavClick }) => {
         >
           <Link to="/" className="block">
             <img 
-              src={isHeroVisible ? '/logos/logo.webp' : '/logos/blk_logo.webp'} 
+              src={isHeroVisible ? '/logos/logo-optimized.png' : '/logos/blk_logo-optimized.png'} 
               alt="Visit Ilam" 
               className="h-8 md:h-10 w-auto transition-all duration-300"
             />

@@ -109,7 +109,7 @@ const AboutIlam = () => {
           >
             <div className="bg-gray-50 rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.1)] overflow-hidden hover:shadow-[0_8px_30px_rgba(0,0,0,0.15)] transition-shadow duration-300">
               <img 
-                src="/static/seven_a.webp" 
+                src="/static/seven_a-optimized.jpg" 
                 alt="Seven A Tea Garden" 
                 className="w-full h-auto object-cover"
               />

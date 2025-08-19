@@ -48,7 +48,7 @@ const Footer = () => {
         </div>
         <div className="border-t border-gray-800 mt-6 pt-4 text-center text-gray-400 text-sm">
           <p className="text-green-600 font-bold mb-2">&copy; {new Date().getFullYear()} Visit Ilam. All rights reserved.</p>
-          <p>Created with ❤️ by <a className="text-white" href="https://www.facebook.com/x.nenson">@Nenson</a> & <a className="text-white" href="https://www.facebook.com/21Magh2076">@Purna_rai</a></p>
+          <p>Created with ❤️ by <a target="_blank" className="text-white" href="https://www.facebook.com/x.nenson">@Nenson</a> & <a target="_blank" className="text-white" href="https://www.facebook.com/21Magh2076">@Purna_rai</a></p>
         </div>
       </div>
     </footer>

@@ -28,20 +28,20 @@ const DriverCard = ({ driver }) => {
               <FaUser className="text-green-600 w-3 h-3 sm:w-4 sm:h-4" />
               <h3 className="text-base sm:text-lg lg:text-xl font-bold text-gray-800">{name}</h3>
             </div>
-            
+
             <div className="space-y-1 sm:space-y-1.5 mb-2 sm:mb-3">
               <div className="flex items-center gap-2">
                 <FaMapMarkerAlt className="text-blue-500 w-3 h-3 sm:w-3 sm:h-3 flex-shrink-0" />
                 <p className="text-xs sm:text-sm text-gray-600">{address}</p>
               </div>
-              
+
               <div className="flex items-center gap-2">
                 <FaPhone className="text-green-500 w-3 h-3 sm:w-3 sm:h-3 flex-shrink-0" />
                 <p className="text-xs sm:text-sm text-gray-600">{contact || 'Not available'}</p>
               </div>
             </div>
           </div>
-          
+
           <div className="mb-3">
             <div className="bg-blue-100 border border-blue-300 rounded-lg p-2 text-center">
               <p className="text-xs text-blue-600 mb-1">Number Plate</p>

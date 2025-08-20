@@ -10,6 +10,7 @@ const PortersPage = lazy(() => import('./pages/PortersPage'))
 const DriversPage = lazy(() => import('./pages/DriversPage'))
 const AboutUsPage = lazy(() => import('./pages/AboutUsPage'))
 const MapPage = lazy(() => import('./pages/MapPage'))
+const BlogPage = lazy(() => import('./pages/BlogPage'))
 
 function AppContent() {
 	const [isHeroVisible, setIsHeroVisible] = useState(true); // Start as true since we load at top
@@ -74,7 +75,7 @@ function AppContent() {
 			heroObserverRef.current.observe(heroSection);
 
 			// Section tracking observer
-			const sections = ['hero', 'about-ilam', 'featured-destinations',	 'contact'];
+			const sections = ['hero', 'about-ilam', 'featured-destinations', 'contact'];
 			const sectionElements = sections
 				.map(id => document.getElementById(id))
 				.filter(Boolean);
@@ -163,6 +164,7 @@ function AppContent() {
 				<Routes>
 					<Route path="/" element={<HomePage />} />
 					<Route path="/map" element={<MapPage />} />
+					<Route path="/blog" element={<BlogPage />} />
 					<Route path="/guides" element={<GuidesPage />} />
 					<Route path="/porters" element={<PortersPage />} />
 					<Route path="/drivers" element={<DriversPage />} />

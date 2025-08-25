@@ -54,7 +54,7 @@ const Hero = () => {
                 : 'opacity-0 translate-y-4'
             }`}
           >
-            Welcome to Nepal's Tea Paradise
+            Welcome to Nepal`&apos`s Tea Paradise
           </span>
           <h1 
             className={`mb-6 text-5xl font-bold text-white md:text-6xl lg:text-7xl transition-all duration-600 delay-300 ease-out ${
@@ -72,7 +72,7 @@ const Hero = () => {
                 : 'opacity-0 translate-y-4'
             }`}
           >
-            Your Gateway to Nepal's Tea Paradise
+            Your Gateway to Nepal`&apos`s Tea Paradise
           </p>
           <button
             onClick={handleExploreClick}

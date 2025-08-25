@@ -19,7 +19,7 @@ export default function BlogPage(): JSX.Element {
           >
             <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-gray-900">Discover Ilam</h2>
             <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
-              Stories, experiences, and insights from Nepal's beautiful eastern district
+              Stories, experiences, and insights from Nepal`&apos`s beautiful eastern district
             </p>
           </motion.div>
 

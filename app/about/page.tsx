@@ -42,7 +42,7 @@ const AboutUsPage = () => {
             </h1>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               Discover the team behind Visit Ilam and learn about our mission to promote
-              sustainable tourism in Nepal's beautiful tea capital.
+              sustainable tourism in Nepal`&apos`s beautiful tea capital.
             </p>
           </div>
 

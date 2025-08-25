@@ -5,6 +5,7 @@ import { useState } from "react"
 import Link from "next/link"
 import { usePathname, useRouter } from "next/navigation"
 import type { NavigationProps } from "@/types"
+import Image from "next/image"
 
 const homeSections = [
   { id: "hero", label: "Home" },
@@ -58,13 +59,12 @@ export default function Navigation({
         {/* Logo */}
         <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}>
           <Link href="/">
-            <img
-              src={
-                isHeroVisible
-                  ? "/logos/logo-optimized.png"
-                  : "/logos/blk_logo-optimized.png"
+            <Image
+              src={ isHeroVisible ? "/logos/logo-optimized.png" : "/logos/blk_logo-optimized.png"
               }
               alt="Visit Ilam"
+              width={40}
+              height={40}
               className="h-8 md:h-10 transition-all"
             />
           </Link>

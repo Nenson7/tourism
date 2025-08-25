@@ -18,7 +18,7 @@ export default function BlogPage() {
               Discover Ilam
             </h2>
             <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
-              Stories, experiences, and insights from Nepal's beautiful eastern district
+              Stories, experiences, and insights from Nepal`&apos`s beautiful eastern district
             </p>
           </div>
 

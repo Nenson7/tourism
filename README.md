@@ -1,64 +1,36 @@
-# Ilam Tea Tourism Website
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-A modern, responsive website for Ilam Tea Tourism, showcasing the beauty of Ilam's tea gardens and tourism services. Built with React, Tailwind CSS, and Framer Motion.
+## Getting Started
 
-🌐 [Visit Live Site](https://visitilam.vercel.app)
+First, run the development server:
 
-## Features
-
-- Modern, responsive design optimized for all devices
-- Interactive destination cards with detailed previews
-- Dynamic modal system with image slideshow
-- Smooth animations and transitions using Framer Motion
-- Comprehensive destination information display
-- Beautiful UI with professional typography
-- Mobile-first approach
-- Blur effects and spring animations for enhanced UX
-
-## Key Components
-
-### DestinationCard
-- Responsive grid layout
-- Image handling with placeholder support
-- Information display including:
-  - Ratings and reviews with star visualization
-  - Altitude indicators with mountain icon
-  - Distance information with location markers
-  - Best season recommendations
-  - 2x2 grid layout for key details
-
-### Modal
-- Responsive side-by-side layout
-- Image slideshow functionality
-- Content section with gray background
-- Backdrop blur effects
-- Spring animations for smooth transitions
-- ESC key support for closing
-- Mobile-optimized stacked layout
-- Proper scroll handling
-
-## Project Structure
-```
-src/
-├── components/
-│   ├── DestinationCard/    # Destination preview cards
-│   ├── Modal/              # Interactive modal component
-│   ├── ImageSlideshow/     # Image gallery component
-│   └── shared/             # Reusable UI components
-├── pages/                  # Main page components
-├── styles/                 # Global styles and utilities
-└── App.jsx                 # Main application component
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-## Technologies
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-- React 19
-- Tailwind CSS 4
-- Framer Motion
-- Font Awesome Icons
-- Google Fonts (Inter)
-- Vite
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-## Creator
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-Created with 💚 by Nenson
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

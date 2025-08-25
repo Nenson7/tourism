@@ -10,52 +10,66 @@ const AboutUsPage = () => {
     {
       title: "President",
       name: "Arjun Gurung",
-      role: "Club President",
       image: "/static/drivers/3.jpg"
     },
     {
       title: "Vice-President", 
       name: "Lakpa Sherpa",
-      role: "Club Vice-President",
       image: "/static/drivers/14.jpg"
     },
     {
-      title: "Sachiv",
+      title: "Secretary",
       name: "Nikesh Kafle", 
-      role: "Club Secretary",
       image: "/static/drivers/16.jpg"
     },
     {
-      title: "Saha-Sachiv",
+      title: "Assistant Secretary",
       name: "Ikashahang Nembang",
-      role: "Assistant Secretary",
       image: "/static/person1.jpg"
+    },
+    {
+      title: "Treasurer",
+      name: "Lakpa Dorje Sherpa",
+      image: "/static/guides/1-optimized.jpg"
+    },
+    {
+      title: "Member",
+      name: "Rabin Rai",
+      image: "/static/guides/17-optimized.jpg"
+    },
+    {
+      title: "Member",
+      name: "Rupesh Gurung",
+      image: "/static/drivers/5-optimized.jpg"
+    },
+    {
+      title: "Member",
+      name: "Dawa Gyalje Sherpa",
+      image: "/static/guides/14-optimized.jpg"
+    },
+    {
+      title: "Member",
+      name: "JD Gurung",
+      image: "/static/guides/jd.jpg"
     },
     {
       title: "Project Coordinator",
       name: "Prashant Giri",
-      role: "Project Coordinator",
       image: "/static/person2.jpg"
+    },
+    {
+      title: "Information Officer",
+      name: "Manjit Songmi",
+      image: "/static/guides/21-optimized.jpg"
     },
     {
       title: "Content Creator",
       name: "Madhav",
-      role: "Content Creator",
       image: "/static/person3.jpg"
     }
   ]
 
   const governmentLogos = [
-    {
-      name: "Nepal Government",
-      image: "/logos/government/nepal-government-logo.png",
-      alt: "Nepal Government Logo"
-    },
-    {
-      name: "Nepal Tourism Board", 
-      image: "/logos/government/nepal-tourism-logo.jpg",
-      alt: "Nepal Tourism Board Logo"
-    },
     {
       name: "Ilam Municipality",
       image: "/logos/government/ilam-municipality-logo.jpeg", 
@@ -71,11 +85,6 @@ const AboutUsPage = () => {
       image: "/logos/government/nepal-government-logo.png",
       alt: "Sandakpur Rural Municipality Logo"
     },
-    {
-      name: "Ilam District",
-      image: "/logos/government/ilam-municipality-logo.jpeg",
-      alt: "Ilam District Logo"
-    }
   ]
 
   return (
@@ -140,7 +149,6 @@ const AboutUsPage = () => {
                     {member.title}
                   </h3>
                   <p className="text-green-600 font-medium text-lg">{member.name}</p>
-                  <p className="text-base text-gray-600 mt-3">{member.role}</p>
                 </motion.div>
               ))}
             </div>

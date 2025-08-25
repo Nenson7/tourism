@@ -305,5 +305,31 @@
             "numberPlate": "",
             "photo": "/static/drivers/17-optimized.jpg"
         }
+    ],
+    "porters": [
+        {
+            "name": "Ram Kumar Rai",
+            "address": "Falelung-6",
+            "contact": "9845498393",
+            "remarks": "Porter + Local Guide",
+            "bloodGroup": "A+",
+            "photo": "/static/guides/4-optimized.jpg"
+        },
+        {
+            "name": "Ganesh Subba",
+            "address": "Falelung-6",
+            "contact": "",
+            "remarks": "Porter + Local Guide",
+            "bloodGroup": "",
+            "photo": "/static/guides/5-optimized.jpg"
+        },
+        {
+            "name": "JD Gurung",
+            "address": "Maimajuwa",
+            "contact": "",
+            "remarks": "Porter",
+            "bloodGroup": "",
+            "photo": "/static/guides/jd.jpg"
+        }
     ]
 }

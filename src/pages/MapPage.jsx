@@ -10,7 +10,6 @@ import { useState, useEffect } from 'react';
 // Fix for default marker icon
 const icon = new Icon({
   iconUrl: '/markers/marker-icon.png',
-  iconRetinaUrl: '/markers/marker-icon-2x.png',
   shadowUrl: '/markers/marker-shadow.png',
   iconSize: [25, 41],
   iconAnchor: [12, 41],

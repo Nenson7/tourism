@@ -63,7 +63,7 @@ export default function Navigation({
       router.push("/")
       setTimeout(() => {
         document.getElementById(id)?.scrollIntoView({ behavior: "smooth" })
-      }, 100)
+      }, 300)
     }
     setIsMenuOpen(false)
   }
@@ -73,10 +73,10 @@ export default function Navigation({
       initial={{ y: 0 }}
       animate={{ y: showNav ? 0 : -100 }}
       transition={{ duration: 0.3, ease: "easeInOut" }}
-      className="fixed top-0 left-0 right-0 z-50 px-4"
+      className="fixed top-0 left-0 right-0 z-50 px-2 sm:px-4"
     >
       <nav
-        className={`mx-4 my-3 px-6 py-3 flex items-center justify-between rounded shadow-lg backdrop-blur-md transition-all duration-300 ${
+        className={`mx-2 sm:mx-4 my-2 sm:my-3 px-4 sm:px-6 py-2 sm:py-3 flex items-center justify-between rounded shadow-lg backdrop-blur-md transition-all duration-300 ${
           isHeroVisible ? "bg-black/30" : "bg-white/90 border border-gray-200"
         }`}
       >
@@ -90,9 +90,9 @@ export default function Navigation({
                   : "/logos/blk_logo-optimized.png"
               }
               alt="Visit Ilam"
-              width={36}
-              height={40}
-              className="h-8 md:h-10 transition-all"
+              width={30}
+              height={34}
+              className="h-6 w-auto sm:h-8 md:h-10 transition-all"
             />
           </Link>
         </motion.div>
@@ -158,18 +158,18 @@ export default function Navigation({
             ✖
           </button>
           <ul className="flex flex-col gap-6">
-            {isHome &&
-              homeSections.map(({ id, label }) => (
-                <li key={id}>
-                  <a
-                    href={`/#${id}`}
-                    onClick={(e) => handleSectionNav(e, id)}
-                    className="text-lg font-medium"
-                  >
-                    {label}
-                  </a>
-                </li>
-              ))}
+            {/* Always show home sections */}
+            {homeSections.map(({ id, label }) => (
+              <li key={id}>
+                <a
+                  href={`/#${id}`}
+                  onClick={(e) => handleSectionNav(e, id)}
+                  className="text-lg font-medium"
+                >
+                  {label}
+                </a>
+              </li>
+            ))}
             {routeSections.map(({ path, label }) => (
               <li key={path}>
                 <Link href={path} onClick={() => setIsMenuOpen(false)}>

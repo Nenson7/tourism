@@ -4,6 +4,7 @@ import Navigation from '@/components/Navigation';
 import { BlogPost } from '@/types';
 import { BLOG_POSTS } from '@/data/blog-posts';
 import './animations.css';
+import Image from 'next/image';
 
 export default function BlogPage() {
   return (
@@ -31,10 +32,12 @@ export default function BlogPage() {
                 className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer overflow-hidden group transform hover:-translate-y-2 hover:scale-[1.02] fade-up"
               >
                 <div className="h-64 bg-gradient-to-br from-green-400 to-blue-500 relative overflow-hidden">
-                  <div className="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center">
-                    <span className="text-white text-xs px-2 py-1 bg-black bg-opacity-50 rounded">
-                      Image: {post.image}
-                    </span>
+                  <div className="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center h-64">
+                    <Image
+                      src={post.image}
+                      fill
+                      alt={`Photo image for blog post no 1`}
+                    />
                   </div>
                 </div>
 

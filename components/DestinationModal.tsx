@@ -116,7 +116,7 @@ const Modal = ({ isOpen, onClose, destination }: ModalProps) => {
 
         <div className="flex flex-col lg:flex-row h-[95vh] lg:h-[90vh]">
           {/* Left side - Single Image */}
-          <div className="lg:w-1/2 h-[35vh] sm:h-[40vh] lg:h-full">
+          <div className="hidden lg:block lg:w-1/2 h-[35vh] sm:h-[40vh] lg:h-full">
             <div className="relative h-full w-full bg-gray-900">
               <Image
                 src={image}

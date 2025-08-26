@@ -3,7 +3,7 @@ import Footer from '@/components/Footer';
 import Navigation from '@/components/Navigation';
 import { BlogPost } from '@/types';
 import { BLOG_POSTS } from '@/data/blog-posts';
-import './animations.css'; // we'll define fade-up in here
+import './animations.css';
 
 export default function BlogPage() {
   return (

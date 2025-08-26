@@ -1,34 +1,44 @@
-'use client'
+"use client"
 
-import { motion, useInView } from 'framer-motion'
-import { useRef } from 'react'
-import Image from 'next/image'
-import ilamProfileData from '@/data/ilamProfile.json'
+import { motion, Variants } from "framer-motion"
+import { useRef } from "react"
+import { useInView } from "framer-motion"
+import Image from "next/image"
+import ilamProfileData from "@/data/ilamProfile.json"
 
-import type { IlamProfile, IlamProfileFile } from '@/types'
+import type { IlamProfile, IlamProfileFile } from "@/types"
 
 interface AboutIlamProps {
   profile?: IlamProfile | null
 }
 
-const containerVariants = {
+// Variants
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { duration: 0.4, when: "beforeChildren" as const, staggerChildren: 0.15, ease: [0.4, 0, 0.2, 1] as [number, number, number, number] }
-  }
+    transition: {
+      when: "beforeChildren",
+      staggerChildren: 0.2,
+    },
+  },
 }
 
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: [0.4, 0, 0.2, 1] as [number, number, number, number] } }
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
 }
 
-const AboutIlam: React.FC<AboutIlamProps> = ({ profile }) => {
+export default function AboutIlam({ profile }: AboutIlamProps) {
   const { ilamProfile } = ilamProfileData as IlamProfileFile
-  const ref = useRef<HTMLDivElement>(null)
-  const isInView = useInView(ref, { once: true, amount: 0.1 })
   const profileData = profile || ilamProfile
+
+  const ref = useRef<HTMLDivElement>(null)
+  const isInView = useInView(ref, { once: true, amount: 0.2 })
 
   if (!profileData) {
     return (
@@ -41,8 +51,8 @@ const AboutIlam: React.FC<AboutIlamProps> = ({ profile }) => {
   }
 
   return (
-    <section id="about-ilam" className="py-10 bg-gradient-to-b from-gray-100 to-white">
-      <div className="container mx-auto px-4">
+    <section id="about-ilam" className="py-20 bg-gradient-to-b from-gray-50 to-white">
+      <div className="container mx-auto px-6 lg:px-12">
         {/* Header */}
         <motion.div
           ref={ref}
@@ -51,25 +61,30 @@ const AboutIlam: React.FC<AboutIlamProps> = ({ profile }) => {
           animate={isInView ? "visible" : "hidden"}
           variants={itemVariants}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">{profileData.title}</h2>
-          <p className="text-lg md:text-xl text-gray-600">{profileData.introduction}</p>
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            {profileData.title}
+          </h2>
+          <p className="text-lg md:text-xl text-gray-600">
+            {profileData.introduction}
+          </p>
         </motion.div>
 
-        {/* Cards */}
+        {/* Content */}
         <motion.div
-          className="grid grid-cols-1 lg:grid-cols-2 gap-8"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start"
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
           {/* Overview Card */}
           <motion.div
-            className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300"
             variants={itemVariants}
+            className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow"
           >
-            <h3 className="text-2xl font-bold text-green-700 mb-4 border-b-2 border-green-200 pb-2">Overview</h3>
+            <h3 className="text-2xl font-bold text-green-700 mb-4 border-b-2 border-green-200 pb-2">
+              Overview
+            </h3>
             <p className="text-gray-700 mb-4">{profileData.overview.description}</p>
-            <p className="text-gray-700 mb-4 font-medium">{profileData.overview.location}</p>
             <ul className="space-y-2">
               {profileData.overview.characteristics.map((item: string, idx: number) => (
                 <li key={idx} className="flex items-start">
@@ -82,10 +97,12 @@ const AboutIlam: React.FC<AboutIlamProps> = ({ profile }) => {
 
           {/* Geography Card */}
           <motion.div
-            className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300"
             variants={itemVariants}
+            className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow"
           >
-            <h3 className="text-2xl font-bold text-green-700 mb-6 border-b-2 border-green-200 pb-2">Geography</h3>
+            <h3 className="text-2xl font-bold text-green-700 mb-6 border-b-2 border-green-200 pb-2">
+              Geography
+            </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
               <div className="bg-green-50 rounded-lg p-4 text-center">
                 <p className="text-sm text-green-600">Area</p>
@@ -100,7 +117,10 @@ const AboutIlam: React.FC<AboutIlamProps> = ({ profile }) => {
               <p className="text-sm text-gray-500 mb-2">Borders</p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {Object.entries(profileData.geography.borders).map(([direction, place]) => (
-                  <div key={direction} className="bg-gray-50 rounded-lg p-3 hover:bg-green-50 transition-colors">
+                  <div
+                    key={direction}
+                    className="bg-gray-50 rounded-lg p-3 hover:bg-green-50 transition-colors"
+                  >
                     <p className="text-xs text-gray-500 capitalize">{direction}</p>
                     <p className="font-medium text-gray-900">{place}</p>
                   </div>
@@ -109,17 +129,19 @@ const AboutIlam: React.FC<AboutIlamProps> = ({ profile }) => {
             </div>
           </motion.div>
 
-          {/* Seven A Image */}
-          <motion.div className="col-span-1 lg:col-span-2" variants={itemVariants}>
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-              <div className="relative w-full" style={{ paddingTop: '57.9%' }}>
+          {/* Full-width Image */}
+          <motion.div
+            variants={itemVariants}
+            className="col-span-1 lg:col-span-2"
+          >
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+              <div className="relative w-full" style={{ paddingTop: "57.9%" }}>
                 <Image
                   src="/static/seven_a-optimized.png"
-                  alt="Seven A Tea Garden - Beautiful tea plantation in Ilam district showcasing the lush green landscapes"
+                  alt="Seven A Tea Garden - Beautiful tea plantation in Ilam district showcasing lush green landscapes"
                   fill
                   className="object-cover absolute top-0 left-0"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
-                  priority={false}
+                  sizes="100vw"
                 />
               </div>
             </div>
@@ -129,5 +151,3 @@ const AboutIlam: React.FC<AboutIlamProps> = ({ profile }) => {
     </section>
   )
 }
-
-export default AboutIlam

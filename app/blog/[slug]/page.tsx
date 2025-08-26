@@ -45,7 +45,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
               {post.title}
             </h1>
 
-            <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600 mb-6">
+            <div className="flex flex-wrap items-center gap-4 text-md text-gray-600 mb-6">
               <span>By {post.author}</span>
               <span>•</span>
               <span>{post.date}</span>
@@ -57,7 +57,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
           {/* Content */}
           <div className="prose max-w-none">
             {post.content.split("\n\n").map((paragraph: string, index: number) => (
-              <p key={index} className="mb-4 text-gray-700 leading-relaxed">
+              <p key={index} className="mb-4 text-gray-700 leading-relaxed text-2xl">
                 {paragraph}
               </p>
             ))}

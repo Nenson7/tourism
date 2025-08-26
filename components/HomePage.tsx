@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { useSearchParams } from 'next/navigation'
 import dynamic from 'next/dynamic'
 import destinationsData from '@/data/destinations.json'
 import ilamProfileData from '@/data/ilamProfile.json'
@@ -13,7 +12,6 @@ import Footer from '@/components/Footer'
 
 import type { IlamProfile, IlamProfileFile, Destination } from '@/types'
 
-// Next.js dynamic import equivalent of React.lazy
 const LiveChat = dynamic(() => import('@/components/LiveChat'), {
   ssr: false,
   loading: () => null,
@@ -29,8 +27,6 @@ const HomePage: React.FC = () => {
   const [ilamProfile, setIlamProfile] = useState<IlamProfile | undefined>(undefined)
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
-
-  const searchParams = useSearchParams()
 
   useEffect(() => {
     try {

@@ -41,8 +41,8 @@ const AboutUsPage = () => {
               About Us
             </h1>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Discover the team behind Visit Ilam and learn about our mission to promote
-              sustainable tourism in Nepal`&apos`s beautiful tea capital.
+              {`Discover the team behind Visit Ilam and learn about our mission to promote
+              sustainable tourism in Nepal's beautiful tea capital.`}
             </p>
           </div>
 
@@ -86,7 +86,7 @@ const AboutUsPage = () => {
                 {governmentLogos.map((logo, index) => (
                   <div
                     key={index}
-                    className="flex flex-col items-center p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-300 hover-scale w-40"
+                    className="flex flex-col items-center p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-300 w-40"
                   >
                     <div className="w-16 h-16 bg-gray-200 rounded-lg mb-3 flex items-center justify-center">
                       <Image

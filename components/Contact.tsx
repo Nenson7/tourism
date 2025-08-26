@@ -18,9 +18,30 @@ const Contact = () => {
     subject: '',
     message: ''
   })
+  const [errors, setErrors] = useState<Partial<FormData>>({})
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<SubmitStatus>(null)
+
+  const validate = (): boolean => {
+    const newErrors: Partial<FormData> = {}
+
+    if (!formData.name || formData.name.length < 3) {
+      newErrors.name = 'Name must be at least 3 characters'
+    }
+    if (!formData.email || !/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = 'Please enter a valid email'
+    }
+    if (!formData.subject) {
+      newErrors.subject = 'Subject is required'
+    }
+    if (!formData.message || formData.message.length < 10) {
+      newErrors.message = 'Message must be at least 10 characters'
+    }
+
+    setErrors(newErrors)
+    return Object.keys(newErrors).length === 0
+  }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -28,10 +49,14 @@ const Contact = () => {
       ...prev,
       [name]: value
     }))
+    // clear error as user types
+    setErrors(prev => ({ ...prev, [name]: undefined }))
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    if (!validate()) return
+
     setIsSubmitting(true)
 
     try {
@@ -51,13 +76,7 @@ const Contact = () => {
       setIsModalOpen(true)
 
       // Reset form
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
-      })
-
+      setFormData({ name: '', email: '', subject: '', message: '' })
     } catch (error) {
       setSubmitStatus('error')
       setIsModalOpen(true)
@@ -65,6 +84,21 @@ const Contact = () => {
       setIsSubmitting(false)
     }
   }
+
+  const contacts = [
+    { name: 'CDO Office, Ilam', number: '027-520555' },
+    { name: 'Ilam Hospital, Ilam', number: '027-520044' },
+    { name: 'Nepal Red Cross Society, Ilam', number: '027-520102' },
+    { name: 'District Police Office, Ilam', number: '100 / 027-520024' },
+    { name: 'District Traffic Police Office, Ilam', number: '027-524695' },
+    { name: 'Chamber of Commerce and Industry, Ilam', number: '027-520037' },
+    { name: 'Ilam Municipality, Ilam', number: '027-520031' },
+    { name: 'Tourist Information Center', number: '027-590079' },
+    { name: 'Guide, Driver & Porter', number: '027-590355' },
+    { name: 'Ambulance - Ilam Hospital', number: '9852680644' },
+    { name: 'Nepal Red Cross Society', number: '9842627333 / 9815937888' },
+    { name: 'Ilam Municipality', number: '9804917000 / 9852685236' },
+  ]
 
   return (
     <section id="contact" className="py-16 px-4 bg-gray-50">
@@ -83,100 +117,64 @@ const Contact = () => {
               Important Contact Numbers
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {[
-                { name: 'CDO Office, Ilam', number: '027-520555' },
-                { name: 'Ilam Hospital, Ilam', number: '027-520044' },
-                { name: 'Nepal Red Cross Society, Ilam', number: '027-520102' },
-                { name: 'District Police Office, Ilam', number: '100 / 027-520024' },
-                { name: 'District Traffic Police Office, Ilam', number: '027-524695' },
-                { name: 'Chamber of Commerce and Industry, Ilam', number: '027-520037' },
-                { name: 'Ilam Municipality, Ilam', number: '027-520031' },
-                { name: 'Tourist Information Center', number: '027-590079' },
-                { name: 'Guide, Driver & Porter', number: '027-590355' },
-                { name: 'Ambulance - Ilam Hospital', number: '9852680644' },
-                { name: 'Nepal Red Cross Society', number: '9842627333 / 9815937888' },
-                { name: 'Ilam Municipality', number: '9804917000 / 9852685236' },
-              ].map((item, idx) => (
+              {contacts.map((item, idx) => (
                 <div
                   key={idx}
-                  className="p-2 rounded-lg bg-green-50 hover:bg-green-100 transition-colors flex flex-col"
+                  className="p-2 rounded-lg bg-green-50 hover:bg-green-100 transition-colors flex flex-col relative"
                 >
                   <span className="font-semibold">{item.name}</span>
                   <span className="text-gray-700 mt-1">{item.number}</span>
+                  <button
+                    onClick={() => navigator.clipboard.writeText(item.number)}
+                    className="absolute top-2 right-2 text-green-600 hover:text-green-800"
+                    aria-label={`Copy number for ${item.name}`}
+                  >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12M8 11h12M8 15h12M4 7h.01M4 11h.01M4 15h.01" />
+                    </svg>
+                  </button>
                 </div>
               ))}
             </div>
           </div>
 
-
-
           {/* Contact Form */}
           <div className="bg-white p-8 rounded-lg shadow-lg">
             <h3 className="text-2xl font-bold text-gray-900 mb-6">Send us a Message</h3>
             <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent"
-                  required
-                  disabled={isSubmitting}
-                />
-              </div>
-
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent"
-                  required
-                  disabled={isSubmitting}
-                />
-              </div>
-
-              <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
-                  Subject
-                </label>
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent"
-                  required
-                  disabled={isSubmitting}
-                />
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  rows={4}
-                  className="w-full h-38 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent"
-                  required
-                  disabled={isSubmitting}
-                />
-              </div>
+              {['name','email','subject','message'].map((field) => (
+                <div key={field}>
+                  <label htmlFor={field} className="block text-sm font-medium text-gray-700 mb-1 capitalize">
+                    {field}
+                  </label>
+                  {field !== 'message' ? (
+                    <input
+                      type={field === 'email' ? 'email' : 'text'}
+                      id={field}
+                      name={field}
+                      value={formData[field as keyof FormData]}
+                      onChange={handleChange}
+                      className={`w-full px-4 py-2 border ${errors[field as keyof FormData] ? 'border-red-500' : 'border-gray-300'} rounded-md focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent`}
+                      required
+                      disabled={isSubmitting}
+                    />
+                  ) : (
+                    <textarea
+                      id="message"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      rows={4}
+                      className={`w-full px-4 py-2 border ${errors.message ? 'border-red-500' : 'border-gray-300'} rounded-md focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent`}
+                      required
+                      disabled={isSubmitting}
+                    />
+                  )}
+                  {errors[field as keyof FormData] && (
+                    <p className="mt-1 text-sm text-red-500">{errors[field as keyof FormData]}</p>
+                  )}
+                </div>
+              ))}
 
               <button
                 type="submit"

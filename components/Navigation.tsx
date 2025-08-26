@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import { usePathname, useRouter } from "next/navigation"
 import type { NavigationProps } from "@/types"
@@ -21,6 +21,8 @@ const routeSections = [
   { path: "/porters", label: "Porters" },
   { path: "/drivers", label: "Drivers" },
   { path: "/about", label: "About Us" },
+  { path: "/hotel", label: "Hotel" },
+  { path: "/homestay", label: "Homestay" },
 ]
 
 export default function Navigation({
@@ -29,9 +31,26 @@ export default function Navigation({
   handleNavClick,
 }: NavigationProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [showNav, setShowNav] = useState(true)
+  const [lastScrollY, setLastScrollY] = useState(0)
+
   const pathname = usePathname()
   const router = useRouter()
   const isHome = pathname === "/"
+
+  // Scroll hide/show
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > lastScrollY) {
+        setShowNav(false) // scrolling down
+      } else {
+        setShowNav(true) // scrolling up
+      }
+      setLastScrollY(window.scrollY)
+    }
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [lastScrollY])
 
   const handleSectionNav = (
     e: React.MouseEvent<HTMLAnchorElement>,
@@ -50,20 +69,28 @@ export default function Navigation({
   }
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50">
+    <motion.header
+      initial={{ y: 0 }}
+      animate={{ y: showNav ? 0 : -100 }}
+      transition={{ duration: 0.3, ease: "easeInOut" }}
+      className="fixed top-0 left-0 right-0 z-50 px-4"
+    >
       <nav
-        className={`max-w-7xl mx-auto mt-2 px-6 py-3 flex items-center justify-between rounded-sm shadow-xl backdrop-blur-md transition-all duration-300 ${
-          isHeroVisible ? "bg-black/30" : "bg-white/90 border border-gray-300"
+        className={`mx-4 my-3 px-6 py-3 flex items-center justify-between rounded shadow-lg backdrop-blur-md transition-all duration-300 ${
+          isHeroVisible ? "bg-black/30" : "bg-white/90 border border-gray-200"
         }`}
       >
         {/* Logo */}
         <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}>
           <Link href="/">
             <Image
-              src={ isHeroVisible ? "/logos/logo-optimized.png" : "/logos/blk_logo-optimized.png"
+              src={
+                isHeroVisible
+                  ? "/logos/logo-optimized.png"
+                  : "/logos/blk_logo-optimized.png"
               }
               alt="Visit Ilam"
-              width={40}
+              width={36}
               height={40}
               className="h-8 md:h-10 transition-all"
             />
@@ -98,13 +125,6 @@ export default function Navigation({
                 }`}
               >
                 {label}
-                <span
-                  className={`absolute left-0 -bottom-1 h-0.5 rounded-full transition-all duration-300 ${
-                    activeSection === id
-                      ? "w-full bg-green-500"
-                      : "w-0 bg-transparent group-hover:w-full"
-                  }`}
-                />
               </a>
             </li>
           ))}
@@ -113,7 +133,7 @@ export default function Navigation({
             <li key={path}>
               <Link
                 href={path}
-                className={`px-4 py-2 rounded-sm border font-semibold transition-colors duration-300 ${
+                className={`px-4 py-2 rounded border font-semibold transition-colors duration-300 ${
                   pathname === path
                     ? "bg-green-600 border-green-600 text-white"
                     : isHeroVisible
@@ -160,6 +180,6 @@ export default function Navigation({
           </ul>
         </div>
       )}
-    </header>
+    </motion.header>
   )
 }

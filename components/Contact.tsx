@@ -77,7 +77,8 @@ const Contact = () => {
 
       // Reset form
       setFormData({ name: '', email: '', subject: '', message: '' })
-    } catch (error) {
+    } catch (error: unknown) {
+      console.error('Error submitting form:', error);
       setSubmitStatus('error')
       setIsModalOpen(true)
     } finally {

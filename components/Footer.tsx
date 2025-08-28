@@ -14,10 +14,11 @@ const Footer = () => {
           <div>
             <h4 className="text-md font-semibold mb-3">Quick Links</h4>
                          <ul className="space-y-1 text-sm">
-               <li><a href="#hero" className="text-gray-400 hover:text-white transition-colors duration-300">Home</a></li>
-               <li><a href="#about-ilam" className="text-gray-400 hover:text-white transition-colors duration-300">About Ilam</a></li>
-               <li><a href="#featured-destinations" className="text-gray-400 hover:text-white transition-colors duration-300">Destinations</a></li>
-               <li><a href="#map" className="text-gray-400 hover:text-white transition-colors duration-300">Map</a></li>
+               <li><Link href="/#hero" className="text-gray-400 hover:text-white transition-colors duration-300">Home</Link></li>
+               <li><Link href="/#about-ilam" className="text-gray-400 hover:text-white transition-colors duration-300">About Ilam</Link></li>
+               <li><Link href="/#featured-destinations" className="text-gray-400 hover:text-white transition-colors duration-300">Destinations</Link></li>
+               <li><Link href="/map" className="text-gray-400 hover:text-white transition-colors duration-300">Map</Link></li>
+               <li><Link href="/blog" className="text-gray-400 hover:text-white transition-colors duration-300">Blog</Link></li>
                <li><Link href="/about" className="text-gray-400 hover:text-white transition-colors duration-300">About Us</Link></li>
              </ul>
           </div>
@@ -27,6 +28,8 @@ const Footer = () => {
               <li><Link href="/guides" className="text-gray-400 hover:text-white transition-colors duration-300">Local Guides (23)</Link></li>
               <li><Link href="/drivers" className="text-gray-400 hover:text-white transition-colors duration-300">Drivers (17)</Link></li>
               <li><Link href="/porters" className="text-gray-400 hover:text-white transition-colors duration-300">Porters (3)</Link></li>
+              <li><Link href="/hotel" className="text-gray-400 hover:text-white transition-colors duration-300">Hotel</Link></li>
+              <li><Link href="/homestay" className="text-gray-400 hover:text-white transition-colors duration-300">Homestay</Link></li>
             </ul>
           </div>
           <div>

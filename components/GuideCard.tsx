@@ -15,7 +15,7 @@ export default function GuideCard({ guide }: { guide: Guide} ) {
   return (
     <div className="group relative overflow-hidden rounded-xl bg-white shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer animate-fadeInUp">
       {/* Image Section */}
-      <div className="relative h-72 sm:h-76 lg:h-80 w-full overflow-hidden">
+      <div className="relative h-72 sm:h-76 lg:h-96 w-full overflow-hidden">
         <Image
           src={photo}
           alt={name}

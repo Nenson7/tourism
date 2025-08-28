@@ -15,7 +15,7 @@ const PorterCard = ({ porter }: { porter: Porter }) => {
   return (
     <div className="group relative overflow-hidden rounded-xl bg-white shadow-lg hover:shadow-xl transition-transform duration-300 cursor-pointer animate-fade-in-up">
       {/* Image Section */}
-      <div className="relative h-72 sm:h-76 lg:h-80 overflow-hidden">
+      <div className="relative h-72  sm:h-76 lg:h-96 overflow-hidden">
         <Image
           src={photo}
           alt={name}

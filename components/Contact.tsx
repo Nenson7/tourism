@@ -66,7 +66,7 @@ const Contact = () => {
       // Format message for WhatsApp
       const whatsappMessage = `New Contact Form Submission:\n\nName: ${formData.name}\nEmail: ${formData.email}\nSubject: ${formData.subject}\nMessage: ${formData.message}`
       const encodedMessage = encodeURIComponent(whatsappMessage)
-      const whatsappUrl = `https://wa.me/9779841234567?text=${encodedMessage}`
+      const whatsappUrl = `https://wa.me/9779842671691?text=${encodedMessage}`
 
       // Open WhatsApp in new tab
       window.open(whatsappUrl, '_blank')

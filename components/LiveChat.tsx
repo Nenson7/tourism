@@ -71,11 +71,11 @@ const LiveChat: React.FC = () => {
     // Check for greetings
     const lowerMessage = message.toLowerCase()
     if (lowerMessage.includes('hi') || lowerMessage.includes('hello') || lowerMessage.includes('namaste') || lowerMessage.includes('ho')) {
-      await simulateTyping("Namaste! Thank you for reaching out. For any inquiries, you can use our contact section or reach us directly on WhatsApp at 9842781044. We're here to help!")
+      await simulateTyping("Namaste! Thank you for reaching out. For any inquiries, you can use our contact section or reach us directly on WhatsApp at 9842671691. We're here to help!")
     } else if (lowerMessage.includes('inquiry') || lowerMessage.includes('question') || lowerMessage.includes('help')) {
-      await simulateTyping("For any inquiries, please use our contact section or reach us directly on WhatsApp at 9842781044. We'll be happy to assist you!")
+      await simulateTyping("For any inquiries, please use our contact section or reach us directly on WhatsApp at 9842671691. We'll be happy to assist you!")
     } else {
-      await simulateTyping("For any inquiries, please use our contact section or reach us directly on WhatsApp at 9842781044. We're here to help!")
+      await simulateTyping("For any inquiries, please use our contact section or reach us directly on WhatsApp at 9842671691. We're here to help!")
     }
   }
 

@@ -8,7 +8,7 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-bold mb-3">Guides, Porters and Drivers</h3>
             <p className="text-gray-400 text-sm">
-              Discover the beauty of Nepal`&apos`s tea capital with our local guides and drivers.
+              {`Discover the beauty of Nepal's tea capital with our local guides and drivers.`}
             </p>
           </div>
           <div>

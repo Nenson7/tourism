@@ -4,6 +4,10 @@ import Footer from "@/components/Footer";
 import { BLOG_POSTS } from "@/data/blog-posts";
 import { BlogPost } from "@/types";
 
+interface BlogPostPageProps {
+  params: Promise<{ slug: string }>;
+}
+
 // Generate static paths (replaces getStaticPaths)
 export async function generateStaticParams() {
   return BLOG_POSTS.map((post: BlogPost) => ({
@@ -11,8 +15,8 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function BlogPostPage({ params }: { params: { slug: string } }) {
-  const { slug } = params;
+export default async function BlogPostPage({ params }: BlogPostPageProps) {
+  const { slug } = await params;
 
   const post = BLOG_POSTS.find((p: BlogPost) => p.slug === slug);
 

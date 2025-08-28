@@ -33,7 +33,7 @@ const DEFAULT_DESTINATION: Destination = {
 
 const cardVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
-  visible: (i: number) => ({
+  visible: () => ({
     opacity: 1,
     y: 0,
     transition: { delay: 0.1, duration: 0.2, ease: "easeOut" },

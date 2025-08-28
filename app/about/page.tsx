@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Image from 'next/image';   // ✅ Import Image
+import Image from 'next/image';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 

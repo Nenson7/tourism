@@ -3,7 +3,7 @@ import Footer from '@/components/Footer'
 import LiveChat from '@/components/LiveChat'
 import { guides } from '@/data/personnel.json'
 import GuideCard from '@/components/GuideCard'
-import './guide.css' // 👈 import custom CSS
+import './guide.css'
 
 function GuidesPage() {
   return (

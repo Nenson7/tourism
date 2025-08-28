@@ -28,11 +28,9 @@ export default function ClientWrapper({ children }: ClientWrapperProps) {
     }
 
     const handleScroll = () => {
-      // hero is exactly 100vh → check if scrolled past it
       setIsHeroVisible(window.scrollY < window.innerHeight)
     }
 
-    // initial sync
     handleScroll()
 
     window.addEventListener('scroll', handleScroll)
